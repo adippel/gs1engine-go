@@ -12,5 +12,5 @@ func (ai ApplicationIdentifier) RequiresFNC1Separator() bool {
 }
 
 func (ai ApplicationIdentifier) HasFixedLength() bool {
-	return false
+	return ai.RequiresFNC1Separator()
 }
