@@ -34,11 +34,36 @@ go get github.com/adippel/gs1engine-go
 	* to its Specification (e.g `yymmdd` or `N6`)
 	* and to its attribues (e.g `req` and `ex` to define valid and invalid pairings)
 
-## Examples
+## Usage
 
-Use the examples to see the library in action:
+See the examples in `examples/`:
 
 * [scan2dcode - Example to parse GS1 messages from 2D barcodes](./examples/scan2dcode/README.md)
+* [cliparser - Example to parse GS1 message from CLI input](./examples/cliparser/README.md)
+
+### Parsing
+
+The core parser supports multiple GS1 syntax formats via:
+
+- `ParseDataMessage`: Automatically detects syntax type and dispatches to specialized parsers based on input format
+- `ParseBarcodeMessage`: Handles barcode message and scan data (e.g. `]d2...`, `^...`)
+- `ParseElementStringSyntax`: Parses element strings syntax`(01)...(17)...`
+
+**Examples**
+
+| Syntax Type            | Example Input                                                  |
+|------------------------|----------------------------------------------------------------|
+| Barcode Scan Data      | `]d201095260640550281725052110ABC123{GS}21456DEF`              |
+| Barcode Message Format | `^01095260640550281725052110ABC123^21456DEF`                   |
+| Element String Syntax  | `(01)09526064055028(17)250521(10)ABC123(21)456DEF`             |
+
+🛑 Plain syntax (non-AI form) is not supported.
+
+To start parsing, use the following:
+
+```go
+gs1Data, err := gs1.ParseDataMessage(gs1Message)
+```
 
 ## Using the AI Code generator
 
