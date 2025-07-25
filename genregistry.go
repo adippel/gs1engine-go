@@ -20,6 +20,8 @@ package {{ .PackageName }}
 
 // AIDescription describes a GS1 Application Identifier (AI) as defined in the GS1 Syntax Dictionary.
 type AIDescription struct {
+	// AI is a unique identifier for a class of objects (e.g., trade items) or an instance of an object 
+	// (e.g., logistic unit).
 	AI				string
 	Flags         	string
 	Specification 	[]string
