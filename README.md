@@ -38,7 +38,7 @@ go get github.com/adippel/gs1engine-go
 
 See the examples in `examples/`:
 
-* [scan2dcode - Example to parse GS1 messages from 2D barcodes](./examples/scan2dcode/README.md)
+* [read2dcode - Example to parse GS1 messages from 2D barcodes](./examples/read2dcode/README.md)
 * [cliparser - Example to parse GS1 message from CLI input](./examples/cliparser/README.md)
 
 ### Parsing
