@@ -14,10 +14,10 @@ const (
 
 var VisualFNC1 = []string{"^", "{GS}"}
 
-// ParseDataMessage detects the type of encoding used in msg and decodes the DataMessage. It supports `Barcode message
+// ParseMessage detects the type of encoding used in msg and decodes the DataMessage. It supports `Barcode message
 // format`, `Barcode message scan data` and `GS1 element string syntax`. See also ParseBarcodeMessage and
-// ParseElementStringSyntax. Plain syntax data is not parsed, as it is not AI-based.
-func ParseDataMessage(msg string) (d DataMessage, _ error) {
+// ParseElementString. Plain syntax data is not parsed, as it is not AI-based.
+func ParseMessage(msg string) (d DataMessage, _ error) {
 	if len(msg) == 0 {
 		return d, errors.New("message is empty")
 	}
@@ -27,7 +27,7 @@ func ParseDataMessage(msg string) (d DataMessage, _ error) {
 	case SymbologyFlag, FNC1:
 		return ParseBarcodeMessage(msg)
 	case '(':
-		return ParseElementStringSyntax(msg)
+		return ParseElementString(msg)
 	}
 	for _, visualFNC1 := range VisualFNC1 {
 		if strings.Contains(msg, visualFNC1) {
@@ -35,7 +35,7 @@ func ParseDataMessage(msg string) (d DataMessage, _ error) {
 		}
 	}
 
-	return d, errors.New("unknown data syntax: use barcode or element string syntax")
+	return d, errors.New("unsupported data syntax")
 }
 
 // ParseBarcodeMessage supports `Barcode message format` and `Barcode message scan data`. It supports group
@@ -125,9 +125,9 @@ func detectAICode(msg string) (ApplicationIdentifierInfo, bool) {
 	return ApplicationIdentifierInfo{}, false
 }
 
-// ParseElementStringSyntax parses GS1 messages using the element string syntax. Example GS1 message compliant to this
+// ParseElementString parses GS1 messages using the element string syntax. Example GS1 message compliant to this
 // is `(01)09526064055028(17)250521(10)ABC123(21)456DEF`.
-func ParseElementStringSyntax(msg string) (d DataMessage, _ error) {
+func ParseElementString(msg string) (d DataMessage, _ error) {
 	if !strings.HasPrefix(msg, "(") {
 		return d, errors.New("invalid syntax: element string syntax must begin with '('")
 	}

@@ -1,91 +1,72 @@
 # Go GS1 Barcode Syntax Engine
 
-A pure Go implementation for working with GS1 Data and Syntax inspired by the official GS1 C-reference implementation
-[GS1 Barcode Syntax Engine](https://github.com/gs1/gs1-syntax-engine). This implementation is not feature-complete and
-mature enough (yet). Thus it cannot provide you with the same guarantees. Though, it can be a great help and the basis
-for working with GS1 data and [GS1 Application Identifiers (AI)](https://ref.gs1.org/ai/).
+A pure Go implementation for working with GS1 Data in various syntax variations as well as with
+[GS1 Application Identifiers (AI)](https://ref.gs1.org/ai/).
 
-Start using the project by adding it to your project:
+**Highlights:**
 
-```bash
-go get github.com/adippel/gs1engine-go
-```
-
-## Status Quo
-
-**Features**
-
-* ✅ Pure Go implementation, no CGo
-* ✅ Code generator for generating Go data types for all 536 AIs (as of release `2025-01-30`)
-	* Supports the syntax defined in [GS1 Syntax Dictionary](https://github.com/gs1/gs1-syntax-dictionary)
-	* Reusable CLI program `cmd/genairegistry` (see [Using the AI Code Generator](#using-the-ai-code-generator))
+* ✅ Pure Go implementation, zero dependencies
 * ✅ Parser support for the following syntax types:
 	* GS1 element string syntax (e.g. `(01)09526064055028(17)250521(10)ABC123(21)456DEF`)
 	* Barcode message format (e.g. `^01095260640550281725052110ABC123^21456DEF`)
 	* Barcode message scan data (e.g. `]d201095260640550281725052110ABC123{GS}21456DEF`)
+* ✅ AI Registry with description of all 536 AIs (as of release `2025-01-30`)
+* ✅ [Go Code generator CLI](./cmd/genairegistry/README.md) to generate AI description based on the official
+  [GS1 Syntax Dictionary](https://github.com/gs1/gs1-syntax-dictionary) 
 * ✅ Usable examples in `examples/`
 
-**Roadmap**
+**⛔️ NO STABLE API yet.** Not functional complete, see the following roadmap:
 
 * Implement GS1 data parsing support for:
 	* Digital-Link URI Syntax (e.g. `https://example.com/01/09526064055028`)
 * Implement high-level interface to easily work with GS1 description (Flags, Specification, Attributes)
 * Implement validation support by implementing linters to validate that an AI conforms
 	* to its Specification (e.g `yymmdd` or `N6`)
-	* and to its attribues (e.g `req` and `ex` to define valid and invalid pairings)
+	* and to its attributes (e.g `req` and `ex` to define valid and invalid pairings).
 
 ## Usage
 
-See the examples in `examples/`:
+### Installing
+
+Add it to your project:
+
+```bash
+go get github.com/adippel/gs1engine-go
+```
+
+### Examples
+
+Several examples exist in `examples/` showcasing the parser:
 
 * [read2dcode - Example to parse GS1 messages from 2D barcodes](./examples/read2dcode/README.md)
 * [cliparser - Example to parse GS1 message from CLI input](./examples/cliparser/README.md)
 
 ### Parsing
 
-The core parser supports multiple GS1 syntax formats via:
+Several GS1 syntax formats are supported via the following functions:
 
-- `ParseDataMessage`: Automatically detects syntax type and dispatches to specialized parsers based on input format
-- `ParseBarcodeMessage`: Handles barcode message and scan data (e.g. `]d2...`, `^...`)
-- `ParseElementStringSyntax`: Parses element strings syntax`(01)...(17)...`
+- `ParseMessage`: Automatically detects syntax type based on input and then uses the correct parsers.
+- `ParseBarcodeMessage`: Parses barcode message format and barcode scan data (e.g. `]d2...`, `^...`)
+- `ParseElementString`: Parses element string syntax (e.g `(01)...(17)...`)
 
-**Examples**
-
-| Syntax Type            | Example Input                                                  |
-|------------------------|----------------------------------------------------------------|
-| Barcode Scan Data      | `]d201095260640550281725052110ABC123{GS}21456DEF`              |
-| Barcode Message Format | `^01095260640550281725052110ABC123^21456DEF`                   |
-| Element String Syntax  | `(01)09526064055028(17)250521(10)ABC123(21)456DEF`             |
+All parser support the visual FNC1 substitutes `^` and `{GS}`.
 
 🛑 Plain syntax (non-AI form) is not supported.
 
 To start parsing, use the following:
 
 ```go
-gs1Data, err := gs1.ParseDataMessage(gs1Message)
-```
+gs1Messages := []string{
+	"]d201095260640550281725052110ABC123{GS}21456DEF",
+	"^01095260640550281725052110ABC123^21456DEF",
+	"(01)09526064055028(17)250521(10)ABC123(21)456DEF",
+}
 
-## Using the AI Code generator
-
-The basis for working with GS1 data are the [Application Identifiers](https://ref.gs1.org/ai/). Those are standardized
-together with an extensive description at [GS1 Syntax Dictionary](https://github.com/gs1/gs1-syntax-dictionary).
-
-To generate Go structures from it, use program `cmd/genairegistry` as follows:
-
-```bash
-Usage of genairegistry:
-  -out string
-        Path to the output file (default "airegistry.go")
-  -package string
-        Package name to use (default "gs1engine")
-  -release string
-        Syntax Dictionary release to use (default "2025-01-30")
-```
-
-Run it as follows:
-
-```bash
-go run cmd/genairegistry/main.go -out ./myregistry.go
+for _, gs1Msg := range gs1Messages {
+	gs1Data, _ := gs1.ParseMessage(gs1Msg)
+	fmt.Println("Detected GS1 Syntax Type:", gs1Data.SyntaxType)
+	fmt.Println("Message:", gs1Data.AsElementString())
+}
 ```
 
 ## References
@@ -97,4 +78,4 @@ The GS1 has good reference material to understand their system and approaches:
   see [GS1 Barcode Syntax Resource User Guide](https://ref.gs1.org/tools/gs1-barcode-syntax-resource/user-guide/)
 * For a broader picture,
   see [GS1 System Architecture](https://www.gs1.org/standards/gs1-system-architecture-document/current-standard)
-
+* [GS1-maintained syntax engine in C](https://github.com/gs1/gs1-syntax-engine)

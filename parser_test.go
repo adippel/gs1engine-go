@@ -56,13 +56,13 @@ func TestParseElementStringSyntax(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotD, err := ParseElementStringSyntax(tt.args.msg)
+			gotD, err := ParseElementString(tt.args.msg)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("ParseElementStringSyntax() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseElementString() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(gotD, tt.wantDataMessage) {
-				t.Errorf("ParseElementStringSyntax() gotD = %v, want %v", gotD, tt.wantDataMessage)
+				t.Errorf("ParseElementString() gotD = %v, want %v", gotD, tt.wantDataMessage)
 			}
 		})
 	}
@@ -207,13 +207,13 @@ func TestParseDataMessage(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			gotD, err := ParseDataMessage(tt.args.msg)
+			gotD, err := ParseMessage(tt.args.msg)
 			if (err != nil) != tt.wantErr {
-				t.Errorf("ParseDataMessage() error = %v, wantErr %v", err, tt.wantErr)
+				t.Errorf("ParseMessage() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
 			if !reflect.DeepEqual(gotD, tt.wantD) {
-				t.Errorf("ParseDataMessage() gotD = %v, want %v", gotD, tt.wantD)
+				t.Errorf("ParseMessage() gotD = %v, want %v", gotD, tt.wantD)
 			}
 		})
 	}
