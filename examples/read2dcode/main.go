@@ -73,7 +73,7 @@ func Run(path string, barcodeType barcodeType) error {
 		log.Fatal("error decoding data matrix:", err)
 	}
 
-	msg, err := gs1.ParseDataMessage(result.GetText())
+	msg, err := gs1.ParseMessage(result.GetText())
 	if err != nil {
 		log.Fatal("error parsing data message:", err)
 	}

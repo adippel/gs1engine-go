@@ -16,7 +16,7 @@ func main() {
 		log.Fatal("You must specify a message to parse")
 	}
 
-	gs1Data, err := gs1.ParseDataMessage(*msg)
+	gs1Data, err := gs1.ParseMessage(*msg)
 	if err != nil {
 		log.Fatal(err)
 	}
