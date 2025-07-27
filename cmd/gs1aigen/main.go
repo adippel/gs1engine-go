@@ -6,7 +6,7 @@ for an example).
 
 Usage:
 
-	genairegistry [flags]
+	gs1aigen [flags]
 
 The flags are:
 

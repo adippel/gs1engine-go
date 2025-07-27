@@ -8,7 +8,7 @@ together with an extensive description at [GS1 Syntax Dictionary](https://github
 
 Usage:
 
-    genairegistry [flags]
+    gs1aigen [flags]
 
 The flags are:
 
