@@ -109,21 +109,21 @@ func ParseBarcodeMessage(msg string) (d Message, _ error) {
 	return d, nil
 }
 
-func detectAICode(msg string) (ApplicationIdentifierInfo, bool) {
+func detectAICode(msg string) (ApplicationIdentifier, bool) {
 	if len(msg) < 2 {
-		return ApplicationIdentifierInfo{}, false
+		return ApplicationIdentifier{}, false
 	}
 	if len(msg) > 4 {
-		aiDescription, ok := AIRegistry[msg[:4]]
+		ai, ok := AIRegistry[msg[:4]]
 		if ok {
-			return ApplicationIdentifierInfo{aiDescription}, true
+			return ai, ok
 		}
 	}
-	aiDescription, ok := AIRegistry[msg[:2]]
+	ai, ok := AIRegistry[msg[:2]]
 	if ok {
-		return ApplicationIdentifierInfo{aiDescription}, true
+		return ai, ok
 	}
-	return ApplicationIdentifierInfo{}, false
+	return ApplicationIdentifier{}, false
 }
 
 // ParseElementString parses GS1 messages using the element string syntax. Example GS1 message compliant to this
@@ -139,7 +139,7 @@ func ParseElementString(msg string) (d Message, _ error) {
 		aiIDEnd := strings.IndexRune(subStr, ')')
 
 		aiID := subStr[aiIDStart+1 : aiIDEnd]
-		aiDescription, ok := AIRegistry[aiID]
+		ai, ok := AIRegistry[aiID]
 		if !ok {
 			return Message{}, fmt.Errorf("unkown AI: %s", aiID)
 		}
@@ -153,8 +153,8 @@ func ParseElementString(msg string) (d Message, _ error) {
 
 		aiData := subStr[:aiDataEnd]
 		d.Elements = append(d.Elements, ElementString{
-			ApplicationIdentifierInfo: ApplicationIdentifierInfo{aiDescription},
-			DataField:                 aiData,
+			ApplicationIdentifier: ai,
+			DataField:             aiData,
 		})
 
 		subStr = subStr[aiDataEnd:]

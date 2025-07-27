@@ -1,3 +1,4 @@
+//go:generate go run ./cmd/gs1aigen -out airegistry.go -package gs1 -struct-name "ApplicationIdentifier" -disable-struct-gen
 package gs1
 
 import (
@@ -36,20 +37,32 @@ const (
 	GSDataMatrixECC200 SymbologyType = "d"
 )
 
-type ApplicationIdentifierInfo struct {
-	AIDescription
+type ApplicationIdentifier struct {
+	// AI is a unique identifier for a class of objects (e.g., trade items) or an instance of an object
+	// (e.g., logistic unit).
+	AI string
+	// Flags indicate specific characteristics about an AI (e.g. pre-defined length).
+	Flags string
+	// Specification consists of multiple components specify the character set, data format, and
+	// data structure required for the AI.
+	Specification []string
+	// Attributes enable associations of AIs, to ensure mandatory or invalid AI pairs, including primary key and key
+	// qualifier sequences for GS1 Digital Link URI syntax
+	Attributes []string
+	// Title is the data title supporting human understanding of the AI.
+	Title string
 }
 
 // RequiresFNC1Separator checks if the AI description declares the flag '*'.
-func (ai ApplicationIdentifierInfo) RequiresFNC1Separator() bool {
+func (ai ApplicationIdentifier) RequiresFNC1Separator() bool {
 	return !strings.ContainsRune(ai.Flags, '*')
 }
 
-func (ai ApplicationIdentifierInfo) HasFixedLength() bool {
+func (ai ApplicationIdentifier) HasFixedLength() bool {
 	return !ai.RequiresFNC1Separator()
 }
 
-func (ai ApplicationIdentifierInfo) Length() int {
+func (ai ApplicationIdentifier) Length() int {
 	if !ai.HasFixedLength() {
 		return -1
 	}
@@ -65,23 +78,24 @@ func (ai ApplicationIdentifierInfo) Length() int {
 	return length
 }
 
-func NewElementString(ai AIDescription, data string) ElementString {
-	return ElementString{
-		ApplicationIdentifierInfo: ApplicationIdentifierInfo{ai},
-		DataField:                 data,
-	}
-}
-
 // ElementString is the combination of a GS1 Application Identifier and a GS1 Application Identifier Elements Field. An
 // ElementString can be carried by GS1-128, GS1 DataBar Symbology, GS1 Composite, and GS1 DataMatrix and GS1 QR Code
 // Symbols.
 type ElementString struct {
-	ApplicationIdentifierInfo
+	ApplicationIdentifier
 	DataField string
 }
 
+// NewElementString generates an instance of an AI using a description and a data point.
+func NewElementString(ai ApplicationIdentifier, data string) ElementString {
+	return ElementString{
+		ApplicationIdentifier: ai,
+		DataField:             data,
+	}
+}
+
 func (ai ElementString) String() string {
-	return fmt.Sprintf("(%s)%s", ai.AIDescription.AI, ai.DataField)
+	return fmt.Sprintf("(%s)%s", ai.AI, ai.DataField)
 }
 
 // Message describes a GS1 message together with its Symbology, SyntaxType and the Elements describing the message.
