@@ -1,4 +1,4 @@
-//go:generate go run ./cmd/genairegistry -out airegistry.go -package gs1
+//go:generate go run ./cmd/gs1aigen -out airegistry.go -package gs1
 package gs1
 
 import (
@@ -22,13 +22,20 @@ package {{ .PackageName }}
 type AIDescription struct {
 	// AI is a unique identifier for a class of objects (e.g., trade items) or an instance of an object 
 	// (e.g., logistic unit).
-	AI				string
-	Flags         	string
-	Specification 	[]string
-	Attributes    	[]string
-	Title         	string
+	AI	string
+	// Flags indicate specific characteristics about an AI (e.g. pre-defined length).
+	Flags string
+	// Specification consists of multiple components specify the character set, data format, and
+	// data structure required for the AI.
+	Specification []string
+	// Attributes enable associations of AIs, to ensure mandatory or invalid AI pairs, including primary key and key
+	// qualifier sequences for GS1 Digital Link URI syntax
+	Attributes []string
+	// Title is the data title supporting human understanding of the AI.
+	Title string
 }
 
+// Go descriptions for the GS1 Application Identifier. Enable seamless parsing and validation of GS1 messages.
 var (
 {{- range .AIs }}
 	AI{{ .AI }} = AIDescription{
@@ -41,6 +48,7 @@ var (
 {{- end }}
 )
 
+// AIRegistry is a lookup table mapping a GS1 AI to its corresponding [AIDescription].
 var AIRegistry = map[string]AIDescription{
 {{- range .AIs }}
 	"{{ .AI }}": AI{{ .AI }},
@@ -48,11 +56,12 @@ var AIRegistry = map[string]AIDescription{
 }
 `
 
+// GenOpts describe available options for using [GenerateAIRegistry].
 type GenOpts struct {
 	PackageName string
 }
 
-type AISpec struct {
+type aiSpec struct {
 	AI            string
 	Flags         string
 	Specification []string
@@ -83,8 +92,8 @@ func DownloadSyntaxDictionary(release string) (bytes.Buffer, error) {
 
 // ParseSyntaxDictionary reads in the format of the GS1 Syntax Dictionary published here
 // https://github.com/gs1/gs1-syntax-dictionary. Returns
-func ParseSyntaxDictionary(r io.Reader) ([]AISpec, error) {
-	var entries []AISpec
+func ParseSyntaxDictionary(r io.Reader) ([]aiSpec, error) {
+	var entries []aiSpec
 	scanner := bufio.NewScanner(r)
 
 	for scanner.Scan() {
@@ -102,7 +111,7 @@ func ParseSyntaxDictionary(r io.Reader) ([]AISpec, error) {
 		}
 
 		fields := strings.Fields(line)
-		entry := AISpec{
+		entry := aiSpec{
 			Title: title,
 		}
 
@@ -132,7 +141,7 @@ func ParseSyntaxDictionary(r io.Reader) ([]AISpec, error) {
 
 			for i := startAI; i <= stopAI; i++ {
 				strconvAI := strconv.Itoa(i)
-				entries = append(entries, AISpec{
+				entries = append(entries, aiSpec{
 					AI:            strconvAI,
 					Flags:         entry.Flags,
 					Specification: entry.Specification,
@@ -152,10 +161,11 @@ func ParseSyntaxDictionary(r io.Reader) ([]AISpec, error) {
 	return entries, nil
 }
 
-func GenerateAIRegistry(out io.Writer, ais []AISpec, opts GenOpts) error {
+// GenerateAIRegistry generates [AIDescription] and a lookup table from the given ais.
+func GenerateAIRegistry(out io.Writer, ais []aiSpec, opts GenOpts) error {
 	tplOpts := struct {
 		PackageName string
-		AIs         []AISpec
+		AIs         []aiSpec
 	}{
 		PackageName: opts.PackageName,
 		AIs:         ais,

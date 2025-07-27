@@ -8,28 +8,29 @@ import (
 )
 
 const (
-	FNC1          = '\x1d' // FNC1 character used to terminate variable length AIs
-	SymbologyFlag = ']'    // SymbologyFlag is the character used to indicate start of symbology information
+	fnc1          = '\x1d' // fnc1 character used to terminate variable length AIs
+	symbologyFlag = ']'    // symbologyFlag is the character used to indicate start of symbology information
 )
 
-var VisualFNC1 = []string{"^", "{GS}"}
+// fnc1Visuals are visual representations commonly used to substitute the FNC1 char.
+var fnc1Visuals = []string{"^", "{GS}"}
 
-// ParseMessage detects the type of encoding used in msg and decodes the DataMessage. It supports `Barcode message
-// format`, `Barcode message scan data` and `GS1 element string syntax`. See also ParseBarcodeMessage and
-// ParseElementString. Plain syntax data is not parsed, as it is not AI-based.
-func ParseMessage(msg string) (d DataMessage, _ error) {
+// ParseMessage detects the type of encoding used in msg and decodes the [Message] by dispatching to the more
+// specialized parsers [ParseBarcodeMessage] and [ParseElementString].
+// Plain syntax data is not parsed, as it is not AI-based.
+func ParseMessage(msg string) (d Message, _ error) {
 	if len(msg) == 0 {
 		return d, errors.New("message is empty")
 	}
 	firstChar := msg[0]
 
 	switch firstChar {
-	case SymbologyFlag, FNC1:
+	case symbologyFlag, fnc1:
 		return ParseBarcodeMessage(msg)
 	case '(':
 		return ParseElementString(msg)
 	}
-	for _, visualFNC1 := range VisualFNC1 {
+	for _, visualFNC1 := range fnc1Visuals {
 		if strings.Contains(msg, visualFNC1) {
 			return ParseBarcodeMessage(msg)
 		}
@@ -41,17 +42,17 @@ func ParseMessage(msg string) (d DataMessage, _ error) {
 // ParseBarcodeMessage supports `Barcode message format` and `Barcode message scan data`. It supports group
 // separation with FNC1 as well as its literal variants '^' and '{GS}'. Examples for messages are
 // “^01095260640550281725052110ABC123^21456DEF` and `]d201095260640550281725052110ABC123{GS}21456DEF`.
-func ParseBarcodeMessage(msg string) (d DataMessage, _ error) {
+func ParseBarcodeMessage(msg string) (d Message, _ error) {
 	// Clean the input string
-	for _, visualFNC1 := range VisualFNC1 {
-		msg = strings.ReplaceAll(msg, visualFNC1, string(FNC1))
+	for _, visualFNC1 := range fnc1Visuals {
+		msg = strings.ReplaceAll(msg, visualFNC1, string(fnc1))
 	}
-	if len(msg) > 0 && msg[0] == FNC1 {
+	if len(msg) > 0 && msg[0] == fnc1 {
 		msg = msg[1:] // Remove leading FNC1
 	}
 
 	// Read and remove symbology identifier if present (e.g., ]C1)
-	if strings.HasPrefix(msg, string(SymbologyFlag)) && len(msg) > 3 {
+	if strings.HasPrefix(msg, string(symbologyFlag)) && len(msg) > 3 {
 		symbologyMode, err := strconv.Atoi(msg[2:3])
 		if err != nil {
 			return d, fmt.Errorf("error parsing symbology mode: %w", err)
@@ -69,7 +70,7 @@ func ParseBarcodeMessage(msg string) (d DataMessage, _ error) {
 		aiInfo, exists := detectAICode(subStr)
 
 		if !exists {
-			return DataMessage{}, errors.New("error detecting valid AI code in message")
+			return Message{}, errors.New("error detecting valid AI code in message")
 		}
 
 		subStr = subStr[len(aiInfo.AI):]
@@ -83,10 +84,10 @@ func ParseBarcodeMessage(msg string) (d DataMessage, _ error) {
 				})
 				subStr = subStr[aiInfo.Length():]
 			} else {
-				return DataMessage{}, errors.New("invalid GS1 identifier: insufficient length for AI " + aiInfo.AI)
+				return Message{}, errors.New("invalid GS1 identifier: insufficient length for AI " + aiInfo.AI)
 			}
 		} else {
-			variableLengthAiEnd := strings.IndexRune(subStr, FNC1)
+			variableLengthAiEnd := strings.IndexRune(subStr, fnc1)
 			if variableLengthAiEnd == -1 {
 				variableLengthAiEnd = len(subStr)
 			}
@@ -127,7 +128,7 @@ func detectAICode(msg string) (ApplicationIdentifierInfo, bool) {
 
 // ParseElementString parses GS1 messages using the element string syntax. Example GS1 message compliant to this
 // is `(01)09526064055028(17)250521(10)ABC123(21)456DEF`.
-func ParseElementString(msg string) (d DataMessage, _ error) {
+func ParseElementString(msg string) (d Message, _ error) {
 	if !strings.HasPrefix(msg, "(") {
 		return d, errors.New("invalid syntax: element string syntax must begin with '('")
 	}
@@ -140,7 +141,7 @@ func ParseElementString(msg string) (d DataMessage, _ error) {
 		aiID := subStr[aiIDStart+1 : aiIDEnd]
 		aiDescription, ok := AIRegistry[aiID]
 		if !ok {
-			return DataMessage{}, fmt.Errorf("unkown AI: %s", aiID)
+			return Message{}, fmt.Errorf("unkown AI: %s", aiID)
 		}
 		subStr = subStr[aiIDEnd+1:]
 
@@ -160,7 +161,7 @@ func ParseElementString(msg string) (d DataMessage, _ error) {
 	}
 
 	if len(d.Elements) == 0 {
-		return DataMessage{}, errors.New("invalid syntax: no AI elements found")
+		return Message{}, errors.New("invalid syntax: no AI elements found")
 	}
 
 	d.SyntaxType = ElementStringSyntax

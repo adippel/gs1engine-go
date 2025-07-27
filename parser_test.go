@@ -13,13 +13,13 @@ func TestParseElementStringSyntax(t *testing.T) {
 	tests := []struct {
 		name            string
 		args            args
-		wantDataMessage DataMessage
+		wantDataMessage Message
 		wantErr         bool
 	}{
 		{
 			name: "Compliant syntax with single AI SHOULD parse",
 			args: args{"(01)09526064055028"},
-			wantDataMessage: DataMessage{
+			wantDataMessage: Message{
 				SyntaxType: ElementStringSyntax,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "09526064055028"},
@@ -29,7 +29,7 @@ func TestParseElementStringSyntax(t *testing.T) {
 		{
 			name: "Compliant syntax with multiple AIs SHOULD parse",
 			args: args{"(01)09526064055028(21)123456"},
-			wantDataMessage: DataMessage{
+			wantDataMessage: Message{
 				SyntaxType: ElementStringSyntax,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "09526064055028"},
@@ -75,13 +75,13 @@ func TestParseBarcodeMessage(t *testing.T) {
 	tests := []struct {
 		name    string
 		args    args
-		wantD   DataMessage
+		wantD   Message
 		wantErr bool
 	}{
 		{
 			name: "Message with {GS} and ^ characters to indicate FNC1 SHOULD parse",
 			args: args{"^010952606405502810654321{GS}21123456"},
-			wantD: DataMessage{
+			wantD: Message{
 				SyntaxType: BarcodeMessageFormat,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "09526064055028"},
@@ -93,7 +93,7 @@ func TestParseBarcodeMessage(t *testing.T) {
 		{
 			name: "Message with a single element string SHOULD parse",
 			args: args{"^0109526064055028"},
-			wantD: DataMessage{
+			wantD: Message{
 				SyntaxType: BarcodeMessageFormat,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "09526064055028"},
@@ -104,7 +104,7 @@ func TestParseBarcodeMessage(t *testing.T) {
 		{
 			name: "Message with a single element string with fixed and variable length AIs SHOULD parse",
 			args: args{"^010952606405502821123456"},
-			wantD: DataMessage{
+			wantD: Message{
 				SyntaxType: BarcodeMessageFormat,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "09526064055028"},
@@ -115,8 +115,8 @@ func TestParseBarcodeMessage(t *testing.T) {
 		},
 		{
 			name: "Message with symbology information SHOULD parse",
-			args: args{fmt.Sprintf("%c%s%d", SymbologyFlag, GS1DataMatrix, 2) + "0109526064055028"},
-			wantD: DataMessage{
+			args: args{fmt.Sprintf("%c%s%d", symbologyFlag, GS1DataMatrix, 2) + "0109526064055028"},
+			wantD: Message{
 				SyntaxType: BarcodeMessageScanData,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "09526064055028"},
@@ -130,7 +130,7 @@ func TestParseBarcodeMessage(t *testing.T) {
 		{
 			name: "Messages with 4-digit AIs SHOULD parse",
 			args: args{"356412345621123456"},
-			wantD: DataMessage{
+			wantD: Message{
 				SyntaxType: BarcodeMessageFormat,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI3564}, "123456"},
@@ -160,13 +160,13 @@ func TestParseDataMessage(t *testing.T) {
 	tests := []struct {
 		name    string
 		args    args
-		wantD   DataMessage
+		wantD   Message
 		wantErr bool
 	}{
 		{
 			name: "Element String syntax SHOULD parse",
 			args: args{"(01)76100120000010(10)10002256"},
-			wantD: DataMessage{
+			wantD: Message{
 				SyntaxType: ElementStringSyntax,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "76100120000010"},
@@ -177,7 +177,7 @@ func TestParseDataMessage(t *testing.T) {
 		{
 			name: "Barcode message syntax SHOULD parse",
 			args: args{"^0109526064055028"},
-			wantD: DataMessage{
+			wantD: Message{
 				SyntaxType: BarcodeMessageFormat,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "09526064055028"},
@@ -187,7 +187,7 @@ func TestParseDataMessage(t *testing.T) {
 		{
 			name: "Barcode message scan data syntax SHOULD parse",
 			args: args{"]C1010123456789012815057072"},
-			wantD: DataMessage{
+			wantD: Message{
 				SyntaxType: BarcodeMessageScanData,
 				Elements: []ElementString{
 					{ApplicationIdentifierInfo{AI01}, "01234567890128"},

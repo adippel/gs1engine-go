@@ -69,7 +69,7 @@ func TestApplicationIdentifierInfo_Length(t *testing.T) {
 func TestDataMessage_AsElementString(t *testing.T) {
 	type fields struct {
 		Symbology  SymbologyIdentifier
-		SyntaxType DataSyntaxType
+		SyntaxType MessageSyntaxType
 		Elements   []ElementString
 	}
 	tests := []struct {
@@ -90,7 +90,7 @@ func TestDataMessage_AsElementString(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			d := DataMessage{
+			d := Message{
 				Symbology:  tt.fields.Symbology,
 				SyntaxType: tt.fields.SyntaxType,
 				Elements:   tt.fields.Elements,

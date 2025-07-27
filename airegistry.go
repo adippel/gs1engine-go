@@ -7,13 +7,20 @@ package gs1
 type AIDescription struct {
 	// AI is a unique identifier for a class of objects (e.g., trade items) or an instance of an object
 	// (e.g., logistic unit).
-	AI            string
-	Flags         string
+	AI string
+	// Flags indicate specific characteristics about an AI (e.g. pre-defined length).
+	Flags string
+	// Specification consists of multiple components specify the character set, data format, and
+	// data structure required for the AI.
 	Specification []string
-	Attributes    []string
-	Title         string
+	// Attributes enable associations of AIs, to ensure mandatory or invalid AI pairs, including primary key and key
+	// qualifier sequences for GS1 Digital Link URI syntax
+	Attributes []string
+	// Title is the data title supporting human understanding of the AI.
+	Title string
 }
 
+// Go descriptions for the GS1 Application Identifier. Enable seamless parsing and validation of GS1 messages.
 var (
 	AI00 = AIDescription{
 		AI:            "00",
@@ -3769,6 +3776,7 @@ var (
 	}
 )
 
+// AIRegistry is a lookup table mapping a GS1 AI to its corresponding [AIDescription].
 var AIRegistry = map[string]AIDescription{
 	"00":   AI00,
 	"01":   AI01,
