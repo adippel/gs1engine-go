@@ -22,6 +22,7 @@ type AIDescription struct {
 
 // Go descriptions for the GS1 Application Identifier. Enable seamless parsing and validation of GS1 messages.
 var (
+	// AI00 describes a SSCC. See also https://ref.gs1.org/ai/00.
 	AI00 = AIDescription{
 		AI:            "00",
 		Flags:         "*?",
@@ -29,6 +30,7 @@ var (
 		Attributes:    []string{"dlpkey"},
 		Title:         "SSCC",
 	}
+	// AI01 describes a GTIN. See also https://ref.gs1.org/ai/01.
 	AI01 = AIDescription{
 		AI:            "01",
 		Flags:         "*?",
@@ -36,6 +38,7 @@ var (
 		Attributes:    []string{"ex=255,37", "dlpkey=22,10,21|235"},
 		Title:         "GTIN",
 	}
+	// AI02 describes a CONTENT. See also https://ref.gs1.org/ai/02.
 	AI02 = AIDescription{
 		AI:            "02",
 		Flags:         "*?",
@@ -43,6 +46,7 @@ var (
 		Attributes:    []string{"ex=01,03", "req=37"},
 		Title:         "CONTENT",
 	}
+	// AI03 describes a MTO GTIN. See also https://ref.gs1.org/ai/03.
 	AI03 = AIDescription{
 		AI:            "03",
 		Flags:         "*",
@@ -50,6 +54,7 @@ var (
 		Attributes:    []string{"ex=01,02,37"},
 		Title:         "MTO GTIN",
 	}
+	// AI10 describes a BATCH/LOT. See also https://ref.gs1.org/ai/10.
 	AI10 = AIDescription{
 		AI:            "10",
 		Flags:         "?",
@@ -57,6 +62,7 @@ var (
 		Attributes:    []string{"req=01,02,03,8006,8026"},
 		Title:         "BATCH/LOT",
 	}
+	// AI11 describes a PROD DATE. See also https://ref.gs1.org/ai/11.
 	AI11 = AIDescription{
 		AI:            "11",
 		Flags:         "*?",
@@ -64,6 +70,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "PROD DATE",
 	}
+	// AI12 describes a DUE DATE. See also https://ref.gs1.org/ai/12.
 	AI12 = AIDescription{
 		AI:            "12",
 		Flags:         "*?",
@@ -71,6 +78,7 @@ var (
 		Attributes:    []string{"req=8020"},
 		Title:         "DUE DATE",
 	}
+	// AI13 describes a PACK DATE. See also https://ref.gs1.org/ai/13.
 	AI13 = AIDescription{
 		AI:            "13",
 		Flags:         "*?",
@@ -78,6 +86,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "PACK DATE",
 	}
+	// AI15 describes a BEST BEFORE or BEST BY. See also https://ref.gs1.org/ai/15.
 	AI15 = AIDescription{
 		AI:            "15",
 		Flags:         "*?",
@@ -85,6 +94,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "BEST BEFORE or BEST BY",
 	}
+	// AI16 describes a SELL BY. See also https://ref.gs1.org/ai/16.
 	AI16 = AIDescription{
 		AI:            "16",
 		Flags:         "*?",
@@ -92,6 +102,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "SELL BY",
 	}
+	// AI17 describes a USE BY or EXPIRY. See also https://ref.gs1.org/ai/17.
 	AI17 = AIDescription{
 		AI:            "17",
 		Flags:         "*?",
@@ -99,6 +110,7 @@ var (
 		Attributes:    []string{"req=01,02,255,8006,8026"},
 		Title:         "USE BY or EXPIRY",
 	}
+	// AI20 describes a VARIANT. See also https://ref.gs1.org/ai/20.
 	AI20 = AIDescription{
 		AI:            "20",
 		Flags:         "*?",
@@ -106,6 +118,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "VARIANT",
 	}
+	// AI21 describes a SERIAL. See also https://ref.gs1.org/ai/21.
 	AI21 = AIDescription{
 		AI:            "21",
 		Flags:         "",
@@ -113,6 +126,7 @@ var (
 		Attributes:    []string{"req=01,03,8006", "ex=235"},
 		Title:         "SERIAL",
 	}
+	// AI22 describes a CPV. See also https://ref.gs1.org/ai/22.
 	AI22 = AIDescription{
 		AI:            "22",
 		Flags:         "",
@@ -120,6 +134,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "CPV",
 	}
+	// AI235 describes a TPX. See also https://ref.gs1.org/ai/235.
 	AI235 = AIDescription{
 		AI:            "235",
 		Flags:         "",
@@ -127,6 +142,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "TPX",
 	}
+	// AI240 describes a ADDITIONAL ID. See also https://ref.gs1.org/ai/240.
 	AI240 = AIDescription{
 		AI:            "240",
 		Flags:         "?",
@@ -134,6 +150,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "ADDITIONAL ID",
 	}
+	// AI241 describes a CUST. PART No.. See also https://ref.gs1.org/ai/241.
 	AI241 = AIDescription{
 		AI:            "241",
 		Flags:         "?",
@@ -141,6 +158,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "CUST. PART No.",
 	}
+	// AI242 describes a MTO VARIANT. See also https://ref.gs1.org/ai/242.
 	AI242 = AIDescription{
 		AI:            "242",
 		Flags:         "?",
@@ -148,6 +166,7 @@ var (
 		Attributes:    []string{"req=01,02,03,8006,8026"},
 		Title:         "MTO VARIANT",
 	}
+	// AI243 describes a PCN. See also https://ref.gs1.org/ai/243.
 	AI243 = AIDescription{
 		AI:            "243",
 		Flags:         "?",
@@ -155,6 +174,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "PCN",
 	}
+	// AI250 describes a SECONDARY SERIAL. See also https://ref.gs1.org/ai/250.
 	AI250 = AIDescription{
 		AI:            "250",
 		Flags:         "?",
@@ -162,6 +182,7 @@ var (
 		Attributes:    []string{"req=01,8006", "req=21"},
 		Title:         "SECONDARY SERIAL",
 	}
+	// AI251 describes a REF. TO SOURCE. See also https://ref.gs1.org/ai/251.
 	AI251 = AIDescription{
 		AI:            "251",
 		Flags:         "?",
@@ -169,6 +190,7 @@ var (
 		Attributes:    []string{"req=01,8006"},
 		Title:         "REF. TO SOURCE",
 	}
+	// AI253 describes a GDTI. See also https://ref.gs1.org/ai/253.
 	AI253 = AIDescription{
 		AI:            "253",
 		Flags:         "[X..17]",
@@ -176,6 +198,7 @@ var (
 		Attributes:    []string{"dlpkey"},
 		Title:         "GDTI",
 	}
+	// AI254 describes a GLN EXTENSION COMPONENT. See also https://ref.gs1.org/ai/254.
 	AI254 = AIDescription{
 		AI:            "254",
 		Flags:         "",
@@ -183,6 +206,7 @@ var (
 		Attributes:    []string{"req=414"},
 		Title:         "GLN EXTENSION COMPONENT",
 	}
+	// AI255 describes a GCN. See also https://ref.gs1.org/ai/255.
 	AI255 = AIDescription{
 		AI:            "255",
 		Flags:         "[N..12]",
@@ -190,6 +214,7 @@ var (
 		Attributes:    []string{"dlpkey", "ex=01,02,415,8006,8020,8026"},
 		Title:         "GCN",
 	}
+	// AI30 describes a VAR. COUNT. See also https://ref.gs1.org/ai/30.
 	AI30 = AIDescription{
 		AI:            "30",
 		Flags:         "?",
@@ -197,6 +222,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "VAR. COUNT",
 	}
+	// AI3100 describes a NET WEIGHT (kg). See also https://ref.gs1.org/ai/3100.
 	AI3100 = AIDescription{
 		AI:            "3100",
 		Flags:         "*?",
@@ -204,6 +230,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=310n"},
 		Title:         "NET WEIGHT (kg)",
 	}
+	// AI3101 describes a NET WEIGHT (kg). See also https://ref.gs1.org/ai/3101.
 	AI3101 = AIDescription{
 		AI:            "3101",
 		Flags:         "*?",
@@ -211,6 +238,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=310n"},
 		Title:         "NET WEIGHT (kg)",
 	}
+	// AI3102 describes a NET WEIGHT (kg). See also https://ref.gs1.org/ai/3102.
 	AI3102 = AIDescription{
 		AI:            "3102",
 		Flags:         "*?",
@@ -218,6 +246,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=310n"},
 		Title:         "NET WEIGHT (kg)",
 	}
+	// AI3103 describes a NET WEIGHT (kg). See also https://ref.gs1.org/ai/3103.
 	AI3103 = AIDescription{
 		AI:            "3103",
 		Flags:         "*?",
@@ -225,6 +254,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=310n"},
 		Title:         "NET WEIGHT (kg)",
 	}
+	// AI3104 describes a NET WEIGHT (kg). See also https://ref.gs1.org/ai/3104.
 	AI3104 = AIDescription{
 		AI:            "3104",
 		Flags:         "*?",
@@ -232,6 +262,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=310n"},
 		Title:         "NET WEIGHT (kg)",
 	}
+	// AI3105 describes a NET WEIGHT (kg). See also https://ref.gs1.org/ai/3105.
 	AI3105 = AIDescription{
 		AI:            "3105",
 		Flags:         "*?",
@@ -239,6 +270,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=310n"},
 		Title:         "NET WEIGHT (kg)",
 	}
+	// AI3110 describes a LENGTH (m). See also https://ref.gs1.org/ai/3110.
 	AI3110 = AIDescription{
 		AI:            "3110",
 		Flags:         "*?",
@@ -246,6 +278,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=311n"},
 		Title:         "LENGTH (m)",
 	}
+	// AI3111 describes a LENGTH (m). See also https://ref.gs1.org/ai/3111.
 	AI3111 = AIDescription{
 		AI:            "3111",
 		Flags:         "*?",
@@ -253,6 +286,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=311n"},
 		Title:         "LENGTH (m)",
 	}
+	// AI3112 describes a LENGTH (m). See also https://ref.gs1.org/ai/3112.
 	AI3112 = AIDescription{
 		AI:            "3112",
 		Flags:         "*?",
@@ -260,6 +294,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=311n"},
 		Title:         "LENGTH (m)",
 	}
+	// AI3113 describes a LENGTH (m). See also https://ref.gs1.org/ai/3113.
 	AI3113 = AIDescription{
 		AI:            "3113",
 		Flags:         "*?",
@@ -267,6 +302,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=311n"},
 		Title:         "LENGTH (m)",
 	}
+	// AI3114 describes a LENGTH (m). See also https://ref.gs1.org/ai/3114.
 	AI3114 = AIDescription{
 		AI:            "3114",
 		Flags:         "*?",
@@ -274,6 +310,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=311n"},
 		Title:         "LENGTH (m)",
 	}
+	// AI3115 describes a LENGTH (m). See also https://ref.gs1.org/ai/3115.
 	AI3115 = AIDescription{
 		AI:            "3115",
 		Flags:         "*?",
@@ -281,6 +318,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=311n"},
 		Title:         "LENGTH (m)",
 	}
+	// AI3120 describes a WIDTH (m). See also https://ref.gs1.org/ai/3120.
 	AI3120 = AIDescription{
 		AI:            "3120",
 		Flags:         "*?",
@@ -288,6 +326,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=312n"},
 		Title:         "WIDTH (m)",
 	}
+	// AI3121 describes a WIDTH (m). See also https://ref.gs1.org/ai/3121.
 	AI3121 = AIDescription{
 		AI:            "3121",
 		Flags:         "*?",
@@ -295,6 +334,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=312n"},
 		Title:         "WIDTH (m)",
 	}
+	// AI3122 describes a WIDTH (m). See also https://ref.gs1.org/ai/3122.
 	AI3122 = AIDescription{
 		AI:            "3122",
 		Flags:         "*?",
@@ -302,6 +342,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=312n"},
 		Title:         "WIDTH (m)",
 	}
+	// AI3123 describes a WIDTH (m). See also https://ref.gs1.org/ai/3123.
 	AI3123 = AIDescription{
 		AI:            "3123",
 		Flags:         "*?",
@@ -309,6 +350,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=312n"},
 		Title:         "WIDTH (m)",
 	}
+	// AI3124 describes a WIDTH (m). See also https://ref.gs1.org/ai/3124.
 	AI3124 = AIDescription{
 		AI:            "3124",
 		Flags:         "*?",
@@ -316,6 +358,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=312n"},
 		Title:         "WIDTH (m)",
 	}
+	// AI3125 describes a WIDTH (m). See also https://ref.gs1.org/ai/3125.
 	AI3125 = AIDescription{
 		AI:            "3125",
 		Flags:         "*?",
@@ -323,6 +366,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=312n"},
 		Title:         "WIDTH (m)",
 	}
+	// AI3130 describes a HEIGHT (m). See also https://ref.gs1.org/ai/3130.
 	AI3130 = AIDescription{
 		AI:            "3130",
 		Flags:         "*?",
@@ -330,6 +374,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=313n"},
 		Title:         "HEIGHT (m)",
 	}
+	// AI3131 describes a HEIGHT (m). See also https://ref.gs1.org/ai/3131.
 	AI3131 = AIDescription{
 		AI:            "3131",
 		Flags:         "*?",
@@ -337,6 +382,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=313n"},
 		Title:         "HEIGHT (m)",
 	}
+	// AI3132 describes a HEIGHT (m). See also https://ref.gs1.org/ai/3132.
 	AI3132 = AIDescription{
 		AI:            "3132",
 		Flags:         "*?",
@@ -344,6 +390,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=313n"},
 		Title:         "HEIGHT (m)",
 	}
+	// AI3133 describes a HEIGHT (m). See also https://ref.gs1.org/ai/3133.
 	AI3133 = AIDescription{
 		AI:            "3133",
 		Flags:         "*?",
@@ -351,6 +398,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=313n"},
 		Title:         "HEIGHT (m)",
 	}
+	// AI3134 describes a HEIGHT (m). See also https://ref.gs1.org/ai/3134.
 	AI3134 = AIDescription{
 		AI:            "3134",
 		Flags:         "*?",
@@ -358,6 +406,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=313n"},
 		Title:         "HEIGHT (m)",
 	}
+	// AI3135 describes a HEIGHT (m). See also https://ref.gs1.org/ai/3135.
 	AI3135 = AIDescription{
 		AI:            "3135",
 		Flags:         "*?",
@@ -365,6 +414,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=313n"},
 		Title:         "HEIGHT (m)",
 	}
+	// AI3140 describes a AREA (m²). See also https://ref.gs1.org/ai/3140.
 	AI3140 = AIDescription{
 		AI:            "3140",
 		Flags:         "*?",
@@ -372,6 +422,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=314n"},
 		Title:         "AREA (m²)",
 	}
+	// AI3141 describes a AREA (m²). See also https://ref.gs1.org/ai/3141.
 	AI3141 = AIDescription{
 		AI:            "3141",
 		Flags:         "*?",
@@ -379,6 +430,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=314n"},
 		Title:         "AREA (m²)",
 	}
+	// AI3142 describes a AREA (m²). See also https://ref.gs1.org/ai/3142.
 	AI3142 = AIDescription{
 		AI:            "3142",
 		Flags:         "*?",
@@ -386,6 +438,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=314n"},
 		Title:         "AREA (m²)",
 	}
+	// AI3143 describes a AREA (m²). See also https://ref.gs1.org/ai/3143.
 	AI3143 = AIDescription{
 		AI:            "3143",
 		Flags:         "*?",
@@ -393,6 +446,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=314n"},
 		Title:         "AREA (m²)",
 	}
+	// AI3144 describes a AREA (m²). See also https://ref.gs1.org/ai/3144.
 	AI3144 = AIDescription{
 		AI:            "3144",
 		Flags:         "*?",
@@ -400,6 +454,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=314n"},
 		Title:         "AREA (m²)",
 	}
+	// AI3145 describes a AREA (m²). See also https://ref.gs1.org/ai/3145.
 	AI3145 = AIDescription{
 		AI:            "3145",
 		Flags:         "*?",
@@ -407,6 +462,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=314n"},
 		Title:         "AREA (m²)",
 	}
+	// AI3150 describes a NET VOLUME (l). See also https://ref.gs1.org/ai/3150.
 	AI3150 = AIDescription{
 		AI:            "3150",
 		Flags:         "*?",
@@ -414,6 +470,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=315n"},
 		Title:         "NET VOLUME (l)",
 	}
+	// AI3151 describes a NET VOLUME (l). See also https://ref.gs1.org/ai/3151.
 	AI3151 = AIDescription{
 		AI:            "3151",
 		Flags:         "*?",
@@ -421,6 +478,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=315n"},
 		Title:         "NET VOLUME (l)",
 	}
+	// AI3152 describes a NET VOLUME (l). See also https://ref.gs1.org/ai/3152.
 	AI3152 = AIDescription{
 		AI:            "3152",
 		Flags:         "*?",
@@ -428,6 +486,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=315n"},
 		Title:         "NET VOLUME (l)",
 	}
+	// AI3153 describes a NET VOLUME (l). See also https://ref.gs1.org/ai/3153.
 	AI3153 = AIDescription{
 		AI:            "3153",
 		Flags:         "*?",
@@ -435,6 +494,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=315n"},
 		Title:         "NET VOLUME (l)",
 	}
+	// AI3154 describes a NET VOLUME (l). See also https://ref.gs1.org/ai/3154.
 	AI3154 = AIDescription{
 		AI:            "3154",
 		Flags:         "*?",
@@ -442,6 +502,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=315n"},
 		Title:         "NET VOLUME (l)",
 	}
+	// AI3155 describes a NET VOLUME (l). See also https://ref.gs1.org/ai/3155.
 	AI3155 = AIDescription{
 		AI:            "3155",
 		Flags:         "*?",
@@ -449,6 +510,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=315n"},
 		Title:         "NET VOLUME (l)",
 	}
+	// AI3160 describes a NET VOLUME (m³). See also https://ref.gs1.org/ai/3160.
 	AI3160 = AIDescription{
 		AI:            "3160",
 		Flags:         "*?",
@@ -456,6 +518,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=316n"},
 		Title:         "NET VOLUME (m³)",
 	}
+	// AI3161 describes a NET VOLUME (m³). See also https://ref.gs1.org/ai/3161.
 	AI3161 = AIDescription{
 		AI:            "3161",
 		Flags:         "*?",
@@ -463,6 +526,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=316n"},
 		Title:         "NET VOLUME (m³)",
 	}
+	// AI3162 describes a NET VOLUME (m³). See also https://ref.gs1.org/ai/3162.
 	AI3162 = AIDescription{
 		AI:            "3162",
 		Flags:         "*?",
@@ -470,6 +534,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=316n"},
 		Title:         "NET VOLUME (m³)",
 	}
+	// AI3163 describes a NET VOLUME (m³). See also https://ref.gs1.org/ai/3163.
 	AI3163 = AIDescription{
 		AI:            "3163",
 		Flags:         "*?",
@@ -477,6 +542,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=316n"},
 		Title:         "NET VOLUME (m³)",
 	}
+	// AI3164 describes a NET VOLUME (m³). See also https://ref.gs1.org/ai/3164.
 	AI3164 = AIDescription{
 		AI:            "3164",
 		Flags:         "*?",
@@ -484,6 +550,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=316n"},
 		Title:         "NET VOLUME (m³)",
 	}
+	// AI3165 describes a NET VOLUME (m³). See also https://ref.gs1.org/ai/3165.
 	AI3165 = AIDescription{
 		AI:            "3165",
 		Flags:         "*?",
@@ -491,6 +558,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=316n"},
 		Title:         "NET VOLUME (m³)",
 	}
+	// AI3200 describes a NET WEIGHT (lb). See also https://ref.gs1.org/ai/3200.
 	AI3200 = AIDescription{
 		AI:            "3200",
 		Flags:         "*?",
@@ -498,6 +566,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=320n"},
 		Title:         "NET WEIGHT (lb)",
 	}
+	// AI3201 describes a NET WEIGHT (lb). See also https://ref.gs1.org/ai/3201.
 	AI3201 = AIDescription{
 		AI:            "3201",
 		Flags:         "*?",
@@ -505,6 +574,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=320n"},
 		Title:         "NET WEIGHT (lb)",
 	}
+	// AI3202 describes a NET WEIGHT (lb). See also https://ref.gs1.org/ai/3202.
 	AI3202 = AIDescription{
 		AI:            "3202",
 		Flags:         "*?",
@@ -512,6 +582,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=320n"},
 		Title:         "NET WEIGHT (lb)",
 	}
+	// AI3203 describes a NET WEIGHT (lb). See also https://ref.gs1.org/ai/3203.
 	AI3203 = AIDescription{
 		AI:            "3203",
 		Flags:         "*?",
@@ -519,6 +590,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=320n"},
 		Title:         "NET WEIGHT (lb)",
 	}
+	// AI3204 describes a NET WEIGHT (lb). See also https://ref.gs1.org/ai/3204.
 	AI3204 = AIDescription{
 		AI:            "3204",
 		Flags:         "*?",
@@ -526,6 +598,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=320n"},
 		Title:         "NET WEIGHT (lb)",
 	}
+	// AI3205 describes a NET WEIGHT (lb). See also https://ref.gs1.org/ai/3205.
 	AI3205 = AIDescription{
 		AI:            "3205",
 		Flags:         "*?",
@@ -533,6 +606,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=320n"},
 		Title:         "NET WEIGHT (lb)",
 	}
+	// AI3210 describes a LENGTH (in). See also https://ref.gs1.org/ai/3210.
 	AI3210 = AIDescription{
 		AI:            "3210",
 		Flags:         "*?",
@@ -540,6 +614,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=321n"},
 		Title:         "LENGTH (in)",
 	}
+	// AI3211 describes a LENGTH (in). See also https://ref.gs1.org/ai/3211.
 	AI3211 = AIDescription{
 		AI:            "3211",
 		Flags:         "*?",
@@ -547,6 +622,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=321n"},
 		Title:         "LENGTH (in)",
 	}
+	// AI3212 describes a LENGTH (in). See also https://ref.gs1.org/ai/3212.
 	AI3212 = AIDescription{
 		AI:            "3212",
 		Flags:         "*?",
@@ -554,6 +630,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=321n"},
 		Title:         "LENGTH (in)",
 	}
+	// AI3213 describes a LENGTH (in). See also https://ref.gs1.org/ai/3213.
 	AI3213 = AIDescription{
 		AI:            "3213",
 		Flags:         "*?",
@@ -561,6 +638,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=321n"},
 		Title:         "LENGTH (in)",
 	}
+	// AI3214 describes a LENGTH (in). See also https://ref.gs1.org/ai/3214.
 	AI3214 = AIDescription{
 		AI:            "3214",
 		Flags:         "*?",
@@ -568,6 +646,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=321n"},
 		Title:         "LENGTH (in)",
 	}
+	// AI3215 describes a LENGTH (in). See also https://ref.gs1.org/ai/3215.
 	AI3215 = AIDescription{
 		AI:            "3215",
 		Flags:         "*?",
@@ -575,6 +654,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=321n"},
 		Title:         "LENGTH (in)",
 	}
+	// AI3220 describes a LENGTH (ft). See also https://ref.gs1.org/ai/3220.
 	AI3220 = AIDescription{
 		AI:            "3220",
 		Flags:         "*?",
@@ -582,6 +662,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=322n"},
 		Title:         "LENGTH (ft)",
 	}
+	// AI3221 describes a LENGTH (ft). See also https://ref.gs1.org/ai/3221.
 	AI3221 = AIDescription{
 		AI:            "3221",
 		Flags:         "*?",
@@ -589,6 +670,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=322n"},
 		Title:         "LENGTH (ft)",
 	}
+	// AI3222 describes a LENGTH (ft). See also https://ref.gs1.org/ai/3222.
 	AI3222 = AIDescription{
 		AI:            "3222",
 		Flags:         "*?",
@@ -596,6 +678,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=322n"},
 		Title:         "LENGTH (ft)",
 	}
+	// AI3223 describes a LENGTH (ft). See also https://ref.gs1.org/ai/3223.
 	AI3223 = AIDescription{
 		AI:            "3223",
 		Flags:         "*?",
@@ -603,6 +686,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=322n"},
 		Title:         "LENGTH (ft)",
 	}
+	// AI3224 describes a LENGTH (ft). See also https://ref.gs1.org/ai/3224.
 	AI3224 = AIDescription{
 		AI:            "3224",
 		Flags:         "*?",
@@ -610,6 +694,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=322n"},
 		Title:         "LENGTH (ft)",
 	}
+	// AI3225 describes a LENGTH (ft). See also https://ref.gs1.org/ai/3225.
 	AI3225 = AIDescription{
 		AI:            "3225",
 		Flags:         "*?",
@@ -617,6 +702,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=322n"},
 		Title:         "LENGTH (ft)",
 	}
+	// AI3230 describes a LENGTH (yd). See also https://ref.gs1.org/ai/3230.
 	AI3230 = AIDescription{
 		AI:            "3230",
 		Flags:         "*?",
@@ -624,6 +710,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=323n"},
 		Title:         "LENGTH (yd)",
 	}
+	// AI3231 describes a LENGTH (yd). See also https://ref.gs1.org/ai/3231.
 	AI3231 = AIDescription{
 		AI:            "3231",
 		Flags:         "*?",
@@ -631,6 +718,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=323n"},
 		Title:         "LENGTH (yd)",
 	}
+	// AI3232 describes a LENGTH (yd). See also https://ref.gs1.org/ai/3232.
 	AI3232 = AIDescription{
 		AI:            "3232",
 		Flags:         "*?",
@@ -638,6 +726,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=323n"},
 		Title:         "LENGTH (yd)",
 	}
+	// AI3233 describes a LENGTH (yd). See also https://ref.gs1.org/ai/3233.
 	AI3233 = AIDescription{
 		AI:            "3233",
 		Flags:         "*?",
@@ -645,6 +734,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=323n"},
 		Title:         "LENGTH (yd)",
 	}
+	// AI3234 describes a LENGTH (yd). See also https://ref.gs1.org/ai/3234.
 	AI3234 = AIDescription{
 		AI:            "3234",
 		Flags:         "*?",
@@ -652,6 +742,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=323n"},
 		Title:         "LENGTH (yd)",
 	}
+	// AI3235 describes a LENGTH (yd). See also https://ref.gs1.org/ai/3235.
 	AI3235 = AIDescription{
 		AI:            "3235",
 		Flags:         "*?",
@@ -659,6 +750,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=323n"},
 		Title:         "LENGTH (yd)",
 	}
+	// AI3240 describes a WIDTH (in). See also https://ref.gs1.org/ai/3240.
 	AI3240 = AIDescription{
 		AI:            "3240",
 		Flags:         "*?",
@@ -666,6 +758,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=324n"},
 		Title:         "WIDTH (in)",
 	}
+	// AI3241 describes a WIDTH (in). See also https://ref.gs1.org/ai/3241.
 	AI3241 = AIDescription{
 		AI:            "3241",
 		Flags:         "*?",
@@ -673,6 +766,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=324n"},
 		Title:         "WIDTH (in)",
 	}
+	// AI3242 describes a WIDTH (in). See also https://ref.gs1.org/ai/3242.
 	AI3242 = AIDescription{
 		AI:            "3242",
 		Flags:         "*?",
@@ -680,6 +774,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=324n"},
 		Title:         "WIDTH (in)",
 	}
+	// AI3243 describes a WIDTH (in). See also https://ref.gs1.org/ai/3243.
 	AI3243 = AIDescription{
 		AI:            "3243",
 		Flags:         "*?",
@@ -687,6 +782,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=324n"},
 		Title:         "WIDTH (in)",
 	}
+	// AI3244 describes a WIDTH (in). See also https://ref.gs1.org/ai/3244.
 	AI3244 = AIDescription{
 		AI:            "3244",
 		Flags:         "*?",
@@ -694,6 +790,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=324n"},
 		Title:         "WIDTH (in)",
 	}
+	// AI3245 describes a WIDTH (in). See also https://ref.gs1.org/ai/3245.
 	AI3245 = AIDescription{
 		AI:            "3245",
 		Flags:         "*?",
@@ -701,6 +798,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=324n"},
 		Title:         "WIDTH (in)",
 	}
+	// AI3250 describes a WIDTH (ft). See also https://ref.gs1.org/ai/3250.
 	AI3250 = AIDescription{
 		AI:            "3250",
 		Flags:         "*?",
@@ -708,6 +806,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=325n"},
 		Title:         "WIDTH (ft)",
 	}
+	// AI3251 describes a WIDTH (ft). See also https://ref.gs1.org/ai/3251.
 	AI3251 = AIDescription{
 		AI:            "3251",
 		Flags:         "*?",
@@ -715,6 +814,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=325n"},
 		Title:         "WIDTH (ft)",
 	}
+	// AI3252 describes a WIDTH (ft). See also https://ref.gs1.org/ai/3252.
 	AI3252 = AIDescription{
 		AI:            "3252",
 		Flags:         "*?",
@@ -722,6 +822,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=325n"},
 		Title:         "WIDTH (ft)",
 	}
+	// AI3253 describes a WIDTH (ft). See also https://ref.gs1.org/ai/3253.
 	AI3253 = AIDescription{
 		AI:            "3253",
 		Flags:         "*?",
@@ -729,6 +830,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=325n"},
 		Title:         "WIDTH (ft)",
 	}
+	// AI3254 describes a WIDTH (ft). See also https://ref.gs1.org/ai/3254.
 	AI3254 = AIDescription{
 		AI:            "3254",
 		Flags:         "*?",
@@ -736,6 +838,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=325n"},
 		Title:         "WIDTH (ft)",
 	}
+	// AI3255 describes a WIDTH (ft). See also https://ref.gs1.org/ai/3255.
 	AI3255 = AIDescription{
 		AI:            "3255",
 		Flags:         "*?",
@@ -743,6 +846,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=325n"},
 		Title:         "WIDTH (ft)",
 	}
+	// AI3260 describes a WIDTH (yd). See also https://ref.gs1.org/ai/3260.
 	AI3260 = AIDescription{
 		AI:            "3260",
 		Flags:         "*?",
@@ -750,6 +854,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=326n"},
 		Title:         "WIDTH (yd)",
 	}
+	// AI3261 describes a WIDTH (yd). See also https://ref.gs1.org/ai/3261.
 	AI3261 = AIDescription{
 		AI:            "3261",
 		Flags:         "*?",
@@ -757,6 +862,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=326n"},
 		Title:         "WIDTH (yd)",
 	}
+	// AI3262 describes a WIDTH (yd). See also https://ref.gs1.org/ai/3262.
 	AI3262 = AIDescription{
 		AI:            "3262",
 		Flags:         "*?",
@@ -764,6 +870,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=326n"},
 		Title:         "WIDTH (yd)",
 	}
+	// AI3263 describes a WIDTH (yd). See also https://ref.gs1.org/ai/3263.
 	AI3263 = AIDescription{
 		AI:            "3263",
 		Flags:         "*?",
@@ -771,6 +878,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=326n"},
 		Title:         "WIDTH (yd)",
 	}
+	// AI3264 describes a WIDTH (yd). See also https://ref.gs1.org/ai/3264.
 	AI3264 = AIDescription{
 		AI:            "3264",
 		Flags:         "*?",
@@ -778,6 +886,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=326n"},
 		Title:         "WIDTH (yd)",
 	}
+	// AI3265 describes a WIDTH (yd). See also https://ref.gs1.org/ai/3265.
 	AI3265 = AIDescription{
 		AI:            "3265",
 		Flags:         "*?",
@@ -785,6 +894,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=326n"},
 		Title:         "WIDTH (yd)",
 	}
+	// AI3270 describes a HEIGHT (in). See also https://ref.gs1.org/ai/3270.
 	AI3270 = AIDescription{
 		AI:            "3270",
 		Flags:         "*?",
@@ -792,6 +902,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=327n"},
 		Title:         "HEIGHT (in)",
 	}
+	// AI3271 describes a HEIGHT (in). See also https://ref.gs1.org/ai/3271.
 	AI3271 = AIDescription{
 		AI:            "3271",
 		Flags:         "*?",
@@ -799,6 +910,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=327n"},
 		Title:         "HEIGHT (in)",
 	}
+	// AI3272 describes a HEIGHT (in). See also https://ref.gs1.org/ai/3272.
 	AI3272 = AIDescription{
 		AI:            "3272",
 		Flags:         "*?",
@@ -806,6 +918,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=327n"},
 		Title:         "HEIGHT (in)",
 	}
+	// AI3273 describes a HEIGHT (in). See also https://ref.gs1.org/ai/3273.
 	AI3273 = AIDescription{
 		AI:            "3273",
 		Flags:         "*?",
@@ -813,6 +926,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=327n"},
 		Title:         "HEIGHT (in)",
 	}
+	// AI3274 describes a HEIGHT (in). See also https://ref.gs1.org/ai/3274.
 	AI3274 = AIDescription{
 		AI:            "3274",
 		Flags:         "*?",
@@ -820,6 +934,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=327n"},
 		Title:         "HEIGHT (in)",
 	}
+	// AI3275 describes a HEIGHT (in). See also https://ref.gs1.org/ai/3275.
 	AI3275 = AIDescription{
 		AI:            "3275",
 		Flags:         "*?",
@@ -827,6 +942,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=327n"},
 		Title:         "HEIGHT (in)",
 	}
+	// AI3280 describes a HEIGHT (ft). See also https://ref.gs1.org/ai/3280.
 	AI3280 = AIDescription{
 		AI:            "3280",
 		Flags:         "*?",
@@ -834,6 +950,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=328n"},
 		Title:         "HEIGHT (ft)",
 	}
+	// AI3281 describes a HEIGHT (ft). See also https://ref.gs1.org/ai/3281.
 	AI3281 = AIDescription{
 		AI:            "3281",
 		Flags:         "*?",
@@ -841,6 +958,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=328n"},
 		Title:         "HEIGHT (ft)",
 	}
+	// AI3282 describes a HEIGHT (ft). See also https://ref.gs1.org/ai/3282.
 	AI3282 = AIDescription{
 		AI:            "3282",
 		Flags:         "*?",
@@ -848,6 +966,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=328n"},
 		Title:         "HEIGHT (ft)",
 	}
+	// AI3283 describes a HEIGHT (ft). See also https://ref.gs1.org/ai/3283.
 	AI3283 = AIDescription{
 		AI:            "3283",
 		Flags:         "*?",
@@ -855,6 +974,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=328n"},
 		Title:         "HEIGHT (ft)",
 	}
+	// AI3284 describes a HEIGHT (ft). See also https://ref.gs1.org/ai/3284.
 	AI3284 = AIDescription{
 		AI:            "3284",
 		Flags:         "*?",
@@ -862,6 +982,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=328n"},
 		Title:         "HEIGHT (ft)",
 	}
+	// AI3285 describes a HEIGHT (ft). See also https://ref.gs1.org/ai/3285.
 	AI3285 = AIDescription{
 		AI:            "3285",
 		Flags:         "*?",
@@ -869,6 +990,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=328n"},
 		Title:         "HEIGHT (ft)",
 	}
+	// AI3290 describes a HEIGHT (yd). See also https://ref.gs1.org/ai/3290.
 	AI3290 = AIDescription{
 		AI:            "3290",
 		Flags:         "*?",
@@ -876,6 +998,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=329n"},
 		Title:         "HEIGHT (yd)",
 	}
+	// AI3291 describes a HEIGHT (yd). See also https://ref.gs1.org/ai/3291.
 	AI3291 = AIDescription{
 		AI:            "3291",
 		Flags:         "*?",
@@ -883,6 +1006,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=329n"},
 		Title:         "HEIGHT (yd)",
 	}
+	// AI3292 describes a HEIGHT (yd). See also https://ref.gs1.org/ai/3292.
 	AI3292 = AIDescription{
 		AI:            "3292",
 		Flags:         "*?",
@@ -890,6 +1014,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=329n"},
 		Title:         "HEIGHT (yd)",
 	}
+	// AI3293 describes a HEIGHT (yd). See also https://ref.gs1.org/ai/3293.
 	AI3293 = AIDescription{
 		AI:            "3293",
 		Flags:         "*?",
@@ -897,6 +1022,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=329n"},
 		Title:         "HEIGHT (yd)",
 	}
+	// AI3294 describes a HEIGHT (yd). See also https://ref.gs1.org/ai/3294.
 	AI3294 = AIDescription{
 		AI:            "3294",
 		Flags:         "*?",
@@ -904,6 +1030,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=329n"},
 		Title:         "HEIGHT (yd)",
 	}
+	// AI3295 describes a HEIGHT (yd). See also https://ref.gs1.org/ai/3295.
 	AI3295 = AIDescription{
 		AI:            "3295",
 		Flags:         "*?",
@@ -911,6 +1038,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=329n"},
 		Title:         "HEIGHT (yd)",
 	}
+	// AI3300 describes a GROSS WEIGHT (kg). See also https://ref.gs1.org/ai/3300.
 	AI3300 = AIDescription{
 		AI:            "3300",
 		Flags:         "*?",
@@ -918,6 +1046,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=330n"},
 		Title:         "GROSS WEIGHT (kg)",
 	}
+	// AI3301 describes a GROSS WEIGHT (kg). See also https://ref.gs1.org/ai/3301.
 	AI3301 = AIDescription{
 		AI:            "3301",
 		Flags:         "*?",
@@ -925,6 +1054,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=330n"},
 		Title:         "GROSS WEIGHT (kg)",
 	}
+	// AI3302 describes a GROSS WEIGHT (kg). See also https://ref.gs1.org/ai/3302.
 	AI3302 = AIDescription{
 		AI:            "3302",
 		Flags:         "*?",
@@ -932,6 +1062,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=330n"},
 		Title:         "GROSS WEIGHT (kg)",
 	}
+	// AI3303 describes a GROSS WEIGHT (kg). See also https://ref.gs1.org/ai/3303.
 	AI3303 = AIDescription{
 		AI:            "3303",
 		Flags:         "*?",
@@ -939,6 +1070,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=330n"},
 		Title:         "GROSS WEIGHT (kg)",
 	}
+	// AI3304 describes a GROSS WEIGHT (kg). See also https://ref.gs1.org/ai/3304.
 	AI3304 = AIDescription{
 		AI:            "3304",
 		Flags:         "*?",
@@ -946,6 +1078,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=330n"},
 		Title:         "GROSS WEIGHT (kg)",
 	}
+	// AI3305 describes a GROSS WEIGHT (kg). See also https://ref.gs1.org/ai/3305.
 	AI3305 = AIDescription{
 		AI:            "3305",
 		Flags:         "*?",
@@ -953,6 +1086,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=330n"},
 		Title:         "GROSS WEIGHT (kg)",
 	}
+	// AI3310 describes a LENGTH (m), log. See also https://ref.gs1.org/ai/3310.
 	AI3310 = AIDescription{
 		AI:            "3310",
 		Flags:         "*?",
@@ -960,6 +1094,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=331n"},
 		Title:         "LENGTH (m), log",
 	}
+	// AI3311 describes a LENGTH (m), log. See also https://ref.gs1.org/ai/3311.
 	AI3311 = AIDescription{
 		AI:            "3311",
 		Flags:         "*?",
@@ -967,6 +1102,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=331n"},
 		Title:         "LENGTH (m), log",
 	}
+	// AI3312 describes a LENGTH (m), log. See also https://ref.gs1.org/ai/3312.
 	AI3312 = AIDescription{
 		AI:            "3312",
 		Flags:         "*?",
@@ -974,6 +1110,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=331n"},
 		Title:         "LENGTH (m), log",
 	}
+	// AI3313 describes a LENGTH (m), log. See also https://ref.gs1.org/ai/3313.
 	AI3313 = AIDescription{
 		AI:            "3313",
 		Flags:         "*?",
@@ -981,6 +1118,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=331n"},
 		Title:         "LENGTH (m), log",
 	}
+	// AI3314 describes a LENGTH (m), log. See also https://ref.gs1.org/ai/3314.
 	AI3314 = AIDescription{
 		AI:            "3314",
 		Flags:         "*?",
@@ -988,6 +1126,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=331n"},
 		Title:         "LENGTH (m), log",
 	}
+	// AI3315 describes a LENGTH (m), log. See also https://ref.gs1.org/ai/3315.
 	AI3315 = AIDescription{
 		AI:            "3315",
 		Flags:         "*?",
@@ -995,6 +1134,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=331n"},
 		Title:         "LENGTH (m), log",
 	}
+	// AI3320 describes a WIDTH (m), log. See also https://ref.gs1.org/ai/3320.
 	AI3320 = AIDescription{
 		AI:            "3320",
 		Flags:         "*?",
@@ -1002,6 +1142,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=332n"},
 		Title:         "WIDTH (m), log",
 	}
+	// AI3321 describes a WIDTH (m), log. See also https://ref.gs1.org/ai/3321.
 	AI3321 = AIDescription{
 		AI:            "3321",
 		Flags:         "*?",
@@ -1009,6 +1150,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=332n"},
 		Title:         "WIDTH (m), log",
 	}
+	// AI3322 describes a WIDTH (m), log. See also https://ref.gs1.org/ai/3322.
 	AI3322 = AIDescription{
 		AI:            "3322",
 		Flags:         "*?",
@@ -1016,6 +1158,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=332n"},
 		Title:         "WIDTH (m), log",
 	}
+	// AI3323 describes a WIDTH (m), log. See also https://ref.gs1.org/ai/3323.
 	AI3323 = AIDescription{
 		AI:            "3323",
 		Flags:         "*?",
@@ -1023,6 +1166,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=332n"},
 		Title:         "WIDTH (m), log",
 	}
+	// AI3324 describes a WIDTH (m), log. See also https://ref.gs1.org/ai/3324.
 	AI3324 = AIDescription{
 		AI:            "3324",
 		Flags:         "*?",
@@ -1030,6 +1174,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=332n"},
 		Title:         "WIDTH (m), log",
 	}
+	// AI3325 describes a WIDTH (m), log. See also https://ref.gs1.org/ai/3325.
 	AI3325 = AIDescription{
 		AI:            "3325",
 		Flags:         "*?",
@@ -1037,6 +1182,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=332n"},
 		Title:         "WIDTH (m), log",
 	}
+	// AI3330 describes a HEIGHT (m), log. See also https://ref.gs1.org/ai/3330.
 	AI3330 = AIDescription{
 		AI:            "3330",
 		Flags:         "*?",
@@ -1044,6 +1190,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=333n"},
 		Title:         "HEIGHT (m), log",
 	}
+	// AI3331 describes a HEIGHT (m), log. See also https://ref.gs1.org/ai/3331.
 	AI3331 = AIDescription{
 		AI:            "3331",
 		Flags:         "*?",
@@ -1051,6 +1198,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=333n"},
 		Title:         "HEIGHT (m), log",
 	}
+	// AI3332 describes a HEIGHT (m), log. See also https://ref.gs1.org/ai/3332.
 	AI3332 = AIDescription{
 		AI:            "3332",
 		Flags:         "*?",
@@ -1058,6 +1206,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=333n"},
 		Title:         "HEIGHT (m), log",
 	}
+	// AI3333 describes a HEIGHT (m), log. See also https://ref.gs1.org/ai/3333.
 	AI3333 = AIDescription{
 		AI:            "3333",
 		Flags:         "*?",
@@ -1065,6 +1214,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=333n"},
 		Title:         "HEIGHT (m), log",
 	}
+	// AI3334 describes a HEIGHT (m), log. See also https://ref.gs1.org/ai/3334.
 	AI3334 = AIDescription{
 		AI:            "3334",
 		Flags:         "*?",
@@ -1072,6 +1222,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=333n"},
 		Title:         "HEIGHT (m), log",
 	}
+	// AI3335 describes a HEIGHT (m), log. See also https://ref.gs1.org/ai/3335.
 	AI3335 = AIDescription{
 		AI:            "3335",
 		Flags:         "*?",
@@ -1079,6 +1230,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=333n"},
 		Title:         "HEIGHT (m), log",
 	}
+	// AI3340 describes a AREA (m²), log. See also https://ref.gs1.org/ai/3340.
 	AI3340 = AIDescription{
 		AI:            "3340",
 		Flags:         "*?",
@@ -1086,6 +1238,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=334n"},
 		Title:         "AREA (m²), log",
 	}
+	// AI3341 describes a AREA (m²), log. See also https://ref.gs1.org/ai/3341.
 	AI3341 = AIDescription{
 		AI:            "3341",
 		Flags:         "*?",
@@ -1093,6 +1246,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=334n"},
 		Title:         "AREA (m²), log",
 	}
+	// AI3342 describes a AREA (m²), log. See also https://ref.gs1.org/ai/3342.
 	AI3342 = AIDescription{
 		AI:            "3342",
 		Flags:         "*?",
@@ -1100,6 +1254,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=334n"},
 		Title:         "AREA (m²), log",
 	}
+	// AI3343 describes a AREA (m²), log. See also https://ref.gs1.org/ai/3343.
 	AI3343 = AIDescription{
 		AI:            "3343",
 		Flags:         "*?",
@@ -1107,6 +1262,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=334n"},
 		Title:         "AREA (m²), log",
 	}
+	// AI3344 describes a AREA (m²), log. See also https://ref.gs1.org/ai/3344.
 	AI3344 = AIDescription{
 		AI:            "3344",
 		Flags:         "*?",
@@ -1114,6 +1270,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=334n"},
 		Title:         "AREA (m²), log",
 	}
+	// AI3345 describes a AREA (m²), log. See also https://ref.gs1.org/ai/3345.
 	AI3345 = AIDescription{
 		AI:            "3345",
 		Flags:         "*?",
@@ -1121,6 +1278,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=334n"},
 		Title:         "AREA (m²), log",
 	}
+	// AI3350 describes a VOLUME (l), log. See also https://ref.gs1.org/ai/3350.
 	AI3350 = AIDescription{
 		AI:            "3350",
 		Flags:         "*?",
@@ -1128,6 +1286,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=335n"},
 		Title:         "VOLUME (l), log",
 	}
+	// AI3351 describes a VOLUME (l), log. See also https://ref.gs1.org/ai/3351.
 	AI3351 = AIDescription{
 		AI:            "3351",
 		Flags:         "*?",
@@ -1135,6 +1294,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=335n"},
 		Title:         "VOLUME (l), log",
 	}
+	// AI3352 describes a VOLUME (l), log. See also https://ref.gs1.org/ai/3352.
 	AI3352 = AIDescription{
 		AI:            "3352",
 		Flags:         "*?",
@@ -1142,6 +1302,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=335n"},
 		Title:         "VOLUME (l), log",
 	}
+	// AI3353 describes a VOLUME (l), log. See also https://ref.gs1.org/ai/3353.
 	AI3353 = AIDescription{
 		AI:            "3353",
 		Flags:         "*?",
@@ -1149,6 +1310,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=335n"},
 		Title:         "VOLUME (l), log",
 	}
+	// AI3354 describes a VOLUME (l), log. See also https://ref.gs1.org/ai/3354.
 	AI3354 = AIDescription{
 		AI:            "3354",
 		Flags:         "*?",
@@ -1156,6 +1318,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=335n"},
 		Title:         "VOLUME (l), log",
 	}
+	// AI3355 describes a VOLUME (l), log. See also https://ref.gs1.org/ai/3355.
 	AI3355 = AIDescription{
 		AI:            "3355",
 		Flags:         "*?",
@@ -1163,6 +1326,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=335n"},
 		Title:         "VOLUME (l), log",
 	}
+	// AI3360 describes a VOLUME (m³), log. See also https://ref.gs1.org/ai/3360.
 	AI3360 = AIDescription{
 		AI:            "3360",
 		Flags:         "*?",
@@ -1170,6 +1334,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=336n"},
 		Title:         "VOLUME (m³), log",
 	}
+	// AI3361 describes a VOLUME (m³), log. See also https://ref.gs1.org/ai/3361.
 	AI3361 = AIDescription{
 		AI:            "3361",
 		Flags:         "*?",
@@ -1177,6 +1342,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=336n"},
 		Title:         "VOLUME (m³), log",
 	}
+	// AI3362 describes a VOLUME (m³), log. See also https://ref.gs1.org/ai/3362.
 	AI3362 = AIDescription{
 		AI:            "3362",
 		Flags:         "*?",
@@ -1184,6 +1350,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=336n"},
 		Title:         "VOLUME (m³), log",
 	}
+	// AI3363 describes a VOLUME (m³), log. See also https://ref.gs1.org/ai/3363.
 	AI3363 = AIDescription{
 		AI:            "3363",
 		Flags:         "*?",
@@ -1191,6 +1358,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=336n"},
 		Title:         "VOLUME (m³), log",
 	}
+	// AI3364 describes a VOLUME (m³), log. See also https://ref.gs1.org/ai/3364.
 	AI3364 = AIDescription{
 		AI:            "3364",
 		Flags:         "*?",
@@ -1198,6 +1366,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=336n"},
 		Title:         "VOLUME (m³), log",
 	}
+	// AI3365 describes a VOLUME (m³), log. See also https://ref.gs1.org/ai/3365.
 	AI3365 = AIDescription{
 		AI:            "3365",
 		Flags:         "*?",
@@ -1205,6 +1374,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=336n"},
 		Title:         "VOLUME (m³), log",
 	}
+	// AI3370 describes a KG PER m². See also https://ref.gs1.org/ai/3370.
 	AI3370 = AIDescription{
 		AI:            "3370",
 		Flags:         "*?",
@@ -1212,6 +1382,7 @@ var (
 		Attributes:    []string{"req=01", "ex=337n"},
 		Title:         "KG PER m²",
 	}
+	// AI3371 describes a KG PER m². See also https://ref.gs1.org/ai/3371.
 	AI3371 = AIDescription{
 		AI:            "3371",
 		Flags:         "*?",
@@ -1219,6 +1390,7 @@ var (
 		Attributes:    []string{"req=01", "ex=337n"},
 		Title:         "KG PER m²",
 	}
+	// AI3372 describes a KG PER m². See also https://ref.gs1.org/ai/3372.
 	AI3372 = AIDescription{
 		AI:            "3372",
 		Flags:         "*?",
@@ -1226,6 +1398,7 @@ var (
 		Attributes:    []string{"req=01", "ex=337n"},
 		Title:         "KG PER m²",
 	}
+	// AI3373 describes a KG PER m². See also https://ref.gs1.org/ai/3373.
 	AI3373 = AIDescription{
 		AI:            "3373",
 		Flags:         "*?",
@@ -1233,6 +1406,7 @@ var (
 		Attributes:    []string{"req=01", "ex=337n"},
 		Title:         "KG PER m²",
 	}
+	// AI3374 describes a KG PER m². See also https://ref.gs1.org/ai/3374.
 	AI3374 = AIDescription{
 		AI:            "3374",
 		Flags:         "*?",
@@ -1240,6 +1414,7 @@ var (
 		Attributes:    []string{"req=01", "ex=337n"},
 		Title:         "KG PER m²",
 	}
+	// AI3375 describes a KG PER m². See also https://ref.gs1.org/ai/3375.
 	AI3375 = AIDescription{
 		AI:            "3375",
 		Flags:         "*?",
@@ -1247,6 +1422,7 @@ var (
 		Attributes:    []string{"req=01", "ex=337n"},
 		Title:         "KG PER m²",
 	}
+	// AI3400 describes a GROSS WEIGHT (lb). See also https://ref.gs1.org/ai/3400.
 	AI3400 = AIDescription{
 		AI:            "3400",
 		Flags:         "*?",
@@ -1254,6 +1430,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=340n"},
 		Title:         "GROSS WEIGHT (lb)",
 	}
+	// AI3401 describes a GROSS WEIGHT (lb). See also https://ref.gs1.org/ai/3401.
 	AI3401 = AIDescription{
 		AI:            "3401",
 		Flags:         "*?",
@@ -1261,6 +1438,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=340n"},
 		Title:         "GROSS WEIGHT (lb)",
 	}
+	// AI3402 describes a GROSS WEIGHT (lb). See also https://ref.gs1.org/ai/3402.
 	AI3402 = AIDescription{
 		AI:            "3402",
 		Flags:         "*?",
@@ -1268,6 +1446,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=340n"},
 		Title:         "GROSS WEIGHT (lb)",
 	}
+	// AI3403 describes a GROSS WEIGHT (lb). See also https://ref.gs1.org/ai/3403.
 	AI3403 = AIDescription{
 		AI:            "3403",
 		Flags:         "*?",
@@ -1275,6 +1454,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=340n"},
 		Title:         "GROSS WEIGHT (lb)",
 	}
+	// AI3404 describes a GROSS WEIGHT (lb). See also https://ref.gs1.org/ai/3404.
 	AI3404 = AIDescription{
 		AI:            "3404",
 		Flags:         "*?",
@@ -1282,6 +1462,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=340n"},
 		Title:         "GROSS WEIGHT (lb)",
 	}
+	// AI3405 describes a GROSS WEIGHT (lb). See also https://ref.gs1.org/ai/3405.
 	AI3405 = AIDescription{
 		AI:            "3405",
 		Flags:         "*?",
@@ -1289,6 +1470,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=340n"},
 		Title:         "GROSS WEIGHT (lb)",
 	}
+	// AI3410 describes a LENGTH (in), log. See also https://ref.gs1.org/ai/3410.
 	AI3410 = AIDescription{
 		AI:            "3410",
 		Flags:         "*?",
@@ -1296,6 +1478,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=341n"},
 		Title:         "LENGTH (in), log",
 	}
+	// AI3411 describes a LENGTH (in), log. See also https://ref.gs1.org/ai/3411.
 	AI3411 = AIDescription{
 		AI:            "3411",
 		Flags:         "*?",
@@ -1303,6 +1486,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=341n"},
 		Title:         "LENGTH (in), log",
 	}
+	// AI3412 describes a LENGTH (in), log. See also https://ref.gs1.org/ai/3412.
 	AI3412 = AIDescription{
 		AI:            "3412",
 		Flags:         "*?",
@@ -1310,6 +1494,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=341n"},
 		Title:         "LENGTH (in), log",
 	}
+	// AI3413 describes a LENGTH (in), log. See also https://ref.gs1.org/ai/3413.
 	AI3413 = AIDescription{
 		AI:            "3413",
 		Flags:         "*?",
@@ -1317,6 +1502,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=341n"},
 		Title:         "LENGTH (in), log",
 	}
+	// AI3414 describes a LENGTH (in), log. See also https://ref.gs1.org/ai/3414.
 	AI3414 = AIDescription{
 		AI:            "3414",
 		Flags:         "*?",
@@ -1324,6 +1510,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=341n"},
 		Title:         "LENGTH (in), log",
 	}
+	// AI3415 describes a LENGTH (in), log. See also https://ref.gs1.org/ai/3415.
 	AI3415 = AIDescription{
 		AI:            "3415",
 		Flags:         "*?",
@@ -1331,6 +1518,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=341n"},
 		Title:         "LENGTH (in), log",
 	}
+	// AI3420 describes a LENGTH (ft), log. See also https://ref.gs1.org/ai/3420.
 	AI3420 = AIDescription{
 		AI:            "3420",
 		Flags:         "*?",
@@ -1338,6 +1526,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=342n"},
 		Title:         "LENGTH (ft), log",
 	}
+	// AI3421 describes a LENGTH (ft), log. See also https://ref.gs1.org/ai/3421.
 	AI3421 = AIDescription{
 		AI:            "3421",
 		Flags:         "*?",
@@ -1345,6 +1534,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=342n"},
 		Title:         "LENGTH (ft), log",
 	}
+	// AI3422 describes a LENGTH (ft), log. See also https://ref.gs1.org/ai/3422.
 	AI3422 = AIDescription{
 		AI:            "3422",
 		Flags:         "*?",
@@ -1352,6 +1542,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=342n"},
 		Title:         "LENGTH (ft), log",
 	}
+	// AI3423 describes a LENGTH (ft), log. See also https://ref.gs1.org/ai/3423.
 	AI3423 = AIDescription{
 		AI:            "3423",
 		Flags:         "*?",
@@ -1359,6 +1550,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=342n"},
 		Title:         "LENGTH (ft), log",
 	}
+	// AI3424 describes a LENGTH (ft), log. See also https://ref.gs1.org/ai/3424.
 	AI3424 = AIDescription{
 		AI:            "3424",
 		Flags:         "*?",
@@ -1366,6 +1558,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=342n"},
 		Title:         "LENGTH (ft), log",
 	}
+	// AI3425 describes a LENGTH (ft), log. See also https://ref.gs1.org/ai/3425.
 	AI3425 = AIDescription{
 		AI:            "3425",
 		Flags:         "*?",
@@ -1373,6 +1566,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=342n"},
 		Title:         "LENGTH (ft), log",
 	}
+	// AI3430 describes a LENGTH (yd), log. See also https://ref.gs1.org/ai/3430.
 	AI3430 = AIDescription{
 		AI:            "3430",
 		Flags:         "*?",
@@ -1380,6 +1574,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=343n"},
 		Title:         "LENGTH (yd), log",
 	}
+	// AI3431 describes a LENGTH (yd), log. See also https://ref.gs1.org/ai/3431.
 	AI3431 = AIDescription{
 		AI:            "3431",
 		Flags:         "*?",
@@ -1387,6 +1582,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=343n"},
 		Title:         "LENGTH (yd), log",
 	}
+	// AI3432 describes a LENGTH (yd), log. See also https://ref.gs1.org/ai/3432.
 	AI3432 = AIDescription{
 		AI:            "3432",
 		Flags:         "*?",
@@ -1394,6 +1590,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=343n"},
 		Title:         "LENGTH (yd), log",
 	}
+	// AI3433 describes a LENGTH (yd), log. See also https://ref.gs1.org/ai/3433.
 	AI3433 = AIDescription{
 		AI:            "3433",
 		Flags:         "*?",
@@ -1401,6 +1598,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=343n"},
 		Title:         "LENGTH (yd), log",
 	}
+	// AI3434 describes a LENGTH (yd), log. See also https://ref.gs1.org/ai/3434.
 	AI3434 = AIDescription{
 		AI:            "3434",
 		Flags:         "*?",
@@ -1408,6 +1606,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=343n"},
 		Title:         "LENGTH (yd), log",
 	}
+	// AI3435 describes a LENGTH (yd), log. See also https://ref.gs1.org/ai/3435.
 	AI3435 = AIDescription{
 		AI:            "3435",
 		Flags:         "*?",
@@ -1415,6 +1614,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=343n"},
 		Title:         "LENGTH (yd), log",
 	}
+	// AI3440 describes a WIDTH (in), log. See also https://ref.gs1.org/ai/3440.
 	AI3440 = AIDescription{
 		AI:            "3440",
 		Flags:         "*?",
@@ -1422,6 +1622,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=344n"},
 		Title:         "WIDTH (in), log",
 	}
+	// AI3441 describes a WIDTH (in), log. See also https://ref.gs1.org/ai/3441.
 	AI3441 = AIDescription{
 		AI:            "3441",
 		Flags:         "*?",
@@ -1429,6 +1630,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=344n"},
 		Title:         "WIDTH (in), log",
 	}
+	// AI3442 describes a WIDTH (in), log. See also https://ref.gs1.org/ai/3442.
 	AI3442 = AIDescription{
 		AI:            "3442",
 		Flags:         "*?",
@@ -1436,6 +1638,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=344n"},
 		Title:         "WIDTH (in), log",
 	}
+	// AI3443 describes a WIDTH (in), log. See also https://ref.gs1.org/ai/3443.
 	AI3443 = AIDescription{
 		AI:            "3443",
 		Flags:         "*?",
@@ -1443,6 +1646,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=344n"},
 		Title:         "WIDTH (in), log",
 	}
+	// AI3444 describes a WIDTH (in), log. See also https://ref.gs1.org/ai/3444.
 	AI3444 = AIDescription{
 		AI:            "3444",
 		Flags:         "*?",
@@ -1450,6 +1654,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=344n"},
 		Title:         "WIDTH (in), log",
 	}
+	// AI3445 describes a WIDTH (in), log. See also https://ref.gs1.org/ai/3445.
 	AI3445 = AIDescription{
 		AI:            "3445",
 		Flags:         "*?",
@@ -1457,6 +1662,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=344n"},
 		Title:         "WIDTH (in), log",
 	}
+	// AI3450 describes a WIDTH (ft), log. See also https://ref.gs1.org/ai/3450.
 	AI3450 = AIDescription{
 		AI:            "3450",
 		Flags:         "*?",
@@ -1464,6 +1670,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=345n"},
 		Title:         "WIDTH (ft), log",
 	}
+	// AI3451 describes a WIDTH (ft), log. See also https://ref.gs1.org/ai/3451.
 	AI3451 = AIDescription{
 		AI:            "3451",
 		Flags:         "*?",
@@ -1471,6 +1678,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=345n"},
 		Title:         "WIDTH (ft), log",
 	}
+	// AI3452 describes a WIDTH (ft), log. See also https://ref.gs1.org/ai/3452.
 	AI3452 = AIDescription{
 		AI:            "3452",
 		Flags:         "*?",
@@ -1478,6 +1686,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=345n"},
 		Title:         "WIDTH (ft), log",
 	}
+	// AI3453 describes a WIDTH (ft), log. See also https://ref.gs1.org/ai/3453.
 	AI3453 = AIDescription{
 		AI:            "3453",
 		Flags:         "*?",
@@ -1485,6 +1694,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=345n"},
 		Title:         "WIDTH (ft), log",
 	}
+	// AI3454 describes a WIDTH (ft), log. See also https://ref.gs1.org/ai/3454.
 	AI3454 = AIDescription{
 		AI:            "3454",
 		Flags:         "*?",
@@ -1492,6 +1702,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=345n"},
 		Title:         "WIDTH (ft), log",
 	}
+	// AI3455 describes a WIDTH (ft), log. See also https://ref.gs1.org/ai/3455.
 	AI3455 = AIDescription{
 		AI:            "3455",
 		Flags:         "*?",
@@ -1499,6 +1710,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=345n"},
 		Title:         "WIDTH (ft), log",
 	}
+	// AI3460 describes a WIDTH (yd), log. See also https://ref.gs1.org/ai/3460.
 	AI3460 = AIDescription{
 		AI:            "3460",
 		Flags:         "*?",
@@ -1506,6 +1718,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=346n"},
 		Title:         "WIDTH (yd), log",
 	}
+	// AI3461 describes a WIDTH (yd), log. See also https://ref.gs1.org/ai/3461.
 	AI3461 = AIDescription{
 		AI:            "3461",
 		Flags:         "*?",
@@ -1513,6 +1726,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=346n"},
 		Title:         "WIDTH (yd), log",
 	}
+	// AI3462 describes a WIDTH (yd), log. See also https://ref.gs1.org/ai/3462.
 	AI3462 = AIDescription{
 		AI:            "3462",
 		Flags:         "*?",
@@ -1520,6 +1734,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=346n"},
 		Title:         "WIDTH (yd), log",
 	}
+	// AI3463 describes a WIDTH (yd), log. See also https://ref.gs1.org/ai/3463.
 	AI3463 = AIDescription{
 		AI:            "3463",
 		Flags:         "*?",
@@ -1527,6 +1742,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=346n"},
 		Title:         "WIDTH (yd), log",
 	}
+	// AI3464 describes a WIDTH (yd), log. See also https://ref.gs1.org/ai/3464.
 	AI3464 = AIDescription{
 		AI:            "3464",
 		Flags:         "*?",
@@ -1534,6 +1750,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=346n"},
 		Title:         "WIDTH (yd), log",
 	}
+	// AI3465 describes a WIDTH (yd), log. See also https://ref.gs1.org/ai/3465.
 	AI3465 = AIDescription{
 		AI:            "3465",
 		Flags:         "*?",
@@ -1541,6 +1758,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=346n"},
 		Title:         "WIDTH (yd), log",
 	}
+	// AI3470 describes a HEIGHT (in), log. See also https://ref.gs1.org/ai/3470.
 	AI3470 = AIDescription{
 		AI:            "3470",
 		Flags:         "*?",
@@ -1548,6 +1766,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=347n"},
 		Title:         "HEIGHT (in), log",
 	}
+	// AI3471 describes a HEIGHT (in), log. See also https://ref.gs1.org/ai/3471.
 	AI3471 = AIDescription{
 		AI:            "3471",
 		Flags:         "*?",
@@ -1555,6 +1774,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=347n"},
 		Title:         "HEIGHT (in), log",
 	}
+	// AI3472 describes a HEIGHT (in), log. See also https://ref.gs1.org/ai/3472.
 	AI3472 = AIDescription{
 		AI:            "3472",
 		Flags:         "*?",
@@ -1562,6 +1782,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=347n"},
 		Title:         "HEIGHT (in), log",
 	}
+	// AI3473 describes a HEIGHT (in), log. See also https://ref.gs1.org/ai/3473.
 	AI3473 = AIDescription{
 		AI:            "3473",
 		Flags:         "*?",
@@ -1569,6 +1790,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=347n"},
 		Title:         "HEIGHT (in), log",
 	}
+	// AI3474 describes a HEIGHT (in), log. See also https://ref.gs1.org/ai/3474.
 	AI3474 = AIDescription{
 		AI:            "3474",
 		Flags:         "*?",
@@ -1576,6 +1798,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=347n"},
 		Title:         "HEIGHT (in), log",
 	}
+	// AI3475 describes a HEIGHT (in), log. See also https://ref.gs1.org/ai/3475.
 	AI3475 = AIDescription{
 		AI:            "3475",
 		Flags:         "*?",
@@ -1583,6 +1806,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=347n"},
 		Title:         "HEIGHT (in), log",
 	}
+	// AI3480 describes a HEIGHT (ft), log. See also https://ref.gs1.org/ai/3480.
 	AI3480 = AIDescription{
 		AI:            "3480",
 		Flags:         "*?",
@@ -1590,6 +1814,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=348n"},
 		Title:         "HEIGHT (ft), log",
 	}
+	// AI3481 describes a HEIGHT (ft), log. See also https://ref.gs1.org/ai/3481.
 	AI3481 = AIDescription{
 		AI:            "3481",
 		Flags:         "*?",
@@ -1597,6 +1822,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=348n"},
 		Title:         "HEIGHT (ft), log",
 	}
+	// AI3482 describes a HEIGHT (ft), log. See also https://ref.gs1.org/ai/3482.
 	AI3482 = AIDescription{
 		AI:            "3482",
 		Flags:         "*?",
@@ -1604,6 +1830,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=348n"},
 		Title:         "HEIGHT (ft), log",
 	}
+	// AI3483 describes a HEIGHT (ft), log. See also https://ref.gs1.org/ai/3483.
 	AI3483 = AIDescription{
 		AI:            "3483",
 		Flags:         "*?",
@@ -1611,6 +1838,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=348n"},
 		Title:         "HEIGHT (ft), log",
 	}
+	// AI3484 describes a HEIGHT (ft), log. See also https://ref.gs1.org/ai/3484.
 	AI3484 = AIDescription{
 		AI:            "3484",
 		Flags:         "*?",
@@ -1618,6 +1846,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=348n"},
 		Title:         "HEIGHT (ft), log",
 	}
+	// AI3485 describes a HEIGHT (ft), log. See also https://ref.gs1.org/ai/3485.
 	AI3485 = AIDescription{
 		AI:            "3485",
 		Flags:         "*?",
@@ -1625,6 +1854,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=348n"},
 		Title:         "HEIGHT (ft), log",
 	}
+	// AI3490 describes a HEIGHT (yd), log. See also https://ref.gs1.org/ai/3490.
 	AI3490 = AIDescription{
 		AI:            "3490",
 		Flags:         "*?",
@@ -1632,6 +1862,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=349n"},
 		Title:         "HEIGHT (yd), log",
 	}
+	// AI3491 describes a HEIGHT (yd), log. See also https://ref.gs1.org/ai/3491.
 	AI3491 = AIDescription{
 		AI:            "3491",
 		Flags:         "*?",
@@ -1639,6 +1870,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=349n"},
 		Title:         "HEIGHT (yd), log",
 	}
+	// AI3492 describes a HEIGHT (yd), log. See also https://ref.gs1.org/ai/3492.
 	AI3492 = AIDescription{
 		AI:            "3492",
 		Flags:         "*?",
@@ -1646,6 +1878,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=349n"},
 		Title:         "HEIGHT (yd), log",
 	}
+	// AI3493 describes a HEIGHT (yd), log. See also https://ref.gs1.org/ai/3493.
 	AI3493 = AIDescription{
 		AI:            "3493",
 		Flags:         "*?",
@@ -1653,6 +1886,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=349n"},
 		Title:         "HEIGHT (yd), log",
 	}
+	// AI3494 describes a HEIGHT (yd), log. See also https://ref.gs1.org/ai/3494.
 	AI3494 = AIDescription{
 		AI:            "3494",
 		Flags:         "*?",
@@ -1660,6 +1894,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=349n"},
 		Title:         "HEIGHT (yd), log",
 	}
+	// AI3495 describes a HEIGHT (yd), log. See also https://ref.gs1.org/ai/3495.
 	AI3495 = AIDescription{
 		AI:            "3495",
 		Flags:         "*?",
@@ -1667,6 +1902,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=349n"},
 		Title:         "HEIGHT (yd), log",
 	}
+	// AI3500 describes a AREA (in²). See also https://ref.gs1.org/ai/3500.
 	AI3500 = AIDescription{
 		AI:            "3500",
 		Flags:         "*?",
@@ -1674,6 +1910,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=350n"},
 		Title:         "AREA (in²)",
 	}
+	// AI3501 describes a AREA (in²). See also https://ref.gs1.org/ai/3501.
 	AI3501 = AIDescription{
 		AI:            "3501",
 		Flags:         "*?",
@@ -1681,6 +1918,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=350n"},
 		Title:         "AREA (in²)",
 	}
+	// AI3502 describes a AREA (in²). See also https://ref.gs1.org/ai/3502.
 	AI3502 = AIDescription{
 		AI:            "3502",
 		Flags:         "*?",
@@ -1688,6 +1926,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=350n"},
 		Title:         "AREA (in²)",
 	}
+	// AI3503 describes a AREA (in²). See also https://ref.gs1.org/ai/3503.
 	AI3503 = AIDescription{
 		AI:            "3503",
 		Flags:         "*?",
@@ -1695,6 +1934,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=350n"},
 		Title:         "AREA (in²)",
 	}
+	// AI3504 describes a AREA (in²). See also https://ref.gs1.org/ai/3504.
 	AI3504 = AIDescription{
 		AI:            "3504",
 		Flags:         "*?",
@@ -1702,6 +1942,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=350n"},
 		Title:         "AREA (in²)",
 	}
+	// AI3505 describes a AREA (in²). See also https://ref.gs1.org/ai/3505.
 	AI3505 = AIDescription{
 		AI:            "3505",
 		Flags:         "*?",
@@ -1709,6 +1950,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=350n"},
 		Title:         "AREA (in²)",
 	}
+	// AI3510 describes a AREA (ft²). See also https://ref.gs1.org/ai/3510.
 	AI3510 = AIDescription{
 		AI:            "3510",
 		Flags:         "*?",
@@ -1716,6 +1958,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=351n"},
 		Title:         "AREA (ft²)",
 	}
+	// AI3511 describes a AREA (ft²). See also https://ref.gs1.org/ai/3511.
 	AI3511 = AIDescription{
 		AI:            "3511",
 		Flags:         "*?",
@@ -1723,6 +1966,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=351n"},
 		Title:         "AREA (ft²)",
 	}
+	// AI3512 describes a AREA (ft²). See also https://ref.gs1.org/ai/3512.
 	AI3512 = AIDescription{
 		AI:            "3512",
 		Flags:         "*?",
@@ -1730,6 +1974,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=351n"},
 		Title:         "AREA (ft²)",
 	}
+	// AI3513 describes a AREA (ft²). See also https://ref.gs1.org/ai/3513.
 	AI3513 = AIDescription{
 		AI:            "3513",
 		Flags:         "*?",
@@ -1737,6 +1982,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=351n"},
 		Title:         "AREA (ft²)",
 	}
+	// AI3514 describes a AREA (ft²). See also https://ref.gs1.org/ai/3514.
 	AI3514 = AIDescription{
 		AI:            "3514",
 		Flags:         "*?",
@@ -1744,6 +1990,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=351n"},
 		Title:         "AREA (ft²)",
 	}
+	// AI3515 describes a AREA (ft²). See also https://ref.gs1.org/ai/3515.
 	AI3515 = AIDescription{
 		AI:            "3515",
 		Flags:         "*?",
@@ -1751,6 +1998,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=351n"},
 		Title:         "AREA (ft²)",
 	}
+	// AI3520 describes a AREA (yd²). See also https://ref.gs1.org/ai/3520.
 	AI3520 = AIDescription{
 		AI:            "3520",
 		Flags:         "*?",
@@ -1758,6 +2006,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=352n"},
 		Title:         "AREA (yd²)",
 	}
+	// AI3521 describes a AREA (yd²). See also https://ref.gs1.org/ai/3521.
 	AI3521 = AIDescription{
 		AI:            "3521",
 		Flags:         "*?",
@@ -1765,6 +2014,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=352n"},
 		Title:         "AREA (yd²)",
 	}
+	// AI3522 describes a AREA (yd²). See also https://ref.gs1.org/ai/3522.
 	AI3522 = AIDescription{
 		AI:            "3522",
 		Flags:         "*?",
@@ -1772,6 +2022,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=352n"},
 		Title:         "AREA (yd²)",
 	}
+	// AI3523 describes a AREA (yd²). See also https://ref.gs1.org/ai/3523.
 	AI3523 = AIDescription{
 		AI:            "3523",
 		Flags:         "*?",
@@ -1779,6 +2030,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=352n"},
 		Title:         "AREA (yd²)",
 	}
+	// AI3524 describes a AREA (yd²). See also https://ref.gs1.org/ai/3524.
 	AI3524 = AIDescription{
 		AI:            "3524",
 		Flags:         "*?",
@@ -1786,6 +2038,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=352n"},
 		Title:         "AREA (yd²)",
 	}
+	// AI3525 describes a AREA (yd²). See also https://ref.gs1.org/ai/3525.
 	AI3525 = AIDescription{
 		AI:            "3525",
 		Flags:         "*?",
@@ -1793,6 +2046,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=352n"},
 		Title:         "AREA (yd²)",
 	}
+	// AI3530 describes a AREA (in²), log. See also https://ref.gs1.org/ai/3530.
 	AI3530 = AIDescription{
 		AI:            "3530",
 		Flags:         "*?",
@@ -1800,6 +2054,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=353n"},
 		Title:         "AREA (in²), log",
 	}
+	// AI3531 describes a AREA (in²), log. See also https://ref.gs1.org/ai/3531.
 	AI3531 = AIDescription{
 		AI:            "3531",
 		Flags:         "*?",
@@ -1807,6 +2062,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=353n"},
 		Title:         "AREA (in²), log",
 	}
+	// AI3532 describes a AREA (in²), log. See also https://ref.gs1.org/ai/3532.
 	AI3532 = AIDescription{
 		AI:            "3532",
 		Flags:         "*?",
@@ -1814,6 +2070,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=353n"},
 		Title:         "AREA (in²), log",
 	}
+	// AI3533 describes a AREA (in²), log. See also https://ref.gs1.org/ai/3533.
 	AI3533 = AIDescription{
 		AI:            "3533",
 		Flags:         "*?",
@@ -1821,6 +2078,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=353n"},
 		Title:         "AREA (in²), log",
 	}
+	// AI3534 describes a AREA (in²), log. See also https://ref.gs1.org/ai/3534.
 	AI3534 = AIDescription{
 		AI:            "3534",
 		Flags:         "*?",
@@ -1828,6 +2086,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=353n"},
 		Title:         "AREA (in²), log",
 	}
+	// AI3535 describes a AREA (in²), log. See also https://ref.gs1.org/ai/3535.
 	AI3535 = AIDescription{
 		AI:            "3535",
 		Flags:         "*?",
@@ -1835,6 +2094,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=353n"},
 		Title:         "AREA (in²), log",
 	}
+	// AI3540 describes a AREA (ft²), log. See also https://ref.gs1.org/ai/3540.
 	AI3540 = AIDescription{
 		AI:            "3540",
 		Flags:         "*?",
@@ -1842,6 +2102,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=354n"},
 		Title:         "AREA (ft²), log",
 	}
+	// AI3541 describes a AREA (ft²), log. See also https://ref.gs1.org/ai/3541.
 	AI3541 = AIDescription{
 		AI:            "3541",
 		Flags:         "*?",
@@ -1849,6 +2110,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=354n"},
 		Title:         "AREA (ft²), log",
 	}
+	// AI3542 describes a AREA (ft²), log. See also https://ref.gs1.org/ai/3542.
 	AI3542 = AIDescription{
 		AI:            "3542",
 		Flags:         "*?",
@@ -1856,6 +2118,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=354n"},
 		Title:         "AREA (ft²), log",
 	}
+	// AI3543 describes a AREA (ft²), log. See also https://ref.gs1.org/ai/3543.
 	AI3543 = AIDescription{
 		AI:            "3543",
 		Flags:         "*?",
@@ -1863,6 +2126,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=354n"},
 		Title:         "AREA (ft²), log",
 	}
+	// AI3544 describes a AREA (ft²), log. See also https://ref.gs1.org/ai/3544.
 	AI3544 = AIDescription{
 		AI:            "3544",
 		Flags:         "*?",
@@ -1870,6 +2134,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=354n"},
 		Title:         "AREA (ft²), log",
 	}
+	// AI3545 describes a AREA (ft²), log. See also https://ref.gs1.org/ai/3545.
 	AI3545 = AIDescription{
 		AI:            "3545",
 		Flags:         "*?",
@@ -1877,6 +2142,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=354n"},
 		Title:         "AREA (ft²), log",
 	}
+	// AI3550 describes a AREA (yd²), log. See also https://ref.gs1.org/ai/3550.
 	AI3550 = AIDescription{
 		AI:            "3550",
 		Flags:         "*?",
@@ -1884,6 +2150,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=355n"},
 		Title:         "AREA (yd²), log",
 	}
+	// AI3551 describes a AREA (yd²), log. See also https://ref.gs1.org/ai/3551.
 	AI3551 = AIDescription{
 		AI:            "3551",
 		Flags:         "*?",
@@ -1891,6 +2158,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=355n"},
 		Title:         "AREA (yd²), log",
 	}
+	// AI3552 describes a AREA (yd²), log. See also https://ref.gs1.org/ai/3552.
 	AI3552 = AIDescription{
 		AI:            "3552",
 		Flags:         "*?",
@@ -1898,6 +2166,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=355n"},
 		Title:         "AREA (yd²), log",
 	}
+	// AI3553 describes a AREA (yd²), log. See also https://ref.gs1.org/ai/3553.
 	AI3553 = AIDescription{
 		AI:            "3553",
 		Flags:         "*?",
@@ -1905,6 +2174,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=355n"},
 		Title:         "AREA (yd²), log",
 	}
+	// AI3554 describes a AREA (yd²), log. See also https://ref.gs1.org/ai/3554.
 	AI3554 = AIDescription{
 		AI:            "3554",
 		Flags:         "*?",
@@ -1912,6 +2182,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=355n"},
 		Title:         "AREA (yd²), log",
 	}
+	// AI3555 describes a AREA (yd²), log. See also https://ref.gs1.org/ai/3555.
 	AI3555 = AIDescription{
 		AI:            "3555",
 		Flags:         "*?",
@@ -1919,6 +2190,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=355n"},
 		Title:         "AREA (yd²), log",
 	}
+	// AI3560 describes a NET WEIGHT (t oz). See also https://ref.gs1.org/ai/3560.
 	AI3560 = AIDescription{
 		AI:            "3560",
 		Flags:         "*?",
@@ -1926,6 +2198,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=356n"},
 		Title:         "NET WEIGHT (t oz)",
 	}
+	// AI3561 describes a NET WEIGHT (t oz). See also https://ref.gs1.org/ai/3561.
 	AI3561 = AIDescription{
 		AI:            "3561",
 		Flags:         "*?",
@@ -1933,6 +2206,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=356n"},
 		Title:         "NET WEIGHT (t oz)",
 	}
+	// AI3562 describes a NET WEIGHT (t oz). See also https://ref.gs1.org/ai/3562.
 	AI3562 = AIDescription{
 		AI:            "3562",
 		Flags:         "*?",
@@ -1940,6 +2214,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=356n"},
 		Title:         "NET WEIGHT (t oz)",
 	}
+	// AI3563 describes a NET WEIGHT (t oz). See also https://ref.gs1.org/ai/3563.
 	AI3563 = AIDescription{
 		AI:            "3563",
 		Flags:         "*?",
@@ -1947,6 +2222,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=356n"},
 		Title:         "NET WEIGHT (t oz)",
 	}
+	// AI3564 describes a NET WEIGHT (t oz). See also https://ref.gs1.org/ai/3564.
 	AI3564 = AIDescription{
 		AI:            "3564",
 		Flags:         "*?",
@@ -1954,6 +2230,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=356n"},
 		Title:         "NET WEIGHT (t oz)",
 	}
+	// AI3565 describes a NET WEIGHT (t oz). See also https://ref.gs1.org/ai/3565.
 	AI3565 = AIDescription{
 		AI:            "3565",
 		Flags:         "*?",
@@ -1961,6 +2238,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=356n"},
 		Title:         "NET WEIGHT (t oz)",
 	}
+	// AI3570 describes a NET VOLUME (oz). See also https://ref.gs1.org/ai/3570.
 	AI3570 = AIDescription{
 		AI:            "3570",
 		Flags:         "*?",
@@ -1968,6 +2246,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=357n"},
 		Title:         "NET VOLUME (oz)",
 	}
+	// AI3571 describes a NET VOLUME (oz). See also https://ref.gs1.org/ai/3571.
 	AI3571 = AIDescription{
 		AI:            "3571",
 		Flags:         "*?",
@@ -1975,6 +2254,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=357n"},
 		Title:         "NET VOLUME (oz)",
 	}
+	// AI3572 describes a NET VOLUME (oz). See also https://ref.gs1.org/ai/3572.
 	AI3572 = AIDescription{
 		AI:            "3572",
 		Flags:         "*?",
@@ -1982,6 +2262,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=357n"},
 		Title:         "NET VOLUME (oz)",
 	}
+	// AI3573 describes a NET VOLUME (oz). See also https://ref.gs1.org/ai/3573.
 	AI3573 = AIDescription{
 		AI:            "3573",
 		Flags:         "*?",
@@ -1989,6 +2270,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=357n"},
 		Title:         "NET VOLUME (oz)",
 	}
+	// AI3574 describes a NET VOLUME (oz). See also https://ref.gs1.org/ai/3574.
 	AI3574 = AIDescription{
 		AI:            "3574",
 		Flags:         "*?",
@@ -1996,6 +2278,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=357n"},
 		Title:         "NET VOLUME (oz)",
 	}
+	// AI3575 describes a NET VOLUME (oz). See also https://ref.gs1.org/ai/3575.
 	AI3575 = AIDescription{
 		AI:            "3575",
 		Flags:         "*?",
@@ -2003,6 +2286,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=357n"},
 		Title:         "NET VOLUME (oz)",
 	}
+	// AI3600 describes a NET VOLUME (qt). See also https://ref.gs1.org/ai/3600.
 	AI3600 = AIDescription{
 		AI:            "3600",
 		Flags:         "*?",
@@ -2010,6 +2294,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=360n"},
 		Title:         "NET VOLUME (qt)",
 	}
+	// AI3601 describes a NET VOLUME (qt). See also https://ref.gs1.org/ai/3601.
 	AI3601 = AIDescription{
 		AI:            "3601",
 		Flags:         "*?",
@@ -2017,6 +2302,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=360n"},
 		Title:         "NET VOLUME (qt)",
 	}
+	// AI3602 describes a NET VOLUME (qt). See also https://ref.gs1.org/ai/3602.
 	AI3602 = AIDescription{
 		AI:            "3602",
 		Flags:         "*?",
@@ -2024,6 +2310,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=360n"},
 		Title:         "NET VOLUME (qt)",
 	}
+	// AI3603 describes a NET VOLUME (qt). See also https://ref.gs1.org/ai/3603.
 	AI3603 = AIDescription{
 		AI:            "3603",
 		Flags:         "*?",
@@ -2031,6 +2318,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=360n"},
 		Title:         "NET VOLUME (qt)",
 	}
+	// AI3604 describes a NET VOLUME (qt). See also https://ref.gs1.org/ai/3604.
 	AI3604 = AIDescription{
 		AI:            "3604",
 		Flags:         "*?",
@@ -2038,6 +2326,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=360n"},
 		Title:         "NET VOLUME (qt)",
 	}
+	// AI3605 describes a NET VOLUME (qt). See also https://ref.gs1.org/ai/3605.
 	AI3605 = AIDescription{
 		AI:            "3605",
 		Flags:         "*?",
@@ -2045,6 +2334,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=360n"},
 		Title:         "NET VOLUME (qt)",
 	}
+	// AI3610 describes a NET VOLUME (gal.). See also https://ref.gs1.org/ai/3610.
 	AI3610 = AIDescription{
 		AI:            "3610",
 		Flags:         "*?",
@@ -2052,6 +2342,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=361n"},
 		Title:         "NET VOLUME (gal.)",
 	}
+	// AI3611 describes a NET VOLUME (gal.). See also https://ref.gs1.org/ai/3611.
 	AI3611 = AIDescription{
 		AI:            "3611",
 		Flags:         "*?",
@@ -2059,6 +2350,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=361n"},
 		Title:         "NET VOLUME (gal.)",
 	}
+	// AI3612 describes a NET VOLUME (gal.). See also https://ref.gs1.org/ai/3612.
 	AI3612 = AIDescription{
 		AI:            "3612",
 		Flags:         "*?",
@@ -2066,6 +2358,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=361n"},
 		Title:         "NET VOLUME (gal.)",
 	}
+	// AI3613 describes a NET VOLUME (gal.). See also https://ref.gs1.org/ai/3613.
 	AI3613 = AIDescription{
 		AI:            "3613",
 		Flags:         "*?",
@@ -2073,6 +2366,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=361n"},
 		Title:         "NET VOLUME (gal.)",
 	}
+	// AI3614 describes a NET VOLUME (gal.). See also https://ref.gs1.org/ai/3614.
 	AI3614 = AIDescription{
 		AI:            "3614",
 		Flags:         "*?",
@@ -2080,6 +2374,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=361n"},
 		Title:         "NET VOLUME (gal.)",
 	}
+	// AI3615 describes a NET VOLUME (gal.). See also https://ref.gs1.org/ai/3615.
 	AI3615 = AIDescription{
 		AI:            "3615",
 		Flags:         "*?",
@@ -2087,6 +2382,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=361n"},
 		Title:         "NET VOLUME (gal.)",
 	}
+	// AI3620 describes a VOLUME (qt), log. See also https://ref.gs1.org/ai/3620.
 	AI3620 = AIDescription{
 		AI:            "3620",
 		Flags:         "*?",
@@ -2094,6 +2390,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=362n"},
 		Title:         "VOLUME (qt), log",
 	}
+	// AI3621 describes a VOLUME (qt), log. See also https://ref.gs1.org/ai/3621.
 	AI3621 = AIDescription{
 		AI:            "3621",
 		Flags:         "*?",
@@ -2101,6 +2398,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=362n"},
 		Title:         "VOLUME (qt), log",
 	}
+	// AI3622 describes a VOLUME (qt), log. See also https://ref.gs1.org/ai/3622.
 	AI3622 = AIDescription{
 		AI:            "3622",
 		Flags:         "*?",
@@ -2108,6 +2406,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=362n"},
 		Title:         "VOLUME (qt), log",
 	}
+	// AI3623 describes a VOLUME (qt), log. See also https://ref.gs1.org/ai/3623.
 	AI3623 = AIDescription{
 		AI:            "3623",
 		Flags:         "*?",
@@ -2115,6 +2414,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=362n"},
 		Title:         "VOLUME (qt), log",
 	}
+	// AI3624 describes a VOLUME (qt), log. See also https://ref.gs1.org/ai/3624.
 	AI3624 = AIDescription{
 		AI:            "3624",
 		Flags:         "*?",
@@ -2122,6 +2422,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=362n"},
 		Title:         "VOLUME (qt), log",
 	}
+	// AI3625 describes a VOLUME (qt), log. See also https://ref.gs1.org/ai/3625.
 	AI3625 = AIDescription{
 		AI:            "3625",
 		Flags:         "*?",
@@ -2129,6 +2430,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=362n"},
 		Title:         "VOLUME (qt), log",
 	}
+	// AI3630 describes a VOLUME (gal.), log. See also https://ref.gs1.org/ai/3630.
 	AI3630 = AIDescription{
 		AI:            "3630",
 		Flags:         "*?",
@@ -2136,6 +2438,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=363n"},
 		Title:         "VOLUME (gal.), log",
 	}
+	// AI3631 describes a VOLUME (gal.), log. See also https://ref.gs1.org/ai/3631.
 	AI3631 = AIDescription{
 		AI:            "3631",
 		Flags:         "*?",
@@ -2143,6 +2446,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=363n"},
 		Title:         "VOLUME (gal.), log",
 	}
+	// AI3632 describes a VOLUME (gal.), log. See also https://ref.gs1.org/ai/3632.
 	AI3632 = AIDescription{
 		AI:            "3632",
 		Flags:         "*?",
@@ -2150,6 +2454,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=363n"},
 		Title:         "VOLUME (gal.), log",
 	}
+	// AI3633 describes a VOLUME (gal.), log. See also https://ref.gs1.org/ai/3633.
 	AI3633 = AIDescription{
 		AI:            "3633",
 		Flags:         "*?",
@@ -2157,6 +2462,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=363n"},
 		Title:         "VOLUME (gal.), log",
 	}
+	// AI3634 describes a VOLUME (gal.), log. See also https://ref.gs1.org/ai/3634.
 	AI3634 = AIDescription{
 		AI:            "3634",
 		Flags:         "*?",
@@ -2164,6 +2470,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=363n"},
 		Title:         "VOLUME (gal.), log",
 	}
+	// AI3635 describes a VOLUME (gal.), log. See also https://ref.gs1.org/ai/3635.
 	AI3635 = AIDescription{
 		AI:            "3635",
 		Flags:         "*?",
@@ -2171,6 +2478,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=363n"},
 		Title:         "VOLUME (gal.), log",
 	}
+	// AI3640 describes a VOLUME (in³). See also https://ref.gs1.org/ai/3640.
 	AI3640 = AIDescription{
 		AI:            "3640",
 		Flags:         "*?",
@@ -2178,6 +2486,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=364n"},
 		Title:         "VOLUME (in³)",
 	}
+	// AI3641 describes a VOLUME (in³). See also https://ref.gs1.org/ai/3641.
 	AI3641 = AIDescription{
 		AI:            "3641",
 		Flags:         "*?",
@@ -2185,6 +2494,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=364n"},
 		Title:         "VOLUME (in³)",
 	}
+	// AI3642 describes a VOLUME (in³). See also https://ref.gs1.org/ai/3642.
 	AI3642 = AIDescription{
 		AI:            "3642",
 		Flags:         "*?",
@@ -2192,6 +2502,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=364n"},
 		Title:         "VOLUME (in³)",
 	}
+	// AI3643 describes a VOLUME (in³). See also https://ref.gs1.org/ai/3643.
 	AI3643 = AIDescription{
 		AI:            "3643",
 		Flags:         "*?",
@@ -2199,6 +2510,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=364n"},
 		Title:         "VOLUME (in³)",
 	}
+	// AI3644 describes a VOLUME (in³). See also https://ref.gs1.org/ai/3644.
 	AI3644 = AIDescription{
 		AI:            "3644",
 		Flags:         "*?",
@@ -2206,6 +2518,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=364n"},
 		Title:         "VOLUME (in³)",
 	}
+	// AI3645 describes a VOLUME (in³). See also https://ref.gs1.org/ai/3645.
 	AI3645 = AIDescription{
 		AI:            "3645",
 		Flags:         "*?",
@@ -2213,6 +2526,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=364n"},
 		Title:         "VOLUME (in³)",
 	}
+	// AI3650 describes a VOLUME (ft³). See also https://ref.gs1.org/ai/3650.
 	AI3650 = AIDescription{
 		AI:            "3650",
 		Flags:         "*?",
@@ -2220,6 +2534,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=365n"},
 		Title:         "VOLUME (ft³)",
 	}
+	// AI3651 describes a VOLUME (ft³). See also https://ref.gs1.org/ai/3651.
 	AI3651 = AIDescription{
 		AI:            "3651",
 		Flags:         "*?",
@@ -2227,6 +2542,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=365n"},
 		Title:         "VOLUME (ft³)",
 	}
+	// AI3652 describes a VOLUME (ft³). See also https://ref.gs1.org/ai/3652.
 	AI3652 = AIDescription{
 		AI:            "3652",
 		Flags:         "*?",
@@ -2234,6 +2550,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=365n"},
 		Title:         "VOLUME (ft³)",
 	}
+	// AI3653 describes a VOLUME (ft³). See also https://ref.gs1.org/ai/3653.
 	AI3653 = AIDescription{
 		AI:            "3653",
 		Flags:         "*?",
@@ -2241,6 +2558,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=365n"},
 		Title:         "VOLUME (ft³)",
 	}
+	// AI3654 describes a VOLUME (ft³). See also https://ref.gs1.org/ai/3654.
 	AI3654 = AIDescription{
 		AI:            "3654",
 		Flags:         "*?",
@@ -2248,6 +2566,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=365n"},
 		Title:         "VOLUME (ft³)",
 	}
+	// AI3655 describes a VOLUME (ft³). See also https://ref.gs1.org/ai/3655.
 	AI3655 = AIDescription{
 		AI:            "3655",
 		Flags:         "*?",
@@ -2255,6 +2574,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=365n"},
 		Title:         "VOLUME (ft³)",
 	}
+	// AI3660 describes a VOLUME (yd³). See also https://ref.gs1.org/ai/3660.
 	AI3660 = AIDescription{
 		AI:            "3660",
 		Flags:         "*?",
@@ -2262,6 +2582,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=366n"},
 		Title:         "VOLUME (yd³)",
 	}
+	// AI3661 describes a VOLUME (yd³). See also https://ref.gs1.org/ai/3661.
 	AI3661 = AIDescription{
 		AI:            "3661",
 		Flags:         "*?",
@@ -2269,6 +2590,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=366n"},
 		Title:         "VOLUME (yd³)",
 	}
+	// AI3662 describes a VOLUME (yd³). See also https://ref.gs1.org/ai/3662.
 	AI3662 = AIDescription{
 		AI:            "3662",
 		Flags:         "*?",
@@ -2276,6 +2598,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=366n"},
 		Title:         "VOLUME (yd³)",
 	}
+	// AI3663 describes a VOLUME (yd³). See also https://ref.gs1.org/ai/3663.
 	AI3663 = AIDescription{
 		AI:            "3663",
 		Flags:         "*?",
@@ -2283,6 +2606,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=366n"},
 		Title:         "VOLUME (yd³)",
 	}
+	// AI3664 describes a VOLUME (yd³). See also https://ref.gs1.org/ai/3664.
 	AI3664 = AIDescription{
 		AI:            "3664",
 		Flags:         "*?",
@@ -2290,6 +2614,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=366n"},
 		Title:         "VOLUME (yd³)",
 	}
+	// AI3665 describes a VOLUME (yd³). See also https://ref.gs1.org/ai/3665.
 	AI3665 = AIDescription{
 		AI:            "3665",
 		Flags:         "*?",
@@ -2297,6 +2622,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=366n"},
 		Title:         "VOLUME (yd³)",
 	}
+	// AI3670 describes a VOLUME (in³), log. See also https://ref.gs1.org/ai/3670.
 	AI3670 = AIDescription{
 		AI:            "3670",
 		Flags:         "*?",
@@ -2304,6 +2630,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=367n"},
 		Title:         "VOLUME (in³), log",
 	}
+	// AI3671 describes a VOLUME (in³), log. See also https://ref.gs1.org/ai/3671.
 	AI3671 = AIDescription{
 		AI:            "3671",
 		Flags:         "*?",
@@ -2311,6 +2638,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=367n"},
 		Title:         "VOLUME (in³), log",
 	}
+	// AI3672 describes a VOLUME (in³), log. See also https://ref.gs1.org/ai/3672.
 	AI3672 = AIDescription{
 		AI:            "3672",
 		Flags:         "*?",
@@ -2318,6 +2646,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=367n"},
 		Title:         "VOLUME (in³), log",
 	}
+	// AI3673 describes a VOLUME (in³), log. See also https://ref.gs1.org/ai/3673.
 	AI3673 = AIDescription{
 		AI:            "3673",
 		Flags:         "*?",
@@ -2325,6 +2654,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=367n"},
 		Title:         "VOLUME (in³), log",
 	}
+	// AI3674 describes a VOLUME (in³), log. See also https://ref.gs1.org/ai/3674.
 	AI3674 = AIDescription{
 		AI:            "3674",
 		Flags:         "*?",
@@ -2332,6 +2662,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=367n"},
 		Title:         "VOLUME (in³), log",
 	}
+	// AI3675 describes a VOLUME (in³), log. See also https://ref.gs1.org/ai/3675.
 	AI3675 = AIDescription{
 		AI:            "3675",
 		Flags:         "*?",
@@ -2339,6 +2670,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=367n"},
 		Title:         "VOLUME (in³), log",
 	}
+	// AI3680 describes a VOLUME (ft³), log. See also https://ref.gs1.org/ai/3680.
 	AI3680 = AIDescription{
 		AI:            "3680",
 		Flags:         "*?",
@@ -2346,6 +2678,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=368n"},
 		Title:         "VOLUME (ft³), log",
 	}
+	// AI3681 describes a VOLUME (ft³), log. See also https://ref.gs1.org/ai/3681.
 	AI3681 = AIDescription{
 		AI:            "3681",
 		Flags:         "*?",
@@ -2353,6 +2686,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=368n"},
 		Title:         "VOLUME (ft³), log",
 	}
+	// AI3682 describes a VOLUME (ft³), log. See also https://ref.gs1.org/ai/3682.
 	AI3682 = AIDescription{
 		AI:            "3682",
 		Flags:         "*?",
@@ -2360,6 +2694,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=368n"},
 		Title:         "VOLUME (ft³), log",
 	}
+	// AI3683 describes a VOLUME (ft³), log. See also https://ref.gs1.org/ai/3683.
 	AI3683 = AIDescription{
 		AI:            "3683",
 		Flags:         "*?",
@@ -2367,6 +2702,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=368n"},
 		Title:         "VOLUME (ft³), log",
 	}
+	// AI3684 describes a VOLUME (ft³), log. See also https://ref.gs1.org/ai/3684.
 	AI3684 = AIDescription{
 		AI:            "3684",
 		Flags:         "*?",
@@ -2374,6 +2710,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=368n"},
 		Title:         "VOLUME (ft³), log",
 	}
+	// AI3685 describes a VOLUME (ft³), log. See also https://ref.gs1.org/ai/3685.
 	AI3685 = AIDescription{
 		AI:            "3685",
 		Flags:         "*?",
@@ -2381,6 +2718,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=368n"},
 		Title:         "VOLUME (ft³), log",
 	}
+	// AI3690 describes a VOLUME (yd³), log. See also https://ref.gs1.org/ai/3690.
 	AI3690 = AIDescription{
 		AI:            "3690",
 		Flags:         "*?",
@@ -2388,6 +2726,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=369n"},
 		Title:         "VOLUME (yd³), log",
 	}
+	// AI3691 describes a VOLUME (yd³), log. See also https://ref.gs1.org/ai/3691.
 	AI3691 = AIDescription{
 		AI:            "3691",
 		Flags:         "*?",
@@ -2395,6 +2734,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=369n"},
 		Title:         "VOLUME (yd³), log",
 	}
+	// AI3692 describes a VOLUME (yd³), log. See also https://ref.gs1.org/ai/3692.
 	AI3692 = AIDescription{
 		AI:            "3692",
 		Flags:         "*?",
@@ -2402,6 +2742,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=369n"},
 		Title:         "VOLUME (yd³), log",
 	}
+	// AI3693 describes a VOLUME (yd³), log. See also https://ref.gs1.org/ai/3693.
 	AI3693 = AIDescription{
 		AI:            "3693",
 		Flags:         "*?",
@@ -2409,6 +2750,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=369n"},
 		Title:         "VOLUME (yd³), log",
 	}
+	// AI3694 describes a VOLUME (yd³), log. See also https://ref.gs1.org/ai/3694.
 	AI3694 = AIDescription{
 		AI:            "3694",
 		Flags:         "*?",
@@ -2416,6 +2758,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=369n"},
 		Title:         "VOLUME (yd³), log",
 	}
+	// AI3695 describes a VOLUME (yd³), log. See also https://ref.gs1.org/ai/3695.
 	AI3695 = AIDescription{
 		AI:            "3695",
 		Flags:         "*?",
@@ -2423,6 +2766,7 @@ var (
 		Attributes:    []string{"req=00,01", "ex=369n"},
 		Title:         "VOLUME (yd³), log",
 	}
+	// AI37 describes a COUNT. See also https://ref.gs1.org/ai/37.
 	AI37 = AIDescription{
 		AI:            "37",
 		Flags:         "?",
@@ -2430,6 +2774,7 @@ var (
 		Attributes:    []string{"req=00", "req=02,8026"},
 		Title:         "COUNT",
 	}
+	// AI3900 describes a AMOUNT. See also https://ref.gs1.org/ai/3900.
 	AI3900 = AIDescription{
 		AI:            "3900",
 		Flags:         "?",
@@ -2437,6 +2782,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3901 describes a AMOUNT. See also https://ref.gs1.org/ai/3901.
 	AI3901 = AIDescription{
 		AI:            "3901",
 		Flags:         "?",
@@ -2444,6 +2790,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3902 describes a AMOUNT. See also https://ref.gs1.org/ai/3902.
 	AI3902 = AIDescription{
 		AI:            "3902",
 		Flags:         "?",
@@ -2451,6 +2798,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3903 describes a AMOUNT. See also https://ref.gs1.org/ai/3903.
 	AI3903 = AIDescription{
 		AI:            "3903",
 		Flags:         "?",
@@ -2458,6 +2806,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3904 describes a AMOUNT. See also https://ref.gs1.org/ai/3904.
 	AI3904 = AIDescription{
 		AI:            "3904",
 		Flags:         "?",
@@ -2465,6 +2814,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3905 describes a AMOUNT. See also https://ref.gs1.org/ai/3905.
 	AI3905 = AIDescription{
 		AI:            "3905",
 		Flags:         "?",
@@ -2472,6 +2822,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3906 describes a AMOUNT. See also https://ref.gs1.org/ai/3906.
 	AI3906 = AIDescription{
 		AI:            "3906",
 		Flags:         "?",
@@ -2479,6 +2830,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3907 describes a AMOUNT. See also https://ref.gs1.org/ai/3907.
 	AI3907 = AIDescription{
 		AI:            "3907",
 		Flags:         "?",
@@ -2486,6 +2838,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3908 describes a AMOUNT. See also https://ref.gs1.org/ai/3908.
 	AI3908 = AIDescription{
 		AI:            "3908",
 		Flags:         "?",
@@ -2493,6 +2846,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3909 describes a AMOUNT. See also https://ref.gs1.org/ai/3909.
 	AI3909 = AIDescription{
 		AI:            "3909",
 		Flags:         "?",
@@ -2500,6 +2854,7 @@ var (
 		Attributes:    []string{"req=255,8020", "ex=390n,391n,394n,8111"},
 		Title:         "AMOUNT",
 	}
+	// AI3910 describes a AMOUNT. See also https://ref.gs1.org/ai/3910.
 	AI3910 = AIDescription{
 		AI:            "3910",
 		Flags:         "?",
@@ -2507,6 +2862,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3911 describes a AMOUNT. See also https://ref.gs1.org/ai/3911.
 	AI3911 = AIDescription{
 		AI:            "3911",
 		Flags:         "?",
@@ -2514,6 +2870,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3912 describes a AMOUNT. See also https://ref.gs1.org/ai/3912.
 	AI3912 = AIDescription{
 		AI:            "3912",
 		Flags:         "?",
@@ -2521,6 +2878,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3913 describes a AMOUNT. See also https://ref.gs1.org/ai/3913.
 	AI3913 = AIDescription{
 		AI:            "3913",
 		Flags:         "?",
@@ -2528,6 +2886,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3914 describes a AMOUNT. See also https://ref.gs1.org/ai/3914.
 	AI3914 = AIDescription{
 		AI:            "3914",
 		Flags:         "?",
@@ -2535,6 +2894,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3915 describes a AMOUNT. See also https://ref.gs1.org/ai/3915.
 	AI3915 = AIDescription{
 		AI:            "3915",
 		Flags:         "?",
@@ -2542,6 +2902,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3916 describes a AMOUNT. See also https://ref.gs1.org/ai/3916.
 	AI3916 = AIDescription{
 		AI:            "3916",
 		Flags:         "?",
@@ -2549,6 +2910,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3917 describes a AMOUNT. See also https://ref.gs1.org/ai/3917.
 	AI3917 = AIDescription{
 		AI:            "3917",
 		Flags:         "?",
@@ -2556,6 +2918,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3918 describes a AMOUNT. See also https://ref.gs1.org/ai/3918.
 	AI3918 = AIDescription{
 		AI:            "3918",
 		Flags:         "?",
@@ -2563,6 +2926,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3919 describes a AMOUNT. See also https://ref.gs1.org/ai/3919.
 	AI3919 = AIDescription{
 		AI:            "3919",
 		Flags:         "?",
@@ -2570,6 +2934,7 @@ var (
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
+	// AI3920 describes a PRICE. See also https://ref.gs1.org/ai/3920.
 	AI3920 = AIDescription{
 		AI:            "3920",
 		Flags:         "?",
@@ -2577,6 +2942,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3921 describes a PRICE. See also https://ref.gs1.org/ai/3921.
 	AI3921 = AIDescription{
 		AI:            "3921",
 		Flags:         "?",
@@ -2584,6 +2950,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3922 describes a PRICE. See also https://ref.gs1.org/ai/3922.
 	AI3922 = AIDescription{
 		AI:            "3922",
 		Flags:         "?",
@@ -2591,6 +2958,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3923 describes a PRICE. See also https://ref.gs1.org/ai/3923.
 	AI3923 = AIDescription{
 		AI:            "3923",
 		Flags:         "?",
@@ -2598,6 +2966,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3924 describes a PRICE. See also https://ref.gs1.org/ai/3924.
 	AI3924 = AIDescription{
 		AI:            "3924",
 		Flags:         "?",
@@ -2605,6 +2974,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3925 describes a PRICE. See also https://ref.gs1.org/ai/3925.
 	AI3925 = AIDescription{
 		AI:            "3925",
 		Flags:         "?",
@@ -2612,6 +2982,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3926 describes a PRICE. See also https://ref.gs1.org/ai/3926.
 	AI3926 = AIDescription{
 		AI:            "3926",
 		Flags:         "?",
@@ -2619,6 +2990,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3927 describes a PRICE. See also https://ref.gs1.org/ai/3927.
 	AI3927 = AIDescription{
 		AI:            "3927",
 		Flags:         "?",
@@ -2626,6 +2998,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3928 describes a PRICE. See also https://ref.gs1.org/ai/3928.
 	AI3928 = AIDescription{
 		AI:            "3928",
 		Flags:         "?",
@@ -2633,6 +3006,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3929 describes a PRICE. See also https://ref.gs1.org/ai/3929.
 	AI3929 = AIDescription{
 		AI:            "3929",
 		Flags:         "?",
@@ -2640,6 +3014,7 @@ var (
 		Attributes:    []string{"req=01", "req=30,31nn,32nn,35nn,36nn", "ex=392n,393n"},
 		Title:         "PRICE",
 	}
+	// AI3930 describes a PRICE. See also https://ref.gs1.org/ai/3930.
 	AI3930 = AIDescription{
 		AI:            "3930",
 		Flags:         "?",
@@ -2647,6 +3022,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3931 describes a PRICE. See also https://ref.gs1.org/ai/3931.
 	AI3931 = AIDescription{
 		AI:            "3931",
 		Flags:         "?",
@@ -2654,6 +3030,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3932 describes a PRICE. See also https://ref.gs1.org/ai/3932.
 	AI3932 = AIDescription{
 		AI:            "3932",
 		Flags:         "?",
@@ -2661,6 +3038,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3933 describes a PRICE. See also https://ref.gs1.org/ai/3933.
 	AI3933 = AIDescription{
 		AI:            "3933",
 		Flags:         "?",
@@ -2668,6 +3046,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3934 describes a PRICE. See also https://ref.gs1.org/ai/3934.
 	AI3934 = AIDescription{
 		AI:            "3934",
 		Flags:         "?",
@@ -2675,6 +3054,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3935 describes a PRICE. See also https://ref.gs1.org/ai/3935.
 	AI3935 = AIDescription{
 		AI:            "3935",
 		Flags:         "?",
@@ -2682,6 +3062,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3936 describes a PRICE. See also https://ref.gs1.org/ai/3936.
 	AI3936 = AIDescription{
 		AI:            "3936",
 		Flags:         "?",
@@ -2689,6 +3070,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3937 describes a PRICE. See also https://ref.gs1.org/ai/3937.
 	AI3937 = AIDescription{
 		AI:            "3937",
 		Flags:         "?",
@@ -2696,6 +3078,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3938 describes a PRICE. See also https://ref.gs1.org/ai/3938.
 	AI3938 = AIDescription{
 		AI:            "3938",
 		Flags:         "?",
@@ -2703,6 +3086,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3939 describes a PRICE. See also https://ref.gs1.org/ai/3939.
 	AI3939 = AIDescription{
 		AI:            "3939",
 		Flags:         "?",
@@ -2710,6 +3094,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
+	// AI3940 describes a PRCNT OFF. See also https://ref.gs1.org/ai/3940.
 	AI3940 = AIDescription{
 		AI:            "3940",
 		Flags:         "?",
@@ -2717,6 +3102,7 @@ var (
 		Attributes:    []string{"req=255", "ex=394n,8111"},
 		Title:         "PRCNT OFF",
 	}
+	// AI3941 describes a PRCNT OFF. See also https://ref.gs1.org/ai/3941.
 	AI3941 = AIDescription{
 		AI:            "3941",
 		Flags:         "?",
@@ -2724,6 +3110,7 @@ var (
 		Attributes:    []string{"req=255", "ex=394n,8111"},
 		Title:         "PRCNT OFF",
 	}
+	// AI3942 describes a PRCNT OFF. See also https://ref.gs1.org/ai/3942.
 	AI3942 = AIDescription{
 		AI:            "3942",
 		Flags:         "?",
@@ -2731,6 +3118,7 @@ var (
 		Attributes:    []string{"req=255", "ex=394n,8111"},
 		Title:         "PRCNT OFF",
 	}
+	// AI3943 describes a PRCNT OFF. See also https://ref.gs1.org/ai/3943.
 	AI3943 = AIDescription{
 		AI:            "3943",
 		Flags:         "?",
@@ -2738,6 +3126,7 @@ var (
 		Attributes:    []string{"req=255", "ex=394n,8111"},
 		Title:         "PRCNT OFF",
 	}
+	// AI3950 describes a PRICE/UoM. See also https://ref.gs1.org/ai/3950.
 	AI3950 = AIDescription{
 		AI:            "3950",
 		Flags:         "?",
@@ -2745,6 +3134,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=392n,393n,395n,8005"},
 		Title:         "PRICE/UoM",
 	}
+	// AI3951 describes a PRICE/UoM. See also https://ref.gs1.org/ai/3951.
 	AI3951 = AIDescription{
 		AI:            "3951",
 		Flags:         "?",
@@ -2752,6 +3142,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=392n,393n,395n,8005"},
 		Title:         "PRICE/UoM",
 	}
+	// AI3952 describes a PRICE/UoM. See also https://ref.gs1.org/ai/3952.
 	AI3952 = AIDescription{
 		AI:            "3952",
 		Flags:         "?",
@@ -2759,6 +3150,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=392n,393n,395n,8005"},
 		Title:         "PRICE/UoM",
 	}
+	// AI3953 describes a PRICE/UoM. See also https://ref.gs1.org/ai/3953.
 	AI3953 = AIDescription{
 		AI:            "3953",
 		Flags:         "?",
@@ -2766,6 +3158,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=392n,393n,395n,8005"},
 		Title:         "PRICE/UoM",
 	}
+	// AI3954 describes a PRICE/UoM. See also https://ref.gs1.org/ai/3954.
 	AI3954 = AIDescription{
 		AI:            "3954",
 		Flags:         "?",
@@ -2773,6 +3166,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=392n,393n,395n,8005"},
 		Title:         "PRICE/UoM",
 	}
+	// AI3955 describes a PRICE/UoM. See also https://ref.gs1.org/ai/3955.
 	AI3955 = AIDescription{
 		AI:            "3955",
 		Flags:         "?",
@@ -2780,6 +3174,7 @@ var (
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=392n,393n,395n,8005"},
 		Title:         "PRICE/UoM",
 	}
+	// AI400 describes a ORDER NUMBER. See also https://ref.gs1.org/ai/400.
 	AI400 = AIDescription{
 		AI:            "400",
 		Flags:         "?",
@@ -2787,6 +3182,7 @@ var (
 		Attributes:    []string{},
 		Title:         "ORDER NUMBER",
 	}
+	// AI401 describes a GINC. See also https://ref.gs1.org/ai/401.
 	AI401 = AIDescription{
 		AI:            "401",
 		Flags:         "?",
@@ -2794,6 +3190,7 @@ var (
 		Attributes:    []string{"dlpkey"},
 		Title:         "GINC",
 	}
+	// AI402 describes a GSIN. See also https://ref.gs1.org/ai/402.
 	AI402 = AIDescription{
 		AI:            "402",
 		Flags:         "?",
@@ -2801,6 +3198,7 @@ var (
 		Attributes:    []string{"dlpkey"},
 		Title:         "GSIN",
 	}
+	// AI403 describes a ROUTE. See also https://ref.gs1.org/ai/403.
 	AI403 = AIDescription{
 		AI:            "403",
 		Flags:         "?",
@@ -2808,6 +3206,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "ROUTE",
 	}
+	// AI410 describes a SHIP TO LOC. See also https://ref.gs1.org/ai/410.
 	AI410 = AIDescription{
 		AI:            "410",
 		Flags:         "*?",
@@ -2815,6 +3214,7 @@ var (
 		Attributes:    []string{},
 		Title:         "SHIP TO LOC",
 	}
+	// AI411 describes a BILL TO. See also https://ref.gs1.org/ai/411.
 	AI411 = AIDescription{
 		AI:            "411",
 		Flags:         "*?",
@@ -2822,6 +3222,7 @@ var (
 		Attributes:    []string{},
 		Title:         "BILL TO",
 	}
+	// AI412 describes a PURCHASE FROM. See also https://ref.gs1.org/ai/412.
 	AI412 = AIDescription{
 		AI:            "412",
 		Flags:         "*?",
@@ -2829,6 +3230,7 @@ var (
 		Attributes:    []string{},
 		Title:         "PURCHASE FROM",
 	}
+	// AI413 describes a SHIP FOR LOC. See also https://ref.gs1.org/ai/413.
 	AI413 = AIDescription{
 		AI:            "413",
 		Flags:         "*?",
@@ -2836,6 +3238,7 @@ var (
 		Attributes:    []string{},
 		Title:         "SHIP FOR LOC",
 	}
+	// AI414 describes a LOC No.. See also https://ref.gs1.org/ai/414.
 	AI414 = AIDescription{
 		AI:            "414",
 		Flags:         "*?",
@@ -2843,6 +3246,7 @@ var (
 		Attributes:    []string{"dlpkey=254|7040"},
 		Title:         "LOC No.",
 	}
+	// AI415 describes a PAY TO. See also https://ref.gs1.org/ai/415.
 	AI415 = AIDescription{
 		AI:            "415",
 		Flags:         "*?",
@@ -2850,6 +3254,7 @@ var (
 		Attributes:    []string{"req=8020", "dlpkey=8020"},
 		Title:         "PAY TO",
 	}
+	// AI416 describes a PROD/SERV LOC. See also https://ref.gs1.org/ai/416.
 	AI416 = AIDescription{
 		AI:            "416",
 		Flags:         "*?",
@@ -2857,6 +3262,7 @@ var (
 		Attributes:    []string{},
 		Title:         "PROD/SERV LOC",
 	}
+	// AI417 describes a PARTY. See also https://ref.gs1.org/ai/417.
 	AI417 = AIDescription{
 		AI:            "417",
 		Flags:         "*?",
@@ -2864,6 +3270,7 @@ var (
 		Attributes:    []string{"dlpkey=7040"},
 		Title:         "PARTY",
 	}
+	// AI420 describes a SHIP TO POST. See also https://ref.gs1.org/ai/420.
 	AI420 = AIDescription{
 		AI:            "420",
 		Flags:         "?",
@@ -2871,6 +3278,7 @@ var (
 		Attributes:    []string{"ex=421"},
 		Title:         "SHIP TO POST",
 	}
+	// AI421 describes a SHIP TO POST. See also https://ref.gs1.org/ai/421.
 	AI421 = AIDescription{
 		AI:            "421",
 		Flags:         "?",
@@ -2878,6 +3286,7 @@ var (
 		Attributes:    []string{"ex=4307"},
 		Title:         "SHIP TO POST",
 	}
+	// AI422 describes a ORIGIN. See also https://ref.gs1.org/ai/422.
 	AI422 = AIDescription{
 		AI:            "422",
 		Flags:         "?",
@@ -2885,6 +3294,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026", "ex=426"},
 		Title:         "ORIGIN",
 	}
+	// AI423 describes a COUNTRY - INITIAL PROCESS. See also https://ref.gs1.org/ai/423.
 	AI423 = AIDescription{
 		AI:            "423",
 		Flags:         "[N3],iso3166",
@@ -2892,6 +3302,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=426"},
 		Title:         "COUNTRY - INITIAL PROCESS",
 	}
+	// AI424 describes a COUNTRY - PROCESS. See also https://ref.gs1.org/ai/424.
 	AI424 = AIDescription{
 		AI:            "424",
 		Flags:         "?",
@@ -2899,6 +3310,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=426"},
 		Title:         "COUNTRY - PROCESS",
 	}
+	// AI425 describes a COUNTRY - DISASSEMBLY. See also https://ref.gs1.org/ai/425.
 	AI425 = AIDescription{
 		AI:            "425",
 		Flags:         "[N3],iso3166",
@@ -2906,6 +3318,7 @@ var (
 		Attributes:    []string{"req=01,02", "ex=426"},
 		Title:         "COUNTRY - DISASSEMBLY",
 	}
+	// AI426 describes a COUNTRY - FULL PROCESS. See also https://ref.gs1.org/ai/426.
 	AI426 = AIDescription{
 		AI:            "426",
 		Flags:         "?",
@@ -2913,6 +3326,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "COUNTRY - FULL PROCESS",
 	}
+	// AI427 describes a ORIGIN SUBDIVISION. See also https://ref.gs1.org/ai/427.
 	AI427 = AIDescription{
 		AI:            "427",
 		Flags:         "?",
@@ -2920,6 +3334,7 @@ var (
 		Attributes:    []string{"req=01,02", "req=422"},
 		Title:         "ORIGIN SUBDIVISION",
 	}
+	// AI4300 describes a SHIP TO COMP. See also https://ref.gs1.org/ai/4300.
 	AI4300 = AIDescription{
 		AI:            "4300",
 		Flags:         "?",
@@ -2927,6 +3342,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO COMP",
 	}
+	// AI4301 describes a SHIP TO NAME. See also https://ref.gs1.org/ai/4301.
 	AI4301 = AIDescription{
 		AI:            "4301",
 		Flags:         "?",
@@ -2934,6 +3350,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO NAME",
 	}
+	// AI4302 describes a SHIP TO ADD1. See also https://ref.gs1.org/ai/4302.
 	AI4302 = AIDescription{
 		AI:            "4302",
 		Flags:         "?",
@@ -2941,6 +3358,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO ADD1",
 	}
+	// AI4303 describes a SHIP TO ADD2. See also https://ref.gs1.org/ai/4303.
 	AI4303 = AIDescription{
 		AI:            "4303",
 		Flags:         "?",
@@ -2948,6 +3366,7 @@ var (
 		Attributes:    []string{"req=4302"},
 		Title:         "SHIP TO ADD2",
 	}
+	// AI4304 describes a SHIP TO SUB. See also https://ref.gs1.org/ai/4304.
 	AI4304 = AIDescription{
 		AI:            "4304",
 		Flags:         "?",
@@ -2955,6 +3374,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO SUB",
 	}
+	// AI4305 describes a SHIP TO LOC. See also https://ref.gs1.org/ai/4305.
 	AI4305 = AIDescription{
 		AI:            "4305",
 		Flags:         "?",
@@ -2962,6 +3382,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO LOC",
 	}
+	// AI4306 describes a SHIP TO REG. See also https://ref.gs1.org/ai/4306.
 	AI4306 = AIDescription{
 		AI:            "4306",
 		Flags:         "?",
@@ -2969,6 +3390,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO REG",
 	}
+	// AI4307 describes a SHIP TO COUNTRY. See also https://ref.gs1.org/ai/4307.
 	AI4307 = AIDescription{
 		AI:            "4307",
 		Flags:         "?",
@@ -2976,6 +3398,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO COUNTRY",
 	}
+	// AI4308 describes a SHIP TO PHONE. See also https://ref.gs1.org/ai/4308.
 	AI4308 = AIDescription{
 		AI:            "4308",
 		Flags:         "?",
@@ -2983,6 +3406,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO PHONE",
 	}
+	// AI4309 describes a SHIP TO GEO. See also https://ref.gs1.org/ai/4309.
 	AI4309 = AIDescription{
 		AI:            "4309",
 		Flags:         "?",
@@ -2990,6 +3414,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO GEO",
 	}
+	// AI4310 describes a RTN TO COMP. See also https://ref.gs1.org/ai/4310.
 	AI4310 = AIDescription{
 		AI:            "4310",
 		Flags:         "?",
@@ -2997,6 +3422,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO COMP",
 	}
+	// AI4311 describes a RTN TO NAME. See also https://ref.gs1.org/ai/4311.
 	AI4311 = AIDescription{
 		AI:            "4311",
 		Flags:         "?",
@@ -3004,6 +3430,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO NAME",
 	}
+	// AI4312 describes a RTN TO ADD1. See also https://ref.gs1.org/ai/4312.
 	AI4312 = AIDescription{
 		AI:            "4312",
 		Flags:         "?",
@@ -3011,6 +3438,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO ADD1",
 	}
+	// AI4313 describes a RTN TO ADD2. See also https://ref.gs1.org/ai/4313.
 	AI4313 = AIDescription{
 		AI:            "4313",
 		Flags:         "?",
@@ -3018,6 +3446,7 @@ var (
 		Attributes:    []string{"req=4312"},
 		Title:         "RTN TO ADD2",
 	}
+	// AI4314 describes a RTN TO SUB. See also https://ref.gs1.org/ai/4314.
 	AI4314 = AIDescription{
 		AI:            "4314",
 		Flags:         "?",
@@ -3025,6 +3454,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO SUB",
 	}
+	// AI4315 describes a RTN TO LOC. See also https://ref.gs1.org/ai/4315.
 	AI4315 = AIDescription{
 		AI:            "4315",
 		Flags:         "?",
@@ -3032,6 +3462,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO LOC",
 	}
+	// AI4316 describes a RTN TO REG. See also https://ref.gs1.org/ai/4316.
 	AI4316 = AIDescription{
 		AI:            "4316",
 		Flags:         "?",
@@ -3039,6 +3470,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO REG",
 	}
+	// AI4317 describes a RTN TO COUNTRY. See also https://ref.gs1.org/ai/4317.
 	AI4317 = AIDescription{
 		AI:            "4317",
 		Flags:         "?",
@@ -3046,6 +3478,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO COUNTRY",
 	}
+	// AI4318 describes a RTN TO POST. See also https://ref.gs1.org/ai/4318.
 	AI4318 = AIDescription{
 		AI:            "4318",
 		Flags:         "?",
@@ -3053,6 +3486,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO POST",
 	}
+	// AI4319 describes a RTN TO PHONE. See also https://ref.gs1.org/ai/4319.
 	AI4319 = AIDescription{
 		AI:            "4319",
 		Flags:         "?",
@@ -3060,6 +3494,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "RTN TO PHONE",
 	}
+	// AI4320 describes a SRV DESCRIPTION. See also https://ref.gs1.org/ai/4320.
 	AI4320 = AIDescription{
 		AI:            "4320",
 		Flags:         "?",
@@ -3067,6 +3502,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SRV DESCRIPTION",
 	}
+	// AI4321 describes a DANGEROUS GOODS. See also https://ref.gs1.org/ai/4321.
 	AI4321 = AIDescription{
 		AI:            "4321",
 		Flags:         "?",
@@ -3074,6 +3510,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "DANGEROUS GOODS",
 	}
+	// AI4322 describes a AUTH TO LEAVE. See also https://ref.gs1.org/ai/4322.
 	AI4322 = AIDescription{
 		AI:            "4322",
 		Flags:         "?",
@@ -3081,6 +3518,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "AUTH TO LEAVE",
 	}
+	// AI4323 describes a SIG REQUIRED. See also https://ref.gs1.org/ai/4323.
 	AI4323 = AIDescription{
 		AI:            "4323",
 		Flags:         "?",
@@ -3088,6 +3526,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "SIG REQUIRED",
 	}
+	// AI4324 describes a NOT BEF DEL DT. See also https://ref.gs1.org/ai/4324.
 	AI4324 = AIDescription{
 		AI:            "4324",
 		Flags:         "?",
@@ -3095,6 +3534,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "NOT BEF DEL DT",
 	}
+	// AI4325 describes a NOT AFT DEL DT. See also https://ref.gs1.org/ai/4325.
 	AI4325 = AIDescription{
 		AI:            "4325",
 		Flags:         "?",
@@ -3102,6 +3542,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "NOT AFT DEL DT",
 	}
+	// AI4326 describes a REL DATE. See also https://ref.gs1.org/ai/4326.
 	AI4326 = AIDescription{
 		AI:            "4326",
 		Flags:         "?",
@@ -3109,6 +3550,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "REL DATE",
 	}
+	// AI4330 describes a MAX TEMP F.. See also https://ref.gs1.org/ai/4330.
 	AI4330 = AIDescription{
 		AI:            "4330",
 		Flags:         "[X1],hyphen",
@@ -3116,6 +3558,7 @@ var (
 		Attributes:    []string{"req=00", "ex=4331"},
 		Title:         "MAX TEMP F.",
 	}
+	// AI4331 describes a MAX TEMP C.. See also https://ref.gs1.org/ai/4331.
 	AI4331 = AIDescription{
 		AI:            "4331",
 		Flags:         "[X1],hyphen",
@@ -3123,6 +3566,7 @@ var (
 		Attributes:    []string{"req=00", "ex=4330"},
 		Title:         "MAX TEMP C.",
 	}
+	// AI4332 describes a MIN TEMP F.. See also https://ref.gs1.org/ai/4332.
 	AI4332 = AIDescription{
 		AI:            "4332",
 		Flags:         "[X1],hyphen",
@@ -3130,6 +3574,7 @@ var (
 		Attributes:    []string{"req=00", "ex=4333"},
 		Title:         "MIN TEMP F.",
 	}
+	// AI4333 describes a MIN TEMP C.. See also https://ref.gs1.org/ai/4333.
 	AI4333 = AIDescription{
 		AI:            "4333",
 		Flags:         "[X1],hyphen",
@@ -3137,6 +3582,7 @@ var (
 		Attributes:    []string{"req=00", "ex=4332"},
 		Title:         "MIN TEMP C.",
 	}
+	// AI7001 describes a NSN. See also https://ref.gs1.org/ai/7001.
 	AI7001 = AIDescription{
 		AI:            "7001",
 		Flags:         "?",
@@ -3144,6 +3590,7 @@ var (
 		Attributes:    []string{"req=01,02,8006,8026"},
 		Title:         "NSN",
 	}
+	// AI7002 describes a MEAT CUT. See also https://ref.gs1.org/ai/7002.
 	AI7002 = AIDescription{
 		AI:            "7002",
 		Flags:         "?",
@@ -3151,6 +3598,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "MEAT CUT",
 	}
+	// AI7003 describes a EXPIRY TIME. See also https://ref.gs1.org/ai/7003.
 	AI7003 = AIDescription{
 		AI:            "7003",
 		Flags:         "?",
@@ -3158,6 +3606,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "EXPIRY TIME",
 	}
+	// AI7004 describes a ACTIVE POTENCY. See also https://ref.gs1.org/ai/7004.
 	AI7004 = AIDescription{
 		AI:            "7004",
 		Flags:         "?",
@@ -3165,6 +3614,7 @@ var (
 		Attributes:    []string{"req=01", "req=10"},
 		Title:         "ACTIVE POTENCY",
 	}
+	// AI7005 describes a CATCH AREA. See also https://ref.gs1.org/ai/7005.
 	AI7005 = AIDescription{
 		AI:            "7005",
 		Flags:         "?",
@@ -3172,6 +3622,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "CATCH AREA",
 	}
+	// AI7006 describes a FIRST FREEZE DATE. See also https://ref.gs1.org/ai/7006.
 	AI7006 = AIDescription{
 		AI:            "7006",
 		Flags:         "?",
@@ -3179,6 +3630,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "FIRST FREEZE DATE",
 	}
+	// AI7007 describes a HARVEST DATE. See also https://ref.gs1.org/ai/7007.
 	AI7007 = AIDescription{
 		AI:            "7007",
 		Flags:         "[N6],yymmdd",
@@ -3186,6 +3638,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "HARVEST DATE",
 	}
+	// AI7008 describes a AQUATIC SPECIES. See also https://ref.gs1.org/ai/7008.
 	AI7008 = AIDescription{
 		AI:            "7008",
 		Flags:         "?",
@@ -3193,6 +3646,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "AQUATIC SPECIES",
 	}
+	// AI7009 describes a FISHING GEAR TYPE. See also https://ref.gs1.org/ai/7009.
 	AI7009 = AIDescription{
 		AI:            "7009",
 		Flags:         "?",
@@ -3200,6 +3654,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "FISHING GEAR TYPE",
 	}
+	// AI7010 describes a PROD METHOD. See also https://ref.gs1.org/ai/7010.
 	AI7010 = AIDescription{
 		AI:            "7010",
 		Flags:         "?",
@@ -3207,6 +3662,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROD METHOD",
 	}
+	// AI7011 describes a TEST BY DATE. See also https://ref.gs1.org/ai/7011.
 	AI7011 = AIDescription{
 		AI:            "7011",
 		Flags:         "[N4],hhmi",
@@ -3214,6 +3670,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "TEST BY DATE",
 	}
+	// AI7020 describes a REFURB LOT. See also https://ref.gs1.org/ai/7020.
 	AI7020 = AIDescription{
 		AI:            "7020",
 		Flags:         "?",
@@ -3221,6 +3678,7 @@ var (
 		Attributes:    []string{"req=01,8006", "req=416"},
 		Title:         "REFURB LOT",
 	}
+	// AI7021 describes a FUNC STAT. See also https://ref.gs1.org/ai/7021.
 	AI7021 = AIDescription{
 		AI:            "7021",
 		Flags:         "?",
@@ -3228,6 +3686,7 @@ var (
 		Attributes:    []string{"req=01,8006"},
 		Title:         "FUNC STAT",
 	}
+	// AI7022 describes a REV STAT. See also https://ref.gs1.org/ai/7022.
 	AI7022 = AIDescription{
 		AI:            "7022",
 		Flags:         "?",
@@ -3235,6 +3694,7 @@ var (
 		Attributes:    []string{"req=7021"},
 		Title:         "REV STAT",
 	}
+	// AI7023 describes a GIAI - ASSEMBLY. See also https://ref.gs1.org/ai/7023.
 	AI7023 = AIDescription{
 		AI:            "7023",
 		Flags:         "?",
@@ -3242,6 +3702,7 @@ var (
 		Attributes:    []string{},
 		Title:         "GIAI - ASSEMBLY",
 	}
+	// AI7030 describes a PROCESSOR # 0. See also https://ref.gs1.org/ai/7030.
 	AI7030 = AIDescription{
 		AI:            "7030",
 		Flags:         "?",
@@ -3249,6 +3710,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 0",
 	}
+	// AI7031 describes a PROCESSOR # 1. See also https://ref.gs1.org/ai/7031.
 	AI7031 = AIDescription{
 		AI:            "7031",
 		Flags:         "?",
@@ -3256,6 +3718,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 1",
 	}
+	// AI7032 describes a PROCESSOR # 2. See also https://ref.gs1.org/ai/7032.
 	AI7032 = AIDescription{
 		AI:            "7032",
 		Flags:         "?",
@@ -3263,6 +3726,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 2",
 	}
+	// AI7033 describes a PROCESSOR # 3. See also https://ref.gs1.org/ai/7033.
 	AI7033 = AIDescription{
 		AI:            "7033",
 		Flags:         "?",
@@ -3270,6 +3734,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 3",
 	}
+	// AI7034 describes a PROCESSOR # 4. See also https://ref.gs1.org/ai/7034.
 	AI7034 = AIDescription{
 		AI:            "7034",
 		Flags:         "?",
@@ -3277,6 +3742,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 4",
 	}
+	// AI7035 describes a PROCESSOR # 5. See also https://ref.gs1.org/ai/7035.
 	AI7035 = AIDescription{
 		AI:            "7035",
 		Flags:         "?",
@@ -3284,6 +3750,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 5",
 	}
+	// AI7036 describes a PROCESSOR # 6. See also https://ref.gs1.org/ai/7036.
 	AI7036 = AIDescription{
 		AI:            "7036",
 		Flags:         "?",
@@ -3291,6 +3758,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 6",
 	}
+	// AI7037 describes a PROCESSOR # 7. See also https://ref.gs1.org/ai/7037.
 	AI7037 = AIDescription{
 		AI:            "7037",
 		Flags:         "?",
@@ -3298,6 +3766,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 7",
 	}
+	// AI7038 describes a PROCESSOR # 8. See also https://ref.gs1.org/ai/7038.
 	AI7038 = AIDescription{
 		AI:            "7038",
 		Flags:         "?",
@@ -3305,6 +3774,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 8",
 	}
+	// AI7039 describes a PROCESSOR # 9. See also https://ref.gs1.org/ai/7039.
 	AI7039 = AIDescription{
 		AI:            "7039",
 		Flags:         "?",
@@ -3312,6 +3782,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 9",
 	}
+	// AI7040 describes a UIC&#43;EXT. See also https://ref.gs1.org/ai/7040.
 	AI7040 = AIDescription{
 		AI:            "7040",
 		Flags:         "",
@@ -3319,6 +3790,7 @@ var (
 		Attributes:    []string{},
 		Title:         "UIC&#43;EXT",
 	}
+	// AI7041 describes a UFRGT UNIT TYPE. See also https://ref.gs1.org/ai/7041.
 	AI7041 = AIDescription{
 		AI:            "7041",
 		Flags:         "",
@@ -3326,6 +3798,7 @@ var (
 		Attributes:    []string{"req=00"},
 		Title:         "UFRGT UNIT TYPE",
 	}
+	// AI710 describes a NHRN PZN. See also https://ref.gs1.org/ai/710.
 	AI710 = AIDescription{
 		AI:            "710",
 		Flags:         "?",
@@ -3333,6 +3806,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "NHRN PZN",
 	}
+	// AI711 describes a NHRN CIP. See also https://ref.gs1.org/ai/711.
 	AI711 = AIDescription{
 		AI:            "711",
 		Flags:         "?",
@@ -3340,6 +3814,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "NHRN CIP",
 	}
+	// AI712 describes a NHRN CN. See also https://ref.gs1.org/ai/712.
 	AI712 = AIDescription{
 		AI:            "712",
 		Flags:         "?",
@@ -3347,6 +3822,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "NHRN CN",
 	}
+	// AI713 describes a NHRN DRN. See also https://ref.gs1.org/ai/713.
 	AI713 = AIDescription{
 		AI:            "713",
 		Flags:         "?",
@@ -3354,6 +3830,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "NHRN DRN",
 	}
+	// AI714 describes a NHRN AIM. See also https://ref.gs1.org/ai/714.
 	AI714 = AIDescription{
 		AI:            "714",
 		Flags:         "?",
@@ -3361,6 +3838,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "NHRN AIM",
 	}
+	// AI715 describes a NHRN NDC. See also https://ref.gs1.org/ai/715.
 	AI715 = AIDescription{
 		AI:            "715",
 		Flags:         "?",
@@ -3368,6 +3846,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "NHRN NDC",
 	}
+	// AI716 describes a NHRN AIC. See also https://ref.gs1.org/ai/716.
 	AI716 = AIDescription{
 		AI:            "716",
 		Flags:         "?",
@@ -3375,6 +3854,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "NHRN AIC",
 	}
+	// AI7230 describes a CERT # 1. See also https://ref.gs1.org/ai/7230.
 	AI7230 = AIDescription{
 		AI:            "7230",
 		Flags:         "?",
@@ -3382,6 +3862,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 1",
 	}
+	// AI7231 describes a CERT # 2. See also https://ref.gs1.org/ai/7231.
 	AI7231 = AIDescription{
 		AI:            "7231",
 		Flags:         "?",
@@ -3389,6 +3870,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 2",
 	}
+	// AI7232 describes a CERT # 3. See also https://ref.gs1.org/ai/7232.
 	AI7232 = AIDescription{
 		AI:            "7232",
 		Flags:         "?",
@@ -3396,6 +3878,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 3",
 	}
+	// AI7233 describes a CERT # 4. See also https://ref.gs1.org/ai/7233.
 	AI7233 = AIDescription{
 		AI:            "7233",
 		Flags:         "?",
@@ -3403,6 +3886,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 4",
 	}
+	// AI7234 describes a CERT # 5. See also https://ref.gs1.org/ai/7234.
 	AI7234 = AIDescription{
 		AI:            "7234",
 		Flags:         "?",
@@ -3410,6 +3894,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 5",
 	}
+	// AI7235 describes a CERT # 6. See also https://ref.gs1.org/ai/7235.
 	AI7235 = AIDescription{
 		AI:            "7235",
 		Flags:         "?",
@@ -3417,6 +3902,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 6",
 	}
+	// AI7236 describes a CERT # 7. See also https://ref.gs1.org/ai/7236.
 	AI7236 = AIDescription{
 		AI:            "7236",
 		Flags:         "?",
@@ -3424,6 +3910,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 7",
 	}
+	// AI7237 describes a CERT # 8. See also https://ref.gs1.org/ai/7237.
 	AI7237 = AIDescription{
 		AI:            "7237",
 		Flags:         "?",
@@ -3431,6 +3918,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 8",
 	}
+	// AI7238 describes a CERT # 9. See also https://ref.gs1.org/ai/7238.
 	AI7238 = AIDescription{
 		AI:            "7238",
 		Flags:         "?",
@@ -3438,6 +3926,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 9",
 	}
+	// AI7239 describes a CERT # 10. See also https://ref.gs1.org/ai/7239.
 	AI7239 = AIDescription{
 		AI:            "7239",
 		Flags:         "?",
@@ -3445,6 +3934,7 @@ var (
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 10",
 	}
+	// AI7240 describes a PROTOCOL. See also https://ref.gs1.org/ai/7240.
 	AI7240 = AIDescription{
 		AI:            "7240",
 		Flags:         "?",
@@ -3452,6 +3942,7 @@ var (
 		Attributes:    []string{"req=01,8006"},
 		Title:         "PROTOCOL",
 	}
+	// AI7241 describes a AIDC MEDIA TYPE. See also https://ref.gs1.org/ai/7241.
 	AI7241 = AIDescription{
 		AI:            "7241",
 		Flags:         "?",
@@ -3459,6 +3950,7 @@ var (
 		Attributes:    []string{"req=8017,8018"},
 		Title:         "AIDC MEDIA TYPE",
 	}
+	// AI7242 describes a VCN. See also https://ref.gs1.org/ai/7242.
 	AI7242 = AIDescription{
 		AI:            "7242",
 		Flags:         "?",
@@ -3466,6 +3958,7 @@ var (
 		Attributes:    []string{"req=8017,8018"},
 		Title:         "VCN",
 	}
+	// AI7250 describes a DOB. See also https://ref.gs1.org/ai/7250.
 	AI7250 = AIDescription{
 		AI:            "7250",
 		Flags:         "?",
@@ -3473,6 +3966,7 @@ var (
 		Attributes:    []string{"req=8018", "ex=7251"},
 		Title:         "DOB",
 	}
+	// AI7251 describes a DOB TIME. See also https://ref.gs1.org/ai/7251.
 	AI7251 = AIDescription{
 		AI:            "7251",
 		Flags:         "?",
@@ -3480,6 +3974,7 @@ var (
 		Attributes:    []string{"req=8018", "ex=7250"},
 		Title:         "DOB TIME",
 	}
+	// AI7252 describes a BIO SEX. See also https://ref.gs1.org/ai/7252.
 	AI7252 = AIDescription{
 		AI:            "7252",
 		Flags:         "?",
@@ -3487,6 +3982,7 @@ var (
 		Attributes:    []string{"req=8018"},
 		Title:         "BIO SEX",
 	}
+	// AI7253 describes a FAMILY NAME. See also https://ref.gs1.org/ai/7253.
 	AI7253 = AIDescription{
 		AI:            "7253",
 		Flags:         "?",
@@ -3494,6 +3990,7 @@ var (
 		Attributes:    []string{"req=8017,8018", "ex=7256,7259"},
 		Title:         "FAMILY NAME",
 	}
+	// AI7254 describes a GIVEN NAME. See also https://ref.gs1.org/ai/7254.
 	AI7254 = AIDescription{
 		AI:            "7254",
 		Flags:         "?",
@@ -3501,6 +3998,7 @@ var (
 		Attributes:    []string{"req=8017,8018", "ex=7256,7259"},
 		Title:         "GIVEN NAME",
 	}
+	// AI7255 describes a SUFFIX. See also https://ref.gs1.org/ai/7255.
 	AI7255 = AIDescription{
 		AI:            "7255",
 		Flags:         "?",
@@ -3508,6 +4006,7 @@ var (
 		Attributes:    []string{"req=8017,8018", "ex=7256,7259"},
 		Title:         "SUFFIX",
 	}
+	// AI7256 describes a FULL NAME. See also https://ref.gs1.org/ai/7256.
 	AI7256 = AIDescription{
 		AI:            "7256",
 		Flags:         "?",
@@ -3515,6 +4014,7 @@ var (
 		Attributes:    []string{"req=8017,8018"},
 		Title:         "FULL NAME",
 	}
+	// AI7257 describes a PERSON ADDR. See also https://ref.gs1.org/ai/7257.
 	AI7257 = AIDescription{
 		AI:            "7257",
 		Flags:         "?",
@@ -3522,6 +4022,7 @@ var (
 		Attributes:    []string{"req=8018"},
 		Title:         "PERSON ADDR",
 	}
+	// AI7258 describes a BIRTH SEQUENCE. See also https://ref.gs1.org/ai/7258.
 	AI7258 = AIDescription{
 		AI:            "7258",
 		Flags:         "?",
@@ -3529,6 +4030,7 @@ var (
 		Attributes:    []string{"req=8018&#43;7259"},
 		Title:         "BIRTH SEQUENCE",
 	}
+	// AI7259 describes a BABY. See also https://ref.gs1.org/ai/7259.
 	AI7259 = AIDescription{
 		AI:            "7259",
 		Flags:         "?",
@@ -3536,6 +4038,7 @@ var (
 		Attributes:    []string{"req=8018", "ex=7256"},
 		Title:         "BABY",
 	}
+	// AI8001 describes a DIMENSIONS. See also https://ref.gs1.org/ai/8001.
 	AI8001 = AIDescription{
 		AI:            "8001",
 		Flags:         "?",
@@ -3543,6 +4046,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "DIMENSIONS",
 	}
+	// AI8002 describes a CMT No.. See also https://ref.gs1.org/ai/8002.
 	AI8002 = AIDescription{
 		AI:            "8002",
 		Flags:         "?",
@@ -3550,6 +4054,7 @@ var (
 		Attributes:    []string{},
 		Title:         "CMT No.",
 	}
+	// AI8003 describes a GRAI. See also https://ref.gs1.org/ai/8003.
 	AI8003 = AIDescription{
 		AI:            "8003",
 		Flags:         "[X..16]",
@@ -3557,6 +4062,7 @@ var (
 		Attributes:    []string{"dlpkey"},
 		Title:         "GRAI",
 	}
+	// AI8004 describes a GIAI. See also https://ref.gs1.org/ai/8004.
 	AI8004 = AIDescription{
 		AI:            "8004",
 		Flags:         "?",
@@ -3564,6 +4070,7 @@ var (
 		Attributes:    []string{"dlpkey=7040"},
 		Title:         "GIAI",
 	}
+	// AI8005 describes a PRICE PER UNIT. See also https://ref.gs1.org/ai/8005.
 	AI8005 = AIDescription{
 		AI:            "8005",
 		Flags:         "?",
@@ -3571,6 +4078,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PRICE PER UNIT",
 	}
+	// AI8006 describes a ITIP. See also https://ref.gs1.org/ai/8006.
 	AI8006 = AIDescription{
 		AI:            "8006",
 		Flags:         "?",
@@ -3578,6 +4086,7 @@ var (
 		Attributes:    []string{"ex=01,37", "dlpkey=22,10,21"},
 		Title:         "ITIP",
 	}
+	// AI8007 describes a IBAN. See also https://ref.gs1.org/ai/8007.
 	AI8007 = AIDescription{
 		AI:            "8007",
 		Flags:         "?",
@@ -3585,6 +4094,7 @@ var (
 		Attributes:    []string{"req=415"},
 		Title:         "IBAN",
 	}
+	// AI8008 describes a PROD TIME. See also https://ref.gs1.org/ai/8008.
 	AI8008 = AIDescription{
 		AI:            "8008",
 		Flags:         "[N2],ss",
@@ -3592,6 +4102,7 @@ var (
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROD TIME",
 	}
+	// AI8009 describes a OPTSEN. See also https://ref.gs1.org/ai/8009.
 	AI8009 = AIDescription{
 		AI:            "8009",
 		Flags:         "?",
@@ -3599,6 +4110,7 @@ var (
 		Attributes:    []string{"req=00,01"},
 		Title:         "OPTSEN",
 	}
+	// AI8010 describes a CPID. See also https://ref.gs1.org/ai/8010.
 	AI8010 = AIDescription{
 		AI:            "8010",
 		Flags:         "?",
@@ -3606,6 +4118,7 @@ var (
 		Attributes:    []string{"dlpkey=8011"},
 		Title:         "CPID",
 	}
+	// AI8011 describes a CPID SERIAL. See also https://ref.gs1.org/ai/8011.
 	AI8011 = AIDescription{
 		AI:            "8011",
 		Flags:         "",
@@ -3613,6 +4126,7 @@ var (
 		Attributes:    []string{"req=8010"},
 		Title:         "CPID SERIAL",
 	}
+	// AI8012 describes a VERSION. See also https://ref.gs1.org/ai/8012.
 	AI8012 = AIDescription{
 		AI:            "8012",
 		Flags:         "?",
@@ -3620,6 +4134,7 @@ var (
 		Attributes:    []string{"req=01,8006"},
 		Title:         "VERSION",
 	}
+	// AI8013 describes a GMN. See also https://ref.gs1.org/ai/8013.
 	AI8013 = AIDescription{
 		AI:            "8013",
 		Flags:         "?",
@@ -3627,6 +4142,7 @@ var (
 		Attributes:    []string{"dlpkey"},
 		Title:         "GMN",
 	}
+	// AI8014 describes a MUDI. See also https://ref.gs1.org/ai/8014.
 	AI8014 = AIDescription{
 		AI:            "8014",
 		Flags:         "",
@@ -3634,6 +4150,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "MUDI",
 	}
+	// AI8017 describes a GSRN - PROVIDER. See also https://ref.gs1.org/ai/8017.
 	AI8017 = AIDescription{
 		AI:            "8017",
 		Flags:         "?",
@@ -3641,6 +4158,7 @@ var (
 		Attributes:    []string{"ex=8018", "dlpkey=8019"},
 		Title:         "GSRN - PROVIDER",
 	}
+	// AI8018 describes a GSRN - RECIPIENT. See also https://ref.gs1.org/ai/8018.
 	AI8018 = AIDescription{
 		AI:            "8018",
 		Flags:         "?",
@@ -3648,6 +4166,7 @@ var (
 		Attributes:    []string{"ex=8017", "dlpkey=8019"},
 		Title:         "GSRN - RECIPIENT",
 	}
+	// AI8019 describes a SRIN. See also https://ref.gs1.org/ai/8019.
 	AI8019 = AIDescription{
 		AI:            "8019",
 		Flags:         "",
@@ -3655,6 +4174,7 @@ var (
 		Attributes:    []string{"req=8017,8018"},
 		Title:         "SRIN",
 	}
+	// AI8020 describes a REF No.. See also https://ref.gs1.org/ai/8020.
 	AI8020 = AIDescription{
 		AI:            "8020",
 		Flags:         "",
@@ -3662,6 +4182,7 @@ var (
 		Attributes:    []string{"req=415"},
 		Title:         "REF No.",
 	}
+	// AI8026 describes a ITIP CONTENT. See also https://ref.gs1.org/ai/8026.
 	AI8026 = AIDescription{
 		AI:            "8026",
 		Flags:         "?",
@@ -3669,6 +4190,7 @@ var (
 		Attributes:    []string{"req=37", "ex=02,8006"},
 		Title:         "ITIP CONTENT",
 	}
+	// AI8030 describes a DIGSIG. See also https://ref.gs1.org/ai/8030.
 	AI8030 = AIDescription{
 		AI:            "8030",
 		Flags:         "?",
@@ -3676,6 +4198,7 @@ var (
 		Attributes:    []string{"Z..90", "req=00,01&#43;21,253,255,8003,8004,8006&#43;21,8010&#43;8011,8017,8018"},
 		Title:         "DIGSIG",
 	}
+	// AI8110 describes a . See also https://ref.gs1.org/ai/8110.
 	AI8110 = AIDescription{
 		AI:            "8110",
 		Flags:         "?",
@@ -3683,6 +4206,7 @@ var (
 		Attributes:    []string{},
 		Title:         "",
 	}
+	// AI8111 describes a POINTS. See also https://ref.gs1.org/ai/8111.
 	AI8111 = AIDescription{
 		AI:            "8111",
 		Flags:         "?",
@@ -3690,6 +4214,7 @@ var (
 		Attributes:    []string{"req=255"},
 		Title:         "POINTS",
 	}
+	// AI8112 describes a . See also https://ref.gs1.org/ai/8112.
 	AI8112 = AIDescription{
 		AI:            "8112",
 		Flags:         "?",
@@ -3697,6 +4222,7 @@ var (
 		Attributes:    []string{},
 		Title:         "",
 	}
+	// AI8200 describes a PRODUCT URL. See also https://ref.gs1.org/ai/8200.
 	AI8200 = AIDescription{
 		AI:            "8200",
 		Flags:         "",
@@ -3704,6 +4230,7 @@ var (
 		Attributes:    []string{"req=01"},
 		Title:         "PRODUCT URL",
 	}
+	// AI90 describes a INTERNAL. See also https://ref.gs1.org/ai/90.
 	AI90 = AIDescription{
 		AI:            "90",
 		Flags:         "?",
@@ -3711,6 +4238,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI91 describes a INTERNAL. See also https://ref.gs1.org/ai/91.
 	AI91 = AIDescription{
 		AI:            "91",
 		Flags:         "?",
@@ -3718,6 +4246,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI92 describes a INTERNAL. See also https://ref.gs1.org/ai/92.
 	AI92 = AIDescription{
 		AI:            "92",
 		Flags:         "?",
@@ -3725,6 +4254,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI93 describes a INTERNAL. See also https://ref.gs1.org/ai/93.
 	AI93 = AIDescription{
 		AI:            "93",
 		Flags:         "?",
@@ -3732,6 +4262,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI94 describes a INTERNAL. See also https://ref.gs1.org/ai/94.
 	AI94 = AIDescription{
 		AI:            "94",
 		Flags:         "?",
@@ -3739,6 +4270,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI95 describes a INTERNAL. See also https://ref.gs1.org/ai/95.
 	AI95 = AIDescription{
 		AI:            "95",
 		Flags:         "?",
@@ -3746,6 +4278,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI96 describes a INTERNAL. See also https://ref.gs1.org/ai/96.
 	AI96 = AIDescription{
 		AI:            "96",
 		Flags:         "?",
@@ -3753,6 +4286,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI97 describes a INTERNAL. See also https://ref.gs1.org/ai/97.
 	AI97 = AIDescription{
 		AI:            "97",
 		Flags:         "?",
@@ -3760,6 +4294,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI98 describes a INTERNAL. See also https://ref.gs1.org/ai/98.
 	AI98 = AIDescription{
 		AI:            "98",
 		Flags:         "?",
@@ -3767,6 +4302,7 @@ var (
 		Attributes:    []string{},
 		Title:         "INTERNAL",
 	}
+	// AI99 describes a INTERNAL. See also https://ref.gs1.org/ai/99.
 	AI99 = AIDescription{
 		AI:            "99",
 		Flags:         "?",

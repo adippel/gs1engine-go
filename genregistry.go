@@ -38,6 +38,7 @@ type AIDescription struct {
 // Go descriptions for the GS1 Application Identifier. Enable seamless parsing and validation of GS1 messages.
 var (
 {{- range .AIs }}
+	// AI{{ .AI }} describes a {{ .Title }}. See also https://ref.gs1.org/ai/{{ .AI }}.
 	AI{{ .AI }} = AIDescription{
 		AI:				"{{ .AI }}",
 		Flags:         	"{{ .Flags }}",
