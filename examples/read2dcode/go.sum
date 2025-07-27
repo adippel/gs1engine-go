@@ -4,6 +4,8 @@ github.com/adippel/gs1engine-go v0.0.0-20250725092230-45e0231dfc6d h1:FJuvy3XG88
 github.com/adippel/gs1engine-go v0.0.0-20250725092230-45e0231dfc6d/go.mod h1:tRQsHLnRGoJXvcsszHrNbEpAtAIPe7g3fuzQlm1sdpc=
 github.com/adippel/gs1engine-go v0.0.0-20250725093013-e1f8b3e838d8 h1:UuPdmhp+2qG/p7vjw9wDxDWOi5nohsPcgzsz76EVta8=
 github.com/adippel/gs1engine-go v0.0.0-20250725093013-e1f8b3e838d8/go.mod h1:tRQsHLnRGoJXvcsszHrNbEpAtAIPe7g3fuzQlm1sdpc=
+github.com/adippel/gs1engine-go v0.0.0-20250726130928-02d28d961f28 h1:5GjWzwAAeSp1bTwR7d8KTH/+Dme6stC5vr8/nssg0/c=
+github.com/adippel/gs1engine-go v0.0.0-20250726130928-02d28d961f28/go.mod h1:tRQsHLnRGoJXvcsszHrNbEpAtAIPe7g3fuzQlm1sdpc=
 github.com/makiuchi-d/gozxing v0.1.1 h1:xxqijhoedi+/lZlhINteGbywIrewVdVv2wl9r5O9S1I=
 github.com/makiuchi-d/gozxing v0.1.1/go.mod h1:eRIHbOjX7QWxLIDJoQuMLhuXg9LAuw6znsUtRkNw9DU=
 golang.org/x/text v0.27.0 h1:4fGWRpyh641NLlecmyl4LOe6yDdfaYNrGb2zdfo4JV4=
