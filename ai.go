@@ -7,6 +7,31 @@ import (
 	"strings"
 )
 
+const (
+	requiresFNC1Flag     = '*'
+	isValidDLAttrFlag    = '?'
+	dlPrimaryKeyAttrName = "dlpkey"
+	pairingORSeparator   = '|'
+)
+
+const CanonicalPrefix = "https://id.gs1.org"
+
+// DigitalLinkSpec describes how an AI is allowed to be used within GS1 Digital Link URIs as defined
+// in https://ref.gs1.org/standards/digital-link/uri-syntax/. References in the attributes refer to this standard.
+type DigitalLinkSpec struct {
+	// IsValidDataAttribute defines that an AI is an attribute rather than primary identifier key or key qualifier.
+	// Data attributes and their values SHALL be expressed via the URI query string as key=value pairs. Some primary
+	// keys are also valid data attributes. See also §4.10.
+	IsValidDataAttribute bool
+	// IsValidPrimaryKey as denoted with `dlpkey` in the AI's attributes. See also §4.3.
+	IsValidPrimaryKey bool
+	// AllowedQualifiers define OPTIONAL qualifiers allowed together with the primary key. If more than one array is
+	// present, they are mutually exclusive. The ordering of an qualifier array is important and reflects the ordering
+	// on the URI's path. If some qualifiers are missing, the MUST be preserved.
+	// See also §4.4.
+	AllowedQualifiers [][]ApplicationIdentifier
+}
+
 // SymbologyIdentifier as defined in GS1 General Specification v25.0, chapter 5.1.3.
 type SymbologyIdentifier struct {
 	Type SymbologyType
@@ -37,67 +62,6 @@ const (
 	GSDataMatrixECC200 SymbologyType = "d"
 )
 
-type ApplicationIdentifier struct {
-	// AI is a unique identifier for a class of objects (e.g., trade items) or an instance of an object
-	// (e.g., logistic unit).
-	AI string
-	// Flags indicate specific characteristics about an AI (e.g. pre-defined length).
-	Flags string
-	// Specification consists of multiple components specify the character set, data format, and
-	// data structure required for the AI.
-	Specification []string
-	// Attributes enable associations of AIs, to ensure mandatory or invalid AI pairs, including primary key and key
-	// qualifier sequences for GS1 Digital Link URI syntax
-	Attributes []string
-	// Title is the data title supporting human understanding of the AI.
-	Title string
-}
-
-// RequiresFNC1Separator checks if the AI description declares the flag '*'.
-func (ai ApplicationIdentifier) RequiresFNC1Separator() bool {
-	return !strings.ContainsRune(ai.Flags, '*')
-}
-
-func (ai ApplicationIdentifier) HasFixedLength() bool {
-	return !ai.RequiresFNC1Separator()
-}
-
-func (ai ApplicationIdentifier) Length() int {
-	if !ai.HasFixedLength() {
-		return -1
-	}
-
-	lengthSpec := ai.Specification[0]
-	// Remove the leading character class: N,Y,X
-	lengthStr := lengthSpec[1:]
-	length, err := strconv.Atoi(lengthStr)
-	if err != nil {
-		return -1
-	}
-
-	return length
-}
-
-// ElementString is the combination of a GS1 Application Identifier and a GS1 Application Identifier Elements Field. An
-// ElementString can be carried by GS1-128, GS1 DataBar Symbology, GS1 Composite, and GS1 DataMatrix and GS1 QR Code
-// Symbols.
-type ElementString struct {
-	ApplicationIdentifier
-	DataField string
-}
-
-// NewElementString generates an instance of an AI using a description and a data point.
-func NewElementString(ai ApplicationIdentifier, data string) ElementString {
-	return ElementString{
-		ApplicationIdentifier: ai,
-		DataField:             data,
-	}
-}
-
-func (ai ElementString) String() string {
-	return fmt.Sprintf("(%s)%s", ai.AI, ai.DataField)
-}
-
 // Message describes a GS1 message together with its Symbology, SyntaxType and the Elements describing the message.
 // This struct is typically parsed from input, e.g by using [ParseMessage] or one of the more specialized parsers.
 type Message struct {
@@ -120,4 +84,123 @@ func (d Message) AsElementString() string {
 		builder.WriteString(datum.DataField)
 	}
 	return builder.String()
+}
+
+// ApplicationIdentifier represents an GS1 AI together with its description required for parsing and generating a valid
+// GS1 [Message]. An instance of an AI is an [ElementString].
+type ApplicationIdentifier struct {
+	// AI is a unique identifier for a class of objects (e.g., trade items) or an instance of an object
+	// (e.g., logistic unit).
+	AI string
+	// Flags indicate specific characteristics about an AI (e.g. pre-defined length).
+	Flags string
+	// Specification consists of multiple components specify the character set, data format, and
+	// data structure required for the AI.
+	Specification []string
+	// Attributes enable associations of AIs, to ensure mandatory or invalid AI pairs, including primary key and key
+	// qualifier sequences for GS1 Digital Link URI syntax
+	Attributes []string
+	// Title is the data title supporting human understanding of the AI.
+	Title string
+}
+
+// IsFNC1Separated checks if the AI description declares the flag '*' meaning that the AI is
+// variable-length and requires an FNC1 separator.
+func (ai ApplicationIdentifier) IsFNC1Separated() bool {
+	return !strings.ContainsRune(ai.Flags, requiresFNC1Flag)
+}
+
+// IsFixedLength returns if the AI has a fixed length. If it has no fixed length, it has a variable length.@
+func (ai ApplicationIdentifier) IsFixedLength() bool {
+	return !ai.IsFNC1Separated()
+}
+
+// Length returns the fixed length if known, else -1. Use IsFixedLength to detect length.
+func (ai ApplicationIdentifier) Length() int {
+	if !ai.IsFixedLength() {
+		return -1
+	}
+
+	lengthSpec := ai.Specification[0]
+	// Remove the leading character class: N,Y,X
+	lengthStr := lengthSpec[1:]
+	length, err := strconv.Atoi(lengthStr)
+	if err != nil {
+		return -1
+	}
+
+	return length
+}
+
+// DigitalLinkSpec extracts the [DigitalLinkSpec] required to correctly use the AI within the GS1 Digital Link URI.
+func (ai ApplicationIdentifier) DigitalLinkSpec() (d DigitalLinkSpec) {
+	if !strings.ContainsRune(ai.Flags, isValidDLAttrFlag) {
+		return DigitalLinkSpec{}
+	} else {
+		d.IsValidDataAttribute = true
+	}
+	allowedQualifiers, ok := ai.getAttribute(dlPrimaryKeyAttrName)
+	if !ok {
+		d.IsValidPrimaryKey = false
+		return d
+	} else {
+		d.IsValidPrimaryKey = true
+	}
+	if allowedQualifiers == "" {
+		return d
+	}
+	allowedQualifierSequences := strings.Split(allowedQualifiers, string(pairingORSeparator))
+	for _, sequence := range allowedQualifierSequences {
+		seqAIs := []ApplicationIdentifier{}
+		seqElements := strings.Split(sequence, ",")
+		for _, seqEl := range seqElements {
+			aiEl, ok := AIRegistry[seqEl]
+			if !ok {
+				panic("Declared attribute is an unknown AI: " + seqEl)
+			}
+			seqAIs = append(seqAIs, aiEl)
+		}
+		d.AllowedQualifiers = append(d.AllowedQualifiers, seqAIs)
+	}
+	return d
+}
+
+func (ai ApplicationIdentifier) getAttribute(attrKey string) (string, bool) {
+	for _, attribute := range ai.Attributes {
+		attrElements := strings.Split(attribute, "=")
+		if len(attrElements) == 0 {
+			continue
+		}
+		if attrKey != attrElements[0] {
+			continue
+		}
+
+		switch len(attrElements) {
+		case 1:
+			return "", true
+		case 2:
+			return attrElements[1], true
+		}
+	}
+	return "", false
+}
+
+// ElementString is the combination of a GS1 [ApplicationIdentifier] and a GS1 Application Identifier Elements Field. An
+// ElementString can be carried by GS1-128, GS1 DataBar Symbology, GS1 Composite, and GS1 DataMatrix and GS1 QR Code
+// Symbols. Use [NewElementString] to instantiate a new element string.
+type ElementString struct {
+	ApplicationIdentifier
+	DataField string
+}
+
+// NewElementString generates an instance of an AI using a description and a data point.
+func NewElementString(ai ApplicationIdentifier, data string) ElementString {
+	return ElementString{
+		ApplicationIdentifier: ai,
+		DataField:             data,
+	}
+}
+
+func (ai ElementString) String() string {
+	return fmt.Sprintf("(%s)%s", ai.AI, ai.DataField)
 }

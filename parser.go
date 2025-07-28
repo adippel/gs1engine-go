@@ -74,7 +74,7 @@ func ParseBarcodeMessage(msg string) (d Message, _ error) {
 		}
 
 		subStr = subStr[len(aiInfo.AI):]
-		if aiInfo.HasFixedLength() {
+		if aiInfo.IsFixedLength() {
 			// Fixed length AI
 			if len(subStr) >= aiInfo.Length() {
 				value := subStr[:aiInfo.Length()]
