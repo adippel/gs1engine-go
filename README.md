@@ -1,17 +1,19 @@
 # Go GS1 Barcode Syntax Engine
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/adippel/gs1engine-go.svg)](https://pkg.go.dev/github.com/adippel/gs1engine-go)
+
 A pure Go implementation for working with GS1 Data in various syntax variations as well as with
 [GS1 Application Identifiers (AI)](https://ref.gs1.org/ai/).
 
 **Highlights:**
 
-* ✅ Pure Go implementation, zero dependencies
+* ✅ Pure Go implementation, zero external dependencies
 * ✅ Parser support for the following syntax types:
 	* GS1 element string syntax (e.g. `(01)09526064055028(17)250521(10)ABC123(21)456DEF`)
 	* Barcode message format (e.g. `^01095260640550281725052110ABC123^21456DEF`)
 	* Barcode message scan data (e.g. `]d201095260640550281725052110ABC123{GS}21456DEF`)
 * ✅ AI Registry with description of all 536 AIs (as of release `2025-01-30`)
-* ✅ [Go Code generator CLI](./cmd/genairegistry/README.md) to generate AI description based on the official
+* ✅ [Go Code generator CLI](./cmd/gs1aigen/README.md) to generate AI description based on the official
   [GS1 Syntax Dictionary](https://github.com/gs1/gs1-syntax-dictionary)
 * ✅ Usable examples in `examples/`
 
@@ -23,8 +25,10 @@ A pure Go implementation for working with GS1 Data in various syntax variations 
 * Implement validation support by implementing linters to validate that an AI conforms
 	* to its Specification (e.g `yymmdd` or `N6`)
 	* and to its attributes (e.g `req` and `ex` to define valid and invalid pairings).
-
-See also the [Go's pkg doc](https://pkg.go.dev/github.com/adippel/gs1engine-go).
+* Add GitHub workflows:
+	* Unit Testing with code coverage
+	* Linting
+* Add badges for build status and code coverage
 
 ## Usage
 

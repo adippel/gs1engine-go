@@ -9,16 +9,18 @@ import (
 
 func TestParseSyntaxDictionary(t *testing.T) {
 	test := `
+# AI     Flags Specification                    Attributes                                         Title
 01         *?  N14,csum,keyoff1                 ex=255,37 dlpkey=22,10,21|235                    # GTIN
 21             X..20                            req=01,03,8006 ex=235                            # SERIAL
 410        *?  N13,csum,key                                                                      # SHIP TO LOC
 8112        ?  X..70,couponposoffer
+253         ?  N13,csum,key [X..17]             dlpkey                                           # GDTI
 `
 	ais, err := ParseSyntaxDictionary(bytes.NewBufferString(test))
 	if err != nil {
 		t.Error(err)
 	}
-	if len(ais) != 4 {
+	if len(ais) != 5 {
 		t.Errorf("Expected 4 AIs, got %d", len(ais))
 	}
 
@@ -98,18 +100,34 @@ func TestParseSyntaxDictionary(t *testing.T) {
 		}
 	})
 
-	t.Run("ensure all 536 known AIs are parsed from release 2025-01-30", func(t *testing.T) {
-		data, err := os.Open("./testdata/gs1-syntax-dictionary-2025-01-30.txt")
-		if err != nil {
-			t.Error(err)
+	t.Run("ensure AI description with spec containing white space is parsed (AI-253)", func(t *testing.T) {
+		ai253 := ais[4]
+		if ai253.AI != "253" {
+			t.Errorf("Expected AI 253, got %s", ai253.AI)
 		}
-		ais, err = ParseSyntaxDictionary(data)
-		if err != nil {
-			t.Error(err)
+		if ai253.Flags != "?" {
+			t.Errorf("Expected AI 253 flags to be ?, got %s", ai253.Flags)
 		}
-		// 536 is retrieved from the tabular listing at https://ref.gs1.org/ai/
-		if len(ais) != 536 {
-			t.Errorf("Expected 536 AIs, got %d", len(ais))
+		if !slices.Equal(ai253.Specification, []string{"N13", "csum", "key [X..17]"}) {
+			t.Errorf("Expected AI253 specification to be N13,csum,key [X..17], got %s", ai253.Specification)
+		}
+		if !slices.Equal(ai253.Attributes, []string{"dlpkey"}) {
+			t.Errorf("Expected AI 253 attributes to be dlpkey, got %s", ai253.Attributes)
 		}
 	})
+}
+
+func TestParseSyntaxDictionary_FullRegistryShouldBeBuild(t *testing.T) {
+	data, err := os.Open("./testdata/gs1-syntax-dictionary-2025-01-30.txt")
+	if err != nil {
+		t.Error(err)
+	}
+	ais, err := ParseSyntaxDictionary(data)
+	if err != nil {
+		t.Error(err)
+	}
+	// 536 is retrieved from the tabular listing at https://ref.gs1.org/ai/
+	if len(ais) != 536 {
+		t.Errorf("Expected 536 AIs, got %d", len(ais))
+	}
 }

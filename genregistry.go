@@ -49,32 +49,24 @@ func ParseSyntaxDictionary(r io.Reader) ([]ApplicationIdentifierSpec, error) {
 
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
-		if line == "" || strings.HasPrefix(line, "#") {
+		if line == "" || strings.HasPrefix(line, "#") || len(line) == 0 {
 			continue // skip comments or blank lines
 		}
 
-		// Find the title by splitting on " #"
-		var title string
-		titleSplit := strings.SplitN(line, " #", 2)
-		if len(titleSplit) == 2 {
-			title = strings.TrimSpace(titleSplit[1])
-			line = strings.TrimSpace(titleSplit[0])
-		}
+		columns := getColumns(line)
+		entry := ApplicationIdentifierSpec{}
 
-		fields := strings.Fields(line)
-		entry := ApplicationIdentifierSpec{
-			Title: title,
-		}
-
-		for i, field := range fields {
-			if slices.Contains([]rune("0123456789"), rune(field[0])) {
-				entry.AI = field
-			} else if slices.Contains([]rune("*!?\"$%&'()+,-./:;<=>@[\\]^_`{|}~"), rune(field[0])) {
-				entry.Flags = field
-			} else if slices.Contains([]rune("NXY"), rune(field[0])) {
-				entry.Specification = strings.Split(fields[i], ",")
+		for _, column := range columns {
+			if slices.Contains([]rune("0123456789"), rune(column[0])) {
+				entry.AI = column
+			} else if slices.Contains([]rune("*!?\"$%&'()+,-./:;<=>@[\\]^_`{|}~"), rune(column[0])) {
+				entry.Flags = strings.ReplaceAll(column, " ", "")
+			} else if slices.Contains([]rune("NXYZ"), rune(column[0])) {
+				entry.Specification = strings.Split(column, ",")
+			} else if strings.HasPrefix(column, "# ") {
+				entry.Title = column[2:]
 			} else {
-				entry.Attributes = append(entry.Attributes, field)
+				entry.Attributes = strings.Split(column, " ")
 			}
 		}
 
@@ -110,4 +102,37 @@ func ParseSyntaxDictionary(r io.Reader) ([]ApplicationIdentifierSpec, error) {
 	}
 
 	return entries, nil
+}
+
+// getColumns is a custom parser that detects columns which are separated by two spaces.
+func getColumns(line string) []string {
+	inColumn := true
+	currentColumnBuilder := strings.Builder{}
+	columns := []string{}
+	i := 0
+
+	for {
+		char := line[i]
+		if char == ' ' && i+1 < len(line) && line[i+1] == ' ' && inColumn {
+			// two white spaces found -> the current column is completed;
+			columns = append(columns, currentColumnBuilder.String())
+			currentColumnBuilder.Reset()
+			inColumn = false
+		}
+		if !inColumn && char != ' ' {
+			// after we were out of column, we found a first non-white space character -> new column begins
+			inColumn = true
+		}
+		if inColumn {
+			currentColumnBuilder.WriteByte(char)
+		}
+
+		i++
+		if i == len(line) {
+			columns = append(columns, currentColumnBuilder.String())
+			break
+		}
+	}
+
+	return columns
 }

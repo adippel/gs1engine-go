@@ -176,8 +176,8 @@ var (
 	// AI253 describes a GDTI. See also https://ref.gs1.org/ai/253.
 	AI253 = ApplicationIdentifier{
 		AI:            "253",
-		Flags:         "[X..17]",
-		Specification: []string{"N13", "csum", "key"},
+		Flags:         "?",
+		Specification: []string{"N13", "csum", "key [X..17]"},
 		Attributes:    []string{"dlpkey"},
 		Title:         "GDTI",
 	}
@@ -192,8 +192,8 @@ var (
 	// AI255 describes a GCN. See also https://ref.gs1.org/ai/255.
 	AI255 = ApplicationIdentifier{
 		AI:            "255",
-		Flags:         "[N..12]",
-		Specification: []string{"N13", "csum", "key"},
+		Flags:         "?",
+		Specification: []string{"N13", "csum", "key [N..12]"},
 		Attributes:    []string{"dlpkey", "ex=01,02,415,8006,8020,8026"},
 		Title:         "GCN",
 	}
@@ -1362,7 +1362,7 @@ var (
 		AI:            "3370",
 		Flags:         "*?",
 		Specification: []string{"N6"},
-		Attributes:    []string{"req=01", "ex=337n"},
+		Attributes:    []string{"ex=337n"},
 		Title:         "KG PER m²",
 	}
 	// AI3371 describes a KG PER m². See also https://ref.gs1.org/ai/3371.
@@ -1370,7 +1370,7 @@ var (
 		AI:            "3371",
 		Flags:         "*?",
 		Specification: []string{"N6"},
-		Attributes:    []string{"req=01", "ex=337n"},
+		Attributes:    []string{"ex=337n"},
 		Title:         "KG PER m²",
 	}
 	// AI3372 describes a KG PER m². See also https://ref.gs1.org/ai/3372.
@@ -1378,7 +1378,7 @@ var (
 		AI:            "3372",
 		Flags:         "*?",
 		Specification: []string{"N6"},
-		Attributes:    []string{"req=01", "ex=337n"},
+		Attributes:    []string{"ex=337n"},
 		Title:         "KG PER m²",
 	}
 	// AI3373 describes a KG PER m². See also https://ref.gs1.org/ai/3373.
@@ -1386,7 +1386,7 @@ var (
 		AI:            "3373",
 		Flags:         "*?",
 		Specification: []string{"N6"},
-		Attributes:    []string{"req=01", "ex=337n"},
+		Attributes:    []string{"ex=337n"},
 		Title:         "KG PER m²",
 	}
 	// AI3374 describes a KG PER m². See also https://ref.gs1.org/ai/3374.
@@ -1394,7 +1394,7 @@ var (
 		AI:            "3374",
 		Flags:         "*?",
 		Specification: []string{"N6"},
-		Attributes:    []string{"req=01", "ex=337n"},
+		Attributes:    []string{"ex=337n"},
 		Title:         "KG PER m²",
 	}
 	// AI3375 describes a KG PER m². See also https://ref.gs1.org/ai/3375.
@@ -1402,7 +1402,7 @@ var (
 		AI:            "3375",
 		Flags:         "*?",
 		Specification: []string{"N6"},
-		Attributes:    []string{"req=01", "ex=337n"},
+		Attributes:    []string{"ex=337n"},
 		Title:         "KG PER m²",
 	}
 	// AI3400 describes a GROSS WEIGHT (lb). See also https://ref.gs1.org/ai/3400.
@@ -2841,7 +2841,7 @@ var (
 	AI3910 = ApplicationIdentifier{
 		AI:            "3910",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2849,7 +2849,7 @@ var (
 	AI3911 = ApplicationIdentifier{
 		AI:            "3911",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2857,7 +2857,7 @@ var (
 	AI3912 = ApplicationIdentifier{
 		AI:            "3912",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2865,7 +2865,7 @@ var (
 	AI3913 = ApplicationIdentifier{
 		AI:            "3913",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2873,7 +2873,7 @@ var (
 	AI3914 = ApplicationIdentifier{
 		AI:            "3914",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2881,7 +2881,7 @@ var (
 	AI3915 = ApplicationIdentifier{
 		AI:            "3915",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2889,7 +2889,7 @@ var (
 	AI3916 = ApplicationIdentifier{
 		AI:            "3916",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2897,7 +2897,7 @@ var (
 	AI3917 = ApplicationIdentifier{
 		AI:            "3917",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2905,7 +2905,7 @@ var (
 	AI3918 = ApplicationIdentifier{
 		AI:            "3918",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -2913,7 +2913,7 @@ var (
 	AI3919 = ApplicationIdentifier{
 		AI:            "3919",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=8020", "ex=391n"},
 		Title:         "AMOUNT",
 	}
@@ -3001,7 +3001,7 @@ var (
 	AI3930 = ApplicationIdentifier{
 		AI:            "3930",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3009,7 +3009,7 @@ var (
 	AI3931 = ApplicationIdentifier{
 		AI:            "3931",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3017,7 +3017,7 @@ var (
 	AI3932 = ApplicationIdentifier{
 		AI:            "3932",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3025,7 +3025,7 @@ var (
 	AI3933 = ApplicationIdentifier{
 		AI:            "3933",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3033,7 +3033,7 @@ var (
 	AI3934 = ApplicationIdentifier{
 		AI:            "3934",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3041,7 +3041,7 @@ var (
 	AI3935 = ApplicationIdentifier{
 		AI:            "3935",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3049,7 +3049,7 @@ var (
 	AI3936 = ApplicationIdentifier{
 		AI:            "3936",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3057,7 +3057,7 @@ var (
 	AI3937 = ApplicationIdentifier{
 		AI:            "3937",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3065,7 +3065,7 @@ var (
 	AI3938 = ApplicationIdentifier{
 		AI:            "3938",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3073,7 +3073,7 @@ var (
 	AI3939 = ApplicationIdentifier{
 		AI:            "3939",
 		Flags:         "?",
-		Specification: []string{"N..15"},
+		Specification: []string{"N3", "iso4217 N..15"},
 		Attributes:    []string{"req=30,31nn,32nn,35nn,36nn", "ex=393n"},
 		Title:         "PRICE",
 	}
@@ -3265,7 +3265,7 @@ var (
 	AI421 = ApplicationIdentifier{
 		AI:            "421",
 		Flags:         "?",
-		Specification: []string{"X..9"},
+		Specification: []string{"N3", "iso3166 X..9"},
 		Attributes:    []string{"ex=4307"},
 		Title:         "SHIP TO POST",
 	}
@@ -3280,8 +3280,8 @@ var (
 	// AI423 describes a COUNTRY - INITIAL PROCESS. See also https://ref.gs1.org/ai/423.
 	AI423 = ApplicationIdentifier{
 		AI:            "423",
-		Flags:         "[N3],iso3166",
-		Specification: []string{"N3", "iso3166"},
+		Flags:         "?",
+		Specification: []string{"N3", "iso3166 [N3]", "iso3166 [N3]", "iso3166 [N3]", "iso3166 [N3]", "iso3166"},
 		Attributes:    []string{"req=01,02", "ex=426"},
 		Title:         "COUNTRY - INITIAL PROCESS",
 	}
@@ -3296,8 +3296,8 @@ var (
 	// AI425 describes a COUNTRY - DISASSEMBLY. See also https://ref.gs1.org/ai/425.
 	AI425 = ApplicationIdentifier{
 		AI:            "425",
-		Flags:         "[N3],iso3166",
-		Specification: []string{"N3", "iso3166"},
+		Flags:         "?",
+		Specification: []string{"N3", "iso3166 [N3]", "iso3166 [N3]", "iso3166 [N3]", "iso3166 [N3]", "iso3166"},
 		Attributes:    []string{"req=01,02", "ex=426"},
 		Title:         "COUNTRY - DISASSEMBLY",
 	}
@@ -3393,7 +3393,7 @@ var (
 	AI4309 = ApplicationIdentifier{
 		AI:            "4309",
 		Flags:         "?",
-		Specification: []string{"N10", "longitude"},
+		Specification: []string{"N10", "latitude N10", "longitude"},
 		Attributes:    []string{"req=00"},
 		Title:         "SHIP TO GEO",
 	}
@@ -3513,7 +3513,7 @@ var (
 	AI4324 = ApplicationIdentifier{
 		AI:            "4324",
 		Flags:         "?",
-		Specification: []string{"N4", "hhmi"},
+		Specification: []string{"N6", "yymmd0 N4", "hhmi"},
 		Attributes:    []string{"req=00"},
 		Title:         "NOT BEF DEL DT",
 	}
@@ -3521,7 +3521,7 @@ var (
 	AI4325 = ApplicationIdentifier{
 		AI:            "4325",
 		Flags:         "?",
-		Specification: []string{"N4", "hhmi"},
+		Specification: []string{"N6", "yymmd0 N4", "hhmi"},
 		Attributes:    []string{"req=00"},
 		Title:         "NOT AFT DEL DT",
 	}
@@ -3536,32 +3536,32 @@ var (
 	// AI4330 describes a MAX TEMP F.. See also https://ref.gs1.org/ai/4330.
 	AI4330 = ApplicationIdentifier{
 		AI:            "4330",
-		Flags:         "[X1],hyphen",
-		Specification: []string{"N6"},
+		Flags:         "?",
+		Specification: []string{"N6 [X1]", "hyphen"},
 		Attributes:    []string{"req=00", "ex=4331"},
 		Title:         "MAX TEMP F.",
 	}
 	// AI4331 describes a MAX TEMP C.. See also https://ref.gs1.org/ai/4331.
 	AI4331 = ApplicationIdentifier{
 		AI:            "4331",
-		Flags:         "[X1],hyphen",
-		Specification: []string{"N6"},
+		Flags:         "?",
+		Specification: []string{"N6 [X1]", "hyphen"},
 		Attributes:    []string{"req=00", "ex=4330"},
 		Title:         "MAX TEMP C.",
 	}
 	// AI4332 describes a MIN TEMP F.. See also https://ref.gs1.org/ai/4332.
 	AI4332 = ApplicationIdentifier{
 		AI:            "4332",
-		Flags:         "[X1],hyphen",
-		Specification: []string{"N6"},
+		Flags:         "?",
+		Specification: []string{"N6 [X1]", "hyphen"},
 		Attributes:    []string{"req=00", "ex=4333"},
 		Title:         "MIN TEMP F.",
 	}
 	// AI4333 describes a MIN TEMP C.. See also https://ref.gs1.org/ai/4333.
 	AI4333 = ApplicationIdentifier{
 		AI:            "4333",
-		Flags:         "[X1],hyphen",
-		Specification: []string{"N6"},
+		Flags:         "?",
+		Specification: []string{"N6 [X1]", "hyphen"},
 		Attributes:    []string{"req=00", "ex=4332"},
 		Title:         "MIN TEMP C.",
 	}
@@ -3585,7 +3585,7 @@ var (
 	AI7003 = ApplicationIdentifier{
 		AI:            "7003",
 		Flags:         "?",
-		Specification: []string{"N4", "hhmi"},
+		Specification: []string{"N6", "yymmdd N4", "hhmi"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "EXPIRY TIME",
 	}
@@ -3616,8 +3616,8 @@ var (
 	// AI7007 describes a HARVEST DATE. See also https://ref.gs1.org/ai/7007.
 	AI7007 = ApplicationIdentifier{
 		AI:            "7007",
-		Flags:         "[N6],yymmdd",
-		Specification: []string{"N6", "yymmdd"},
+		Flags:         "?",
+		Specification: []string{"N6", "yymmdd [N6]", "yymmdd"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "HARVEST DATE",
 	}
@@ -3648,8 +3648,8 @@ var (
 	// AI7011 describes a TEST BY DATE. See also https://ref.gs1.org/ai/7011.
 	AI7011 = ApplicationIdentifier{
 		AI:            "7011",
-		Flags:         "[N4],hhmi",
-		Specification: []string{"N6", "yymmdd"},
+		Flags:         "?",
+		Specification: []string{"N6", "yymmdd [N4]", "hhmi"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "TEST BY DATE",
 	}
@@ -3689,7 +3689,7 @@ var (
 	AI7030 = ApplicationIdentifier{
 		AI:            "7030",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 0",
 	}
@@ -3697,7 +3697,7 @@ var (
 	AI7031 = ApplicationIdentifier{
 		AI:            "7031",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 1",
 	}
@@ -3705,7 +3705,7 @@ var (
 	AI7032 = ApplicationIdentifier{
 		AI:            "7032",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 2",
 	}
@@ -3713,7 +3713,7 @@ var (
 	AI7033 = ApplicationIdentifier{
 		AI:            "7033",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 3",
 	}
@@ -3721,7 +3721,7 @@ var (
 	AI7034 = ApplicationIdentifier{
 		AI:            "7034",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 4",
 	}
@@ -3729,7 +3729,7 @@ var (
 	AI7035 = ApplicationIdentifier{
 		AI:            "7035",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 5",
 	}
@@ -3737,7 +3737,7 @@ var (
 	AI7036 = ApplicationIdentifier{
 		AI:            "7036",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 6",
 	}
@@ -3745,7 +3745,7 @@ var (
 	AI7037 = ApplicationIdentifier{
 		AI:            "7037",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 7",
 	}
@@ -3753,7 +3753,7 @@ var (
 	AI7038 = ApplicationIdentifier{
 		AI:            "7038",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 8",
 	}
@@ -3761,7 +3761,7 @@ var (
 	AI7039 = ApplicationIdentifier{
 		AI:            "7039",
 		Flags:         "?",
-		Specification: []string{"X..27"},
+		Specification: []string{"N3", "iso3166999 X..27"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROCESSOR # 9",
 	}
@@ -3769,7 +3769,7 @@ var (
 	AI7040 = ApplicationIdentifier{
 		AI:            "7040",
 		Flags:         "",
-		Specification: []string{"X1", "importeridx"},
+		Specification: []string{"N1 X1 X1 X1", "importeridx"},
 		Attributes:    []string{},
 		Title:         "UIC+EXT",
 	}
@@ -3841,7 +3841,7 @@ var (
 	AI7230 = ApplicationIdentifier{
 		AI:            "7230",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 1",
 	}
@@ -3849,7 +3849,7 @@ var (
 	AI7231 = ApplicationIdentifier{
 		AI:            "7231",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 2",
 	}
@@ -3857,7 +3857,7 @@ var (
 	AI7232 = ApplicationIdentifier{
 		AI:            "7232",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 3",
 	}
@@ -3865,7 +3865,7 @@ var (
 	AI7233 = ApplicationIdentifier{
 		AI:            "7233",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 4",
 	}
@@ -3873,7 +3873,7 @@ var (
 	AI7234 = ApplicationIdentifier{
 		AI:            "7234",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 5",
 	}
@@ -3881,7 +3881,7 @@ var (
 	AI7235 = ApplicationIdentifier{
 		AI:            "7235",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 6",
 	}
@@ -3889,7 +3889,7 @@ var (
 	AI7236 = ApplicationIdentifier{
 		AI:            "7236",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 7",
 	}
@@ -3897,7 +3897,7 @@ var (
 	AI7237 = ApplicationIdentifier{
 		AI:            "7237",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 8",
 	}
@@ -3905,7 +3905,7 @@ var (
 	AI7238 = ApplicationIdentifier{
 		AI:            "7238",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 9",
 	}
@@ -3913,7 +3913,7 @@ var (
 	AI7239 = ApplicationIdentifier{
 		AI:            "7239",
 		Flags:         "?",
-		Specification: []string{"X..28"},
+		Specification: []string{"X2 X..28"},
 		Attributes:    []string{"req=01,8004"},
 		Title:         "CERT # 10",
 	}
@@ -3953,7 +3953,7 @@ var (
 	AI7251 = ApplicationIdentifier{
 		AI:            "7251",
 		Flags:         "?",
-		Specification: []string{"N4", "hhmi"},
+		Specification: []string{"N8", "yyyymmdd N4", "hhmi"},
 		Attributes:    []string{"req=8018", "ex=7250"},
 		Title:         "DOB TIME",
 	}
@@ -4025,7 +4025,7 @@ var (
 	AI8001 = ApplicationIdentifier{
 		AI:            "8001",
 		Flags:         "?",
-		Specification: []string{"N1"},
+		Specification: []string{"N4", "nonzero N5", "nonzero N3", "nonzero N1", "winding N1"},
 		Attributes:    []string{"req=01"},
 		Title:         "DIMENSIONS",
 	}
@@ -4040,8 +4040,8 @@ var (
 	// AI8003 describes a GRAI. See also https://ref.gs1.org/ai/8003.
 	AI8003 = ApplicationIdentifier{
 		AI:            "8003",
-		Flags:         "[X..16]",
-		Specification: []string{"N13", "csum", "key"},
+		Flags:         "?",
+		Specification: []string{"N1", "zero N13", "csum", "key [X..16]"},
 		Attributes:    []string{"dlpkey"},
 		Title:         "GRAI",
 	}
@@ -4065,7 +4065,7 @@ var (
 	AI8006 = ApplicationIdentifier{
 		AI:            "8006",
 		Flags:         "?",
-		Specification: []string{"N4", "pieceoftotal"},
+		Specification: []string{"N14", "csum N4", "pieceoftotal"},
 		Attributes:    []string{"ex=01,37", "dlpkey=22,10,21"},
 		Title:         "ITIP",
 	}
@@ -4080,8 +4080,8 @@ var (
 	// AI8008 describes a PROD TIME. See also https://ref.gs1.org/ai/8008.
 	AI8008 = ApplicationIdentifier{
 		AI:            "8008",
-		Flags:         "[N2],ss",
-		Specification: []string{"N2", "hh"},
+		Flags:         "?",
+		Specification: []string{"N6", "yymmdd N2", "hh [N2]", "mi [N2]", "ss"},
 		Attributes:    []string{"req=01,02"},
 		Title:         "PROD TIME",
 	}
@@ -4169,7 +4169,7 @@ var (
 	AI8026 = ApplicationIdentifier{
 		AI:            "8026",
 		Flags:         "?",
-		Specification: []string{"N4", "pieceoftotal"},
+		Specification: []string{"N14", "csum N4", "pieceoftotal"},
 		Attributes:    []string{"req=37", "ex=02,8006"},
 		Title:         "ITIP CONTENT",
 	}
@@ -4177,8 +4177,8 @@ var (
 	AI8030 = ApplicationIdentifier{
 		AI:            "8030",
 		Flags:         "?",
-		Specification: []string{},
-		Attributes:    []string{"Z..90", "req=00,01+21,253,255,8003,8004,8006+21,8010+8011,8017,8018"},
+		Specification: []string{"Z..90"},
+		Attributes:    []string{"req=00,01+21,253,255,8003,8004,8006+21,8010+8011,8017,8018"},
 		Title:         "DIGSIG",
 	}
 	// AI8110 describes a . See also https://ref.gs1.org/ai/8110.
